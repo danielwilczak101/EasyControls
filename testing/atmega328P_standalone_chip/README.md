@@ -3,6 +3,7 @@ Setup the atmega328p chip by itself (no helper board).
 
 ## File Requirements:
 1. List required items needed.
+- One ATMEGA328P Chip
 - One 16MHz Crystal
 - One 10K Resistor
 - Two 22pF Capacitors
