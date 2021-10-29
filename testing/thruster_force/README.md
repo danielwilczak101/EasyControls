@@ -4,6 +4,6 @@ Assemble pressurize valve to operationg pressure and see how many Newtons of for
     
 ## File Requirements:
 1. Ardunio Code.  
-2. Wiring Diagram(Hand written or drawen out).  
+2. Wiring Diagram (Hand written or drawen out).  
 3. Graph of thrust curve. (Newtons over time).  
 4. Data store in some form. (Excel, SQL etc)  
