@@ -3,5 +3,13 @@ Setup the atmega328p chip by itself (no helper board).
 
 ## File Requirements:
 1. List required items needed.
-1. Ardunio Code.  
-2. Wiring Diagram(Hand written or drawen out).
+- One 16MHz Crystal
+- One 10K Resistor
+- Two 22pF Capacitors
+- Optional: One 10uF Capacitor (This is used to filter out power supply noise)
+
+3. Ardunio Code.  
+
+
+5. Wiring Diagram(Hand written or drawen out).
+
