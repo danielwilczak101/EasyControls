@@ -13,4 +13,8 @@ Setup the atmega328p chip by itself (no helper board).
 
 5. Wiring Diagram(Hand written or drawen out).
 
-(![Wiring Breadboard](/testing/Images/IMG_4465.JPG) width="200" height="400" />
+![Wiring Breadboard]/testing/Images/IMG_4465.JPG)
+
+![Wiring Breadboard]/testing/Images/IMG_4466.JPG)
+
+![Wiring Breadboard]/testing/Images/IMG_4467.JPG)
