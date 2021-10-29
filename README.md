@@ -1,2 +1,2 @@
 # AsteroidFreeFlier
-EPPL working to upgrade NASA's astroid free flier control platform.
+Embry Riddle EPPL working to upgrade NASA's astroid free flier control platform.
