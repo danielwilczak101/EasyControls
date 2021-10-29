@@ -18,5 +18,5 @@ Assemble mosfet board and fire valve.
 
 ## File Requirements:
 1.Ardunio Code.
-2.Wiring Diagram(Hand written or drawen out):
+2.Wiring Diagram(Hand written or drawen out).
 ```
