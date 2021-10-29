@@ -13,4 +13,4 @@ Setup the atmega328p chip by itself (no helper board).
 
 5. Wiring Diagram(Hand written or drawen out).
 
-(img src="https://github.com/danielwilczak101/AsteroidFreeFlier/blob/main/testing/Images/IMG_4465.JPG" width="200" height="400" />
+(![Wiring Breadboard](/Images/IMG_4465.JPG) width="200" height="400" />
