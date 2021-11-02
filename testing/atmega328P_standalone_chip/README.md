@@ -35,10 +35,10 @@ void loop() {
 
 5. Wiring Diagram(Hand written or drawen out).
 
-![Wiring Breadboard](one.jpeg)
+![Wiring Breadboard](images/one.jpeg)
 
-![Wiring Breadboard](two.JPG)
+![Wiring Breadboard](images/two.JPG)
 
-![Wiring Breadboard](three.JPG)
+![Wiring Breadboard](images/three.JPG)
 
-![Wiring Breadboard](four.JPG)
+![Wiring Breadboard](images/four.JPG)
