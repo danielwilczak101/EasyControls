@@ -16,7 +16,7 @@ Required for Blinking LED Test:
 
 3. Ardunio Code.  
 Test Code to Test with Blinking LED
-```
+```C++
 // the setup function runs once when you press reset or power the board
 void setup() {
   // initialize digital pin LED_BUILTIN as an output.
@@ -35,10 +35,10 @@ void loop() {
 
 5. Wiring Diagram(Hand written or drawen out).
 
-![Wiring Breadboard](/testing/Images/5AF8D0E8-EC36-4975-A1C6-5D1C0DE37924.jpeg)
+![Wiring Breadboard](one.jpeg)
 
-![Wiring Breadboard](/testing/Images/IMG_4465.JPG)
+![Wiring Breadboard](two.JPG)
 
-![Wiring Breadboard](/testing/Images/IMG_4466.JPG)
+![Wiring Breadboard](three.JPG)
 
-![Wiring Breadboard](/testing/Images/IMG_4467.JPG)
+![Wiring Breadboard](four.JPG)
