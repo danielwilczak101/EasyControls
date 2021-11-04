@@ -1,6 +1,6 @@
 ## Test Requirements:
 Assemble mosfet board and fire valve.   
-    - Tank pressue is optional but please detail in readme.  
+    - Use lab pressure. See what the fastest speed we can oscillate the solinoid before it locks.
     - Does not require I2C communication to the chip.  
 
 ## File Requirements:
