@@ -4,13 +4,10 @@ Embry Riddle EPPL working to upgrade NASA's astroid free flier control platform.
 ### Material to purchase:
 Put any items that need to be purchased for this project here and notify dan.  
 
-1. Extra solinoid vlave(thruster). In case one fails and for testing.  
-    - Url: PUT HERE   
-    - Cost: PUT HERE  
-2. Rent Small/Medium nitrogen tank.
+1. Rent Small/Medium nitrogen tank.
     - Gas place in Daytona beach.
-3. Line to connect from space craft to AUX tank.
-4. MPU 9050.
+2. Line to connect from space craft to AUX tank.
+3. MPU 9050.
 
 ### Physical craft TODO list:
 1. Take one thruster off to test its Newtons of thrust curve.  
