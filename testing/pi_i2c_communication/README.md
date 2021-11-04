@@ -18,3 +18,11 @@ Sets the device address.
 ```C++
 Wire.begin(0x9);
 ```
+
+5. Wiring Diagram(Hand written or drawen out).
+
+![Wiring Breadboard](images/1.jpeg)
+
+![Wiring Breadboard](images/2.JPG)
+
+![Wiring Breadboard](images/3.JPG)
