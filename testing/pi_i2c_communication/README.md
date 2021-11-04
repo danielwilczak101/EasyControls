@@ -13,6 +13,8 @@ Setup Raspberry pi to commuicate via I2C to the ATmega328P chip. The chip can ei
 bus.write_byte_data(ardunio_1, 0x01, 1) # turning the red on
 ```
 
+https://www.electronicwings.com/raspberry-pi/python-based-i2c-functions-for-raspberry-pi
+
 #### Arduino
 Sets the device address.
 ```C++
