@@ -13,4 +13,8 @@ Thrust from test stand nozzle with following psi going to the solinoid.
 130 psi = 130 - 136g
 ```
     
+![Wiring Breadboard](images/1.jpg)
 
+![Wiring Breadboard](images/2.jpg)
+
+![Wiring Breadboard](images/3.jpg)
