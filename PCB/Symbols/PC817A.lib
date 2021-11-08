@@ -1,0 +1,50 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#(c) SnapEDA 2016 (snapeda.com)
+#This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA) with Design Exception 1.0
+#
+# PC817A
+#
+DEF PC817A Q 0 40 Y N 1 L N
+F0 "Q" -301 200 50 H V L BNN
+F1 "PC817A" -281 -281 50 H V L BNN
+F2 "DIP762W50P254L650H458Q4B" 0 0 50 H I L BNN
+F3 "" 0 0 50 H I L BNN
+F4 "PC817A" 0 0 50 H I L BNN "MP"
+F5 "Photo-Coupler Photo-Coupler" 0 0 50 H I L BNN "Description"
+F6 "None" 0 0 50 H I L BNN "Price"
+F7 "None" 0 0 50 H I L BNN "Package"
+F8 "Unavailable" 0 0 50 H I L BNN "Availability"
+F9 "Sharp Microelectronics" 0 0 50 H I L BNN "MF"
+DRAW
+P 2 0 0 10 -300 100 -150 100 N
+P 2 0 0 10 -300 -100 -150 -100 N
+P 2 0 0 10 -150 -100 -150 100 N
+P 4 0 0 10 -200 50 -100 50 -150 -50 -200 50 f
+P 2 0 0 10 -200 -50 -100 -50 N
+P 2 0 0 10 100 100 100 30 N
+P 2 0 0 10 100 30 100 -10 N
+P 2 0 0 10 100 -10 100 -100 N
+P 2 0 0 10 300 100 200 100 N
+P 2 0 0 10 100 -10 210 -70 N
+P 2 0 0 10 200 -10 210 -70 N
+P 4 0 0 10 210 -70 200 -10 150 -80 210 -70 f
+P 2 0 0 10 -300 180 -300 100 N
+P 2 0 0 10 -300 100 -300 -100 N
+P 2 0 0 10 -300 -100 -300 -180 N
+P 2 0 0 10 -300 -180 300 -180 N
+P 2 0 0 10 300 -180 300 -100 N
+P 2 0 0 10 300 -100 300 100 N
+P 2 0 0 10 300 180 -300 180 N
+P 2 0 0 10 200 100 100 30 N
+P 2 0 0 10 300 180 300 100 N
+P 2 0 0 10 210 -70 210 -100 N
+P 2 0 0 10 210 -100 300 -100 N
+X ~ 1 -400 100 100 R 40 40 0 0 P 
+X ~ 2 -400 -100 100 R 40 40 0 0 P 
+X ~ 4 400 100 100 L 40 40 0 0 P 
+X ~ 3 400 -100 100 L 40 40 0 0 P 
+ENDDRAW
+ENDDEF
+#
+# End Library

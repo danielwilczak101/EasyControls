@@ -1,0 +1,29 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#(c) SnapEDA 2016 (snapeda.com)
+#This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA) with Design Exception 1.0
+#
+# SSA12G
+#
+DEF SSA12G S 0 40 Y N 1 L N
+F0 "S" -500 300 50 H V L BNN
+F1 "SSA12G" -500 -300 50 H V L BNN
+F2 "SW_SSA12G" 0 0 50 H I L BNN
+F3 "" 0 0 50 H I L BNN
+F4 "Compliant" 0 0 50 H I L BNN "EU_RoHS_Compliance"
+F5 "1-1437575-5" 0 0 50 H I L BNN "Comment"
+DRAW
+C -100 0 10 0 0 5 N
+C 0 50 10 0 0 5 N
+C 0 -50 10 0 0 5 N
+P 2 0 0 5 -90 0 25 -50 N
+P 2 0 0 5 -200 0 -110 0 N
+P 2 0 0 5 0 100 0 60 N
+P 2 0 0 5 0 -100 0 -60 N
+X ~ 3 0 -200 100 U 40 40 0 0 P 
+X ~ 2 -300 0 100 R 40 40 0 0 P 
+X ~ 1 0 200 100 D 40 40 0 0 P 
+ENDDRAW
+ENDDEF
+#
+# End Library
