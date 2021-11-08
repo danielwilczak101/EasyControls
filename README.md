@@ -8,6 +8,12 @@ Put any items that need to be purchased for this project here and notify dan.
     - Gas place in Daytona beach.
 
 ### Physical craft TODO list:Test 
+
+**Checklist of TODO tomorrrow:**
+1. Fill tank with low pressure - Look for any leaks.
+2. Test manual relief valve
+3. Test each thruster individually
+
 1. Test all thrusters with tank pressue applied. (Just use power supply)  
 **Can be done with or without electrical PSI gauge or tank servo.(Hopefully its in open position)**  
 2. Test tank manual relief valve.  
