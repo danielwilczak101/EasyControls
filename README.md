@@ -6,8 +6,6 @@ Put any items that need to be purchased for this project here and notify dan.
 
 1. Rent Small/Medium nitrogen tank.
     - Gas place in Daytona beach.
-2. Line to connect from space craft to AUX tank.
-3. MPU 9050.
 
 ### Physical craft TODO list:Test 
 1. Test all thrusters with tank pressue applied. (Just use power supply)  
