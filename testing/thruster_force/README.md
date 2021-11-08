@@ -1,6 +1,5 @@
 ## Test Requirements:
 Assemble pressurize valve to operationg pressure and see how many Newtons of force it produces over time.   
-    - Ask NASA man for tank pressure used on the craft.  
 
 ### Thrust values:
 Thrust from test stand nozzle with following psi going to the solinoid.
