@@ -12,12 +12,12 @@ Put any items that need to be purchased for this project here and notify dan.
 **Checklist of TODO tomorrrow:**
 1. Fill tank with low pressure - Look for any leaks.
 2. Test manual relief valve
-3. Test each thruster individually
+3. If tank pressure doesnt go up. See if tank servo is in open position.
+4. Setup pico with pwm to open and close valve
+5. Mark tank valves position with label maker.
+6. Test each thruster manually to verify they work.
+7. Look up pressue sensor to hook up with pico to get pressue reading. - Document sensor type, code and diagram.
 
-1. Test all thrusters with tank pressue applied. (Just use power supply)  
-**Can be done with or without electrical PSI gauge or tank servo.(Hopefully its in open position)**  
-2. Test tank manual relief valve.  
-3. Test tanks to see if they leak or hold pressure.  
 
 
 ### MISC - TODO list:
