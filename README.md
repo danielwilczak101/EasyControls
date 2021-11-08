@@ -1,6 +1,8 @@
 # AsteroidFreeFlier
 Embry Riddle EPPL working to upgrade NASA's astroid free flier control platform.  
 
+PUT IMAGE HERE
+
 ### Material to purchase:
 Put any items that need to be purchased for this project here and notify dan.  
 
