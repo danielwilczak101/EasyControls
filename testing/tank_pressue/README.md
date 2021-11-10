@@ -6,14 +6,15 @@ Wire up tank pressure reader.
 Model number = M3431-000006-300PG   
 https://www.mouser.com/datasheet/2/418/8/ENG_DS_MSP340_B1-1130134.pdf
 
-Data from pressue test(Pressue in psi = AnalogRead):
-Seal level = 102
+Data from pressue test(Pressue in psi = AnalogRead):  
+```
+Seal level = 102  
 20 = 150
 40 = 212
 60 = 263
 80 = 318
 90 = 351
-
+```
 ## File Requirements:
 1. Python Code.  
 2. Wiring diagram (Can be hand written or drawn out).
