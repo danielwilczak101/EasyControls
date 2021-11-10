@@ -23,6 +23,6 @@ Data from pressue test(Pressue in psi = AnalogRead):
 ```
 
 # Wiring
-5v    - +
-Gnd   - Gnd
-White - Analog Pin
+5v    - +  
+Gnd   - Gnd  
+White - Analog Pin  
