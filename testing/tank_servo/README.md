@@ -7,7 +7,6 @@ Wire tank servo and open and close tank valve.
 ```C++
 // Perpindicular to the pipe 
 Servo1.write(45); 
-delay(2000); 
    
 // Parrellel to the pipe
 Servo1.write(140); 
