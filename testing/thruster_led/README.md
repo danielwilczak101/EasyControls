@@ -21,3 +21,6 @@ https://www.adafruit.com/product/1426
 
 ## Tutorial:  
 https://learn.adafruit.com/adafruit-neopixel-uberguide/arduino-library-use  
+
+## Image
+![Wiring Breadboard](images/1.JPG)
