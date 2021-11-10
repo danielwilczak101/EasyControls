@@ -14,9 +14,11 @@ Servo1.write(140);
 ```
 
 ## Wiring
+```
 PWM - white
 Orange - 5v
 Blue - Gnd
+```
 
 ## File Requirements:
 1.Ardunio Code.  
