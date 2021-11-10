@@ -19,6 +19,5 @@ Orange - 5v
 Blue   - Gnd
 ```
 
-## File Requirements:
-1.Ardunio Code.  
-2.Wiring Diagram(Hand written or drawen out).
+## Image
+![Wiring Breadboard](images/1.JPG)
