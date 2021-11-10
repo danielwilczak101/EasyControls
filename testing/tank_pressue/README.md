@@ -19,7 +19,7 @@ Seal level = 102
 
 ## Best fit function:
 ```
-ŷ = 3.07613X + 76.45065
+ŷ = 0.32007X - 23.6864
 ```
 
 ## File Requirements:
