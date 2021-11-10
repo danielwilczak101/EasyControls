@@ -14,7 +14,7 @@ https://www.mouser.com/datasheet/2/418/8/ENG_DS_MSP340_B1-1130134.pdf
 ## Presure Test:
 Data from pressue test(Pressue in psi = AnalogRead):  
 ```
-Seal level = 102  
+0  = 102  
 20 = 150
 40 = 212
 60 = 263
