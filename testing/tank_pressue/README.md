@@ -19,7 +19,7 @@ Seal level = 102
 
 ## Best fit function:
 ```
-HERE
+ŷ = 3.07613X + 76.45065
 ```
 
 ## File Requirements:
