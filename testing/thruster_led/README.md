@@ -6,12 +6,18 @@ Test LED curcuit that uses digital signal to change the leds.
 
 ## File Requirements:
 1.Ardunio Code.  
-2.Wiring Diagram(Hand written or drawen out).
+
+## Wiring
+5v to 5v
+Gnd to Gnd
+DIN to digital pin 2 or whatever we want
+
+## Color picker
+https://www.google.com/search?q=rgb+color+picker
 
 ## Purchased LEDS
-
-**LEDS:**  
 https://www.adafruit.com/product/1426  
 
-Tutorial:  
+
+## Tutorial:  
 https://learn.adafruit.com/adafruit-neopixel-uberguide/arduino-library-use  
