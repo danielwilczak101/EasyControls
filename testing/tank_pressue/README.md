@@ -22,6 +22,7 @@ Seal level = 102
 ŷ = 0.32007X - 23.6864
 ```
 
-## File Requirements:
-1. Python Code.  
-2. Wiring diagram (Can be hand written or drawn out).
+# Wiring
+5v    - +
+Gnd   - Gnd
+White - Analog Pin
