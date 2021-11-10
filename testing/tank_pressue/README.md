@@ -1,6 +1,10 @@
 ## Test Requirements:
 Wire up tank pressure reader. 
     - This can be done using an ardunio or raspberry pi.  
+    
+## Datasheet
+Model number = M3431-000006-300PG 
+https://www.mouser.com/datasheet/2/418/8/ENG_DS_MSP340_B1-1130134.pdf
 
 ## File Requirements:
 1. Python Code.  
