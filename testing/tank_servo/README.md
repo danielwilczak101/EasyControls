@@ -15,9 +15,9 @@ Servo1.write(140);
 
 ## Wiring
 ```
-PWM - white
+White  - PWM
 Orange - 5v
-Blue - Gnd
+Blue   - Gnd
 ```
 
 ## File Requirements:
