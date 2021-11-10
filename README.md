@@ -3,10 +3,8 @@ Embry Riddle EPPL working to upgrade NASA's astroid free flier control platform.
 https://www.nasa.gov/feature/extreme-access-flyer-to-take-planetary-exploration-airborne
 
 <p align="center">
-  <img width="400px" height="600px" src="https://github.com/danielwilczak101/AsteroidFreeFlier/blob/media/images/craft1010.JPG">
+  <img width="200px" height="400px" src="https://github.com/danielwilczak101/AsteroidFreeFlier/blob/media/images/craft1010.JPG">
 </p>
-
-
 
 
 ### Material to purchase:
