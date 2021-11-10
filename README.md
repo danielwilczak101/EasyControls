@@ -15,16 +15,6 @@ Put any items that need to be purchased for this project here and notify dan.
 
 **Checklist of TODO tomorrrow:**
 
-1. Patrick, Ikea - 2 rolly, 1 normal
-
-1. Fill tank with low pressure - Look for any leaks.
-2. Test manual relief valve.
-3. If tank pressure doesnt go up. See if tank servo is in open position.
-4. Mark tank valves position with label maker.
-5. Setup pico with pwm to open and close valve.
-6. Test each thruster manually to verify they work.
-7. Look up pressue sensor to hook up with pico to get pressue reading. - Document sensor type, code and diagram.
-
 
 
 ### MISC - TODO list:
