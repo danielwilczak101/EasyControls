@@ -6,21 +6,36 @@ Wire up tank pressure reader.
 Model number = M3431-000006-300PG   
 https://www.mouser.com/datasheet/2/418/8/ENG_DS_MSP340_B1-1130134.pdf
 
-## Best fit function:
+## Fit function:
 ```
+// PS1 and PS2
 ŷ = 0.32007X - 23.6864
+
+// PS3
+ŷ = 3.56029X - 357.29932;
 ```
 
-## Presure Test:
+
+## Presure Test PS1,PS2:
 Data from pressue test(Pressue in psi = AnalogRead):  
 ```
+// PS1 and PS2
 0  = 102  
 20 = 150
 40 = 212
 60 = 263
 80 = 318
 90 = 351
+
+// PS3
+0  = 101
+20 = 105
+40 = 112
+60 = 117
+80 = 123
+95 = 127
 ```
+
 
 # Wiring
 5v    - +  
