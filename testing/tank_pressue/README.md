@@ -6,7 +6,7 @@ Wire up tank pressure reader.
 Model number = M3431-000006-300PG   
 https://www.mouser.com/datasheet/2/418/8/ENG_DS_MSP340_B1-1130134.pdf
 
-## Fit function:
+## Fit functions:
 ```
 // PS1 and PS2
 ŷ = 0.32007X - 23.6864
