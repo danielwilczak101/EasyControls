@@ -8,6 +8,7 @@ https://www.nasa.gov/feature/extreme-access-flyer-to-take-planetary-exploration-
 </p>
 
 ### Pressure relief system
+RV1 - 3000 psi
 RV3 - 250psi
 
 ### Material to purchase:
