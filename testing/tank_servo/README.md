@@ -1,7 +1,5 @@
-## Test Requirements:
-Wire tank servo and open and close tank valve.   
-    - Tank pressue is optional but please detail in readme.  
-    - Does not require I2C communication to the chip.  
+## Servo info
+Model - HS-7980TH
 
 ## Big things to note
 ```C++
