@@ -7,6 +7,7 @@ Setup Raspberry Pi on spacecraft with SSH.
 1. Python Code.  
 2. Connection details.
 
+# SSH Connection
 
 ### For Linux/Mac open up terminal window and type:
 ```bash
@@ -19,6 +20,9 @@ Congratulations you succesfully SSH into the Raspberry Pi!
 ### For Windows downlaod an SSH client like Putty:
 Open Putty and select SSH
 
+Link to Download Putty:
+https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
+
 Enter
 ```
 IP Adress: 192.168.88.80
@@ -26,6 +30,21 @@ Username: pi
 Password: Dmw0234567
 ```
 Congratulations you succesfully SSH into the Raspberry Pi! 
+
+
+# VNC Connection
+
+Download VNC Viewer
+
+https://www.realvnc.com/en/connect/download/viewer/
+
+```
+Enter IP Address: 192.168.88.80
+
+Enter Username: pi
+
+Enter Password: Dmw0234567
+```
 
 4. Instructions on how to set this up.
 5. (Optional) Find or ask dan for cheap router so we can have this setup for the confrence.
