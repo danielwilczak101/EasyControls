@@ -8,7 +8,7 @@ Setup Raspberry Pi on spacecraft with SSH.
 2. Connection details.
 
 
-###For Linux/Mac open up terminal window and type:
+### For Linux/Mac open up terminal window and type:
 ```bash
 ssh pi@192.168.88.80
 ```
@@ -16,7 +16,7 @@ Enter Password: to 7
 
 Congratulations you succesfully SSH into the Raspberry Pi! 
 
-###For Windows downlaod an SSH client like Putty:
+### For Windows downlaod an SSH client like Putty:
 Open Putty and select SSH
 
 Enter
