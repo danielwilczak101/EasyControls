@@ -20,10 +20,11 @@ Congratulations you succesfully SSH into the Raspberry Pi!
 Open Putty and select SSH
 
 Enter
+```
 IP Adress: 192.168.88.80
 Username: pi
 Password: to 7
-
+```
 Congratulations you succesfully SSH into the Raspberry Pi! 
 
 4. Instructions on how to set this up.
