@@ -12,7 +12,7 @@ Setup Raspberry Pi on spacecraft with SSH.
 ```bash
 ssh pi@192.168.88.80
 ```
-Enter Password: to 7 
+Enter Password: Dmw0234567 
 
 Congratulations you succesfully SSH into the Raspberry Pi! 
 
@@ -23,7 +23,7 @@ Enter
 ```
 IP Adress: 192.168.88.80
 Username: pi
-Password: to 7
+Password: Dmw0234567
 ```
 Congratulations you succesfully SSH into the Raspberry Pi! 
 
