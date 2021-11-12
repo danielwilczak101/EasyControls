@@ -34,10 +34,12 @@ Congratulations you succesfully SSH into the Raspberry Pi!
 
 # VNC Connection
 
-Download VNC Viewer
+### For Linux, Mac, and Windows download VNC Viewer Application
 
+Link to Download VNC Viewer:
 https://www.realvnc.com/en/connect/download/viewer/
 
+In order to connect:
 ```
 Enter IP Address: 192.168.88.80
 
@@ -45,6 +47,9 @@ Enter Username: pi
 
 Enter Password: Dmw0234567
 ```
+
+Congratulations you succesfully VNC into the Raspberry Pi! 
+
 
 4. Instructions on how to set this up.
 5. (Optional) Find or ask dan for cheap router so we can have this setup for the confrence.
