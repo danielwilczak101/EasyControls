@@ -18,10 +18,11 @@ Enter Password: Dmw0234567
 Congratulations you succesfully SSH into the Raspberry Pi! 
 
 ### For Windows downlaod an SSH client like Putty:
-Open Putty and select SSH
 
 Link to Download Putty:
 https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
+
+Open Putty and select SSH
 
 Enter
 ```
