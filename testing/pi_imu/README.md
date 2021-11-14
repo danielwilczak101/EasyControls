@@ -1,9 +1,8 @@
 ### Problem
 
-Problem is that we are reading in degrees per second but we just need degrees.  
+Problem is that we are reading in degrees per second but we just need degrees.  We should also add in all the possible things you can get from the sensor so that people can get whatever they want.  
 
-We should also add in all the possible things you can get from the sensor so that people can get whatever they want.  
-
+This article explains the problem well.
 https://electronics.stackexchange.com/questions/205658/converting-raw-gyro-l3gd20h-values-into-angles
 
 ### Package information
