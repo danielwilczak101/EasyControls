@@ -8,6 +8,8 @@ https://electronics.stackexchange.com/questions/205658/converting-raw-gyro-l3gd2
 ### Package information
 https://pypi.org/project/mpu9250-jmdev/#How-To-Use
 
+### Current code.
+
 ## File Requirements:
 1. Python Code.  
 2. Wiring diagram (Can be hand written or drawn out).
