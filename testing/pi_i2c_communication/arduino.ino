@@ -9,8 +9,8 @@ void setup() {
   Wire.begin(0x9);             // Joining I2C bus with ADR 0x08
   Wire.onReceive(receiveData); // Registering the data 
   pinMode(RED, OUTPUT);
-  digitalWrite(RED, LOW); 
   pinMode(GRN, OUTPUT);
+  digitalWrite(RED, LOW); 
   digitalWrite(GRN, LOW); 
 }
 
