@@ -26,9 +26,31 @@ abias_slave = mpu.abias_slave # Get the slave accelerometer biases
 gbias = mpu.gbias # Get the master gyroscope biases
 gbias_slave = mpu.gbias_slave # Get the slave gyroscope biases
 
+def remove_bias(dx_dt, bias):
+    if abs(dx_dt) < bias:
+        return 0
+    elif dx_dt > 0:
+        return dx_dt - abs(bias)
+    else:
+        return dx_dt + abs(bias)
+
+angle = 0
+dx_dt_0 = mpu.readGyroscopeMaster()[0]
+t0 = time.time()
+
 while True:
-
-
-    print("Gyroscope", mpu.readGyroscopeMaster())
-
+    
+    dx_dt = remove_bias(mpu.readGyroscopeMaster()[0], gbias[0])
+    t = time.time()
+    # changes over time:
+    dt = t - t0
+    dx_dt_avg = (dx_dt + dx_dt_0) / 2
+    # integral of dx_dt * dt = dx:
+    angle += dx_dt_avg * dt*-++++
+    t0 = t
+    dx_dt_0 = dx_dt
+    
+    print(f"angle: {angle}")
+    
     time.sleep(0.2)
+
