@@ -9,7 +9,7 @@ Wiring was a combination of i2c wiring and solinoid firing.
 
 ## Code:
 
-**File** i2c_solioid.ino is used for connection and firing on the ardunio. [Python code was the same from i2c testing](#).  
+**File** i2c_solioid.ino is used for connection and firing on the ardunio. [Python code was the same from i2c testing](https://github.com/danielwilczak101/AsteroidFreeFlier/tree/main/testing/pi_i2c_communication).  
 
 The code below was used to ensure solinoid fire properly.  
 ```C++
