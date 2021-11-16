@@ -1,6 +1,9 @@
 ## Test:
 Test fire solinoid using i2c.
 
+## Problem:
+LED would not turn on and I2C code is poorly understood and written.
+
 ## Wiring:
 Wiring was a combination of i2c wiring and solinoid firing.
 
