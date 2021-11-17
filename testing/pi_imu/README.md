@@ -13,7 +13,7 @@ https://pypi.org/project/mpu9250-jmdev/#How-To-Use
 In file.
 
 ## Wiring
-3.3 - VCC
-GND - GND
-SCL - SCL
-SDA - SDA
+3.3 - VCC  
+GND - GND  
+SCL - SCL  
+SDA - SDA  
