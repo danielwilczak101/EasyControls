@@ -8,7 +8,7 @@ Trigger the PI to run a python file that was upload via the web.
 - Potential problems is to get outside internet for this we would have to use a phone or some other internet then the schools.  ```
     
 
-``This can also be accomplished if we just allow ssh from the web. But the school doesnt allow this.```
+```This can also be accomplished if we just allow ssh from the web. But the school doesnt allow this.```
 
 ## File Requirements:  
 1.Website code.  
