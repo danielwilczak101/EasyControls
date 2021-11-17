@@ -1,15 +1,19 @@
 ### Problem
+Doesnt use acceleration vector to compinsate for drift.  
+Had a wierd problem with gravity working on one side of an axis but not on the other.  
+  - Ex. ~1 on one side of x axis and 0.4 on the other side of the same axis.
 
-Problem is that we are reading in degrees per second but we just need degrees.  We should also add in all the possible things you can get from the sensor so that people can get whatever they want.  
-
-This article explains the problem well.
-https://electronics.stackexchange.com/questions/205658/converting-raw-gyro-l3gd20h-values-into-angles
+### Update
+Updated code so that it now integrates the gyroscope data and uses the bias to remove the initial error.
 
 ### Package information
 https://pypi.org/project/mpu9250-jmdev/#How-To-Use
 
 ### Current code.
+In file.
 
-## File Requirements:
-1. Python Code.  
-2. Wiring diagram (Can be hand written or drawn out).
+## Wiring
+3.3 - VCC
+GND - GND
+SCL - SCL
+SDA - SDA
