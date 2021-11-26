@@ -4,7 +4,7 @@ For this test we need to be able to install the bootloader on the atmega328p-au 
 https://electronoobs.io/tutorial/187
 
 ### Ardunio instruction to add bootloader:
-here
+Use section 2.1 of url to setup arduino IDE to function as bootloader. We should probably do this once and then when we got it working once just bootloader all the boards. 
 
 ### Wiring diagram:
 Boarding to arduino wiring.  
