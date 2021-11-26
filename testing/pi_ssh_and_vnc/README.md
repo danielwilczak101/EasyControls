@@ -1,4 +1,4 @@
-## Test Requirements:
+## Test Completed:
 Setup Raspberry Pi on spacecraft with SSH. 
     - Be on lab Wifi.  
     - Run python script to validate everything works.
