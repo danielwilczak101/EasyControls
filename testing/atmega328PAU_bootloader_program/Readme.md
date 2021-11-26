@@ -7,4 +7,3 @@ https://electronoobs.io/tutorial/187
 One is for wiring with ardunio and the other using the serial programmer.
 ![Wiring Breadboard](images/1.png)
 
-![Wiring Breadboard](images/2.png)
