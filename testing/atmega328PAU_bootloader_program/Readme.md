@@ -1,10 +1,9 @@
 For this test we need to be able to install the bootloader on the atmega328p-au ans prgram it. The new PCB has the pins to be able to program it.
 
-Youtube video:
+**Youtube video:** http
 
 ### Instructions
 
-### Bootloader usb
 
 ### Wiring diagram
 One is for wiring with ardunio and the other using the serial programmer.
