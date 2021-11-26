@@ -1,4 +1,4 @@
-## Test Requirements:
+## Test Completed:
 Setup Raspberry pi to commuicate via I2C to the ATmega328P chip. The chip can either be on the helper board or standalone chip.  
     - Turn on two different LED would be a good test.  
     
