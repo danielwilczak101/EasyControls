@@ -12,6 +12,10 @@ https://www.mouser.com/datasheet/2/418/8/ENG_DS_MSP340_B1-1130134.pdf
 MLH03KPSB06A   
 https://sensing.honeywell.com/index.php?&ci_id=31523&la_id=1 
 
+#### Pressure relief system:
+RV1 - 3000 psi  
+RV3 - 250psi
+
 
 
 ## Fit functions:
