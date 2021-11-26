@@ -1,4 +1,4 @@
-## Test Requirements:
+## Test Completed:
 Assemble pressurize valve to operationg pressure and see how many Newtons of force it produces over time.   
 
 ### Thrust values:
