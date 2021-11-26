@@ -3,7 +3,10 @@ For this test we need to be able to install the bootloader on the atmega328p-au 
 ### Instructions website:
 https://electronoobs.io/tutorial/187
 
-### Wiring diagram
-One is for wiring with ardunio and the other using the serial programmer.
-![Wiring Breadboard](images/1.png)
+### Ardunio instruction to add bootloader:
+here
+
+### Wiring diagram:
+Boarding to arduino wiring.
+![Wiring Breadboard](images/nano_bootloader.png)
 
