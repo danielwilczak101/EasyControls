@@ -1,4 +1,4 @@
-## Test Requirements:
+## Test Completed:
 Test LED curcuit that uses digital signal to change the leds.   
     - Show firing of left and right.
     - CHange colors.
