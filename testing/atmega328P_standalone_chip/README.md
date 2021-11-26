@@ -1,4 +1,4 @@
-## Test Requirements:
+## Test Completed:
 Setup the atmega328p chip by itself (no helper board).
 
 ## File Requirements:
