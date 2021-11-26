@@ -9,7 +9,7 @@ https://www.nasa.gov/feature/extreme-access-flyer-to-take-planetary-exploration-
   <img width="300px" height="400px" src="https://github.com/danielwilczak101/AsteroidFreeFlier/blob/media/images/craft1010.JPG">
 </p>
 
-# Test still in progress:
+# Tests still in progress:
 
 #### 1.atmega328PAU_bootloader_program
 Waiting on the new board to come in so we can test adding a bootloader with the new chips. We also need to test adding programs to the chips.
