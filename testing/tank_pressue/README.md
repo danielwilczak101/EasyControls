@@ -1,4 +1,4 @@
-## Test Requirements:
+## Test Completed:
 Wire up tank pressure reader. 
     - This can be done using an ardunio or raspberry pi.  
     
