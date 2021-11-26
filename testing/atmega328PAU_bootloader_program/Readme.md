@@ -1,6 +1,9 @@
 ### Testing Requirements:
 For this test we need to be able to install the bootloader on the atmega328p-au ans prgram it. The new PCB has the pins to be able to program it.
 
+### Requirements:
+1. Successful test and firing of test solinoid with bootloader installed.   
+2. Can be done manually or via I2C. Just document which on was used.  
 ### Instructions website:
 https://electronoobs.io/tutorial/187
 
