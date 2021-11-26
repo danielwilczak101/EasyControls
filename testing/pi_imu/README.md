@@ -1,4 +1,4 @@
-### Problem
+### Test Problem:
 Doesnt use acceleration vector to compinsate for drift.  
 Had a wierd problem with gravity working on one side of an axis but not on the other.  
   - Ex. ~1 on one side of x axis and 0.4 on the other side of the same axis.
