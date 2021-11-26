@@ -1,4 +1,4 @@
-## Test Requirements:
+## Test Completed:
 Read thermocouple data that comes from the tank. 
     - Read tank thermocouple data.  
 
