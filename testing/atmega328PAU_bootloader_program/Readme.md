@@ -7,6 +7,6 @@ https://electronoobs.io/tutorial/187
 here
 
 ### Wiring diagram:
-Boarding to arduino wiring.
+Boarding to arduino wiring.  
 ![Wiring Breadboard](images/nano_bootloader.png)
 
