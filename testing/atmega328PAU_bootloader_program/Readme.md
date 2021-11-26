@@ -7,4 +7,6 @@ Youtube video:
 ### Bootloader usb
 
 ### Wiring diagram
+![Wiring Breadboard](images/1.jpeg)
 
+![Wiring Breadboard](images/2.JPG)
