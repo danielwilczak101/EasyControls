@@ -15,7 +15,7 @@ void setup() {
 }
 
 void loop() { // A delay so the data does not come in so fast
-  delay(100); 
+  delay(1000); 
 }
 
 void receiveData(int howMany) { // Function for receiving data 
