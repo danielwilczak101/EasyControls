@@ -21,7 +21,7 @@ delete_list = ["<pre>", "</pre>"] # things to remove from files from the website
 sleepTime = 2 # seconds
 
 # Process Vars
-lastRunTime = 0
+lastRunTime = 0 # unix epoch time
 lastProcess = None
 maxProcessTime = 60 # seconds
 
