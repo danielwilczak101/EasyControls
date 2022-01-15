@@ -83,7 +83,7 @@ async def EasyControlLoop():
             # maybe a blacklist of certain packages and functions
 
             # Run File
-            lastProcess = Popen(['python', fileClean], stdout = subprocess.PIPE)
+            lastProcess = Popen(['python', fileClean])
             lastRunTime = time.time()
             poll = None
 
