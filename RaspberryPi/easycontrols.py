@@ -10,7 +10,7 @@ import asyncio
 from datetime import datetime
 
 # Config options
-baseURL = "http://localhost/"
+baseURL = "http://easycontrols.org/"
 cycleURL = baseURL + "queue/cycle"
 getCurrentQueueURL = baseURL + "queue/current"
 logURL = baseURL + "log"
@@ -33,6 +33,32 @@ def custom_print(msg):
 def log(msg):
     requests.post(logURL, data = {"message": msg})
 
+def remove_words_from_file(file:str,delete_list:list[str],fileClean:str):
+    """
+    Removes words specified in delete_list from file and
+    saves as new fileClean name.
+
+    Example:
+        >>> remove_words_from_file("oldfile.py",["<pre>","</pre>"],"newfile.py")
+        Removes all instances of <pre> and </pre> from oldfile.py and
+        saves it as newfile.py
+
+    Args:
+        file: Name of file that is to be cleaned.
+        delete_list: List of words to be removed.
+        fileClean: Name of file to be assiigned after cleaning.
+
+    Returns:
+        File that has been cleaned with given name.
+    """
+    with open(file) as fin, open(fileClean, "w+") as fout:
+                for line in fin:
+                    for word in delete_list:
+                        line = line.replace(word, "")
+                    fout.write(line)
+
+    os.remove(file)
+
 async def EasyControlLoop():
     while True:
         try:
@@ -42,14 +68,9 @@ async def EasyControlLoop():
             # Download currrent queue item.
             urllib.request.urlretrieve(getCurrentQueueURL, file)
 
-            with open(file) as fin, open(fileClean, "w+") as fout:
-                for line in fin:
-                    for word in delete_list:
-                        line = line.replace(word, "")
-                    fout.write(line)
+            # Removes words not wanted in the file.
+            remove_words_from_file(file,delete_list,fileClean)
                     
-            os.remove(file)
-
             contents = open(fileClean).read()
             if (contents == "nothing in queue"):
                 custom_print("Nothing in queue")
