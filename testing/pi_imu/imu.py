@@ -46,7 +46,7 @@ while True:
     dt = t - t0
     dx_dt_avg = (dx_dt + dx_dt_0) / 2
     # integral of dx_dt * dt = dx:
-    angle += dx_dt_avg * dt*-++++
+    angle += dx_dt_avg * dt
     t0 = t
     dx_dt_0 = dx_dt
     
