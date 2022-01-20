@@ -1,5 +1,7 @@
-
+from smbus import SMBus
 from time import sleep
+
+bus = SMBus(1)
 
 class thruster:
 
@@ -34,8 +36,8 @@ class thruster:
         sleep(0.5)
 
 
-thruster1 = thruster("0x08", "center", "horizontal")
-thruster2 = thruster("0x09", "bottom left", "vertical")
+thruster1 = thruster(0x08, "center", "horizontal")
+thruster2 = thruster(0x09, "bottom left", "vertical")
 
 while True:
 
