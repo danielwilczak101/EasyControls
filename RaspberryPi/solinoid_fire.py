@@ -50,6 +50,7 @@ while True:
     sleep(1)
     thruster.close(0)
     print("Thruster Closed")
+
         
         
 
