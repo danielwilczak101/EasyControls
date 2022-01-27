@@ -31,7 +31,7 @@ def custom_print(msg):
     log(msg)
 
 def log(msg):
-    requests.post(logURL, data = {"message": msg})
+    requests.post(logURL, data = {"message": msg, "key": "fuckoff"})
 
 def remove_words_from_file(file:str,delete_list:list[str],fileClean:str):
     """
@@ -83,14 +83,18 @@ async def EasyControlLoop():
             # maybe a blacklist of certain packages and functions
 
             # Run File
-            lastProcess = Popen(['python', fileClean])
-            lastRunTime = time.time()
-            poll = None
+            try:
+                lastProcess = Popen(['python', fileClean])
+                lastRunTime = time.time()
+                poll = None
 
-            custom_print("Running process...")
-            while (poll is None and (time.time() - lastRunTime) < maxProcessTime):
-                poll = lastProcess.poll()
-                await asyncio.sleep(1)
+                # TODO: Log subprocess terminal output
+                custom_print("Running process...")
+                while (poll is None and (time.time() - lastRunTime) < maxProcessTime):
+                    poll = lastProcess.poll()
+                    await asyncio.sleep(1)
+            except Exception as e:
+                custom_print("Error while running process: " + e)
 
             lastProcess.kill()
             custom_print("Process killed")
