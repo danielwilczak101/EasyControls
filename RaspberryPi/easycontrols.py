@@ -89,9 +89,10 @@ async def EasyControlLoop():
                 custom_print("Running process...")
                 while (poll is None and (time.time() - lastRunTime) < maxProcessTime):
                     # Log subprocess terminal output
-                    for line in iter(lastProcess.stdout.readline,''):
-                        out = line.rstrip().decode()
-                        custom_print(out)
+                    custom_print(lastProcess.stdout.readline().rstrip().decode())
+
+                    poll = lastProcess.poll()
+                    await asyncio.sleep(1/processCheckFrequency)
             except Exception as e:
                 custom_print("Error while running process: " + e)
 
