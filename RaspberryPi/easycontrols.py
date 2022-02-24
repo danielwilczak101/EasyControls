@@ -1,9 +1,6 @@
-from time import sleep
-import subprocess
-from subprocess import Popen
+from subprocess import Popen, PIPE
 import requests
 import os
-import io
 import urllib.request
 import time
 import asyncio
@@ -24,6 +21,7 @@ sleepTime = 2 # seconds
 lastRunTime = 0 # unix epoch time
 lastProcess = None
 maxProcessTime = 60 # seconds
+processCheckFrequency = 10 # hertz
 
 def custom_print(msg):
     date_time = datetime.now().strftime("[%m/%d/%Y, %H:%M:%S]")
@@ -52,10 +50,10 @@ def remove_words_from_file(file:str,delete_list:list[str],fileClean:str):
         File that has been cleaned with given name.
     """
     with open(file) as fin, open(fileClean, "w+") as fout:
-                for line in fin:
-                    for word in delete_list:
-                        line = line.replace(word, "")
-                    fout.write(line)
+        for line in fin:
+            for word in delete_list:
+                line = line.replace(word, "")
+            fout.write(line)
 
     os.remove(file)
 
@@ -84,15 +82,16 @@ async def EasyControlLoop():
 
             # Run File
             try:
-                lastProcess = Popen(['python', fileClean])
+                lastProcess = Popen(['python', fileClean], stdout=PIPE)
                 lastRunTime = time.time()
                 poll = None
 
-                # TODO: Log subprocess terminal output
                 custom_print("Running process...")
                 while (poll is None and (time.time() - lastRunTime) < maxProcessTime):
-                    poll = lastProcess.poll()
-                    await asyncio.sleep(1)
+                    # Log subprocess terminal output
+                    for line in iter(lastProcess.stdout.readline,''):
+                        out = line.rstrip().decode()
+                        custom_print(out)
             except Exception as e:
                 custom_print("Error while running process: " + e)
 
