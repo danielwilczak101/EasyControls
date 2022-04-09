@@ -1,0 +1,29 @@
+5v Voltage Regulator
+
+0.5 Amp Version 
+    Mouser Link: https://www.mouser.com/ProductDetail/Texas-Instruments/LM78M05CDTX-NOPB?qs=QbsRYf82W3EiU0JYWOMfbg%3D%3D
+    Datasheet: https://www.ti.com/general/docs/suppproductinfo.tsp?distId=26&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Flm78m
+
+2.2 Amp Version
+    Mouser Link: https://www.mouser.com/ProductDetail/onsemi/MC7805ABD2TR4G?qs=%252B9%2Fcbd0IE0TSy%252BSb8tzXaQ%3D%3D
+    Datasheet: https://www.mouser.com/datasheet/2/308/1/MC7800_D-2315963.pdf
+
+Both versions listed above have the same footprint and you can use the same symbol.
+
+Symbol: LM78M05CDTX_NOPB
+
+Footprint: TO228P991X255-3N
+
+
+
+Voltage Regulator needs: 
+
+0.1uF Capacitor (Polarized) (Goes between output and GND)
+
+Footprint: Capacitor_THT:CP_Radial_D4.0mm_P1.50mm
+
+---------------------------------------------------------------
+
+0.33uF Capacitor (Non-polarized) (Goes between input and GND)
+
+Footprint: Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm
