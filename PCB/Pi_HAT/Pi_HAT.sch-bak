@@ -282,4 +282,26 @@ F 3 "" H 2810 3870 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 NoConn ~ 3960 2840
+$Comp
+L Mechanical:MountingHole H?
+U 1 1 6252904A
+P 6670 1230
+F 0 "H?" H 6770 1276 50  0000 L CNN
+F 1 "MountingHole" H 6770 1185 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.5mm" H 6670 1230 50  0001 C CNN
+F 3 "~" H 6670 1230 50  0001 C CNN
+	1    6670 1230
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H?
+U 1 1 6252A63A
+P 6970 1230
+F 0 "H?" H 7070 1276 50  0000 L CNN
+F 1 "MountingHole" H 7070 1185 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.5mm" H 6970 1230 50  0001 C CNN
+F 3 "~" H 6970 1230 50  0001 C CNN
+	1    6970 1230
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
