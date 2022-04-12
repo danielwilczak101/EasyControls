@@ -16,12 +16,6 @@ https://www.nasa.gov/feature/extreme-access-flyer-to-take-planetary-exploration-
 
 ### Current state:
 <p align="center">
-  <img width="300px" height="400px" src="https://github.com/danielwilczak101/AsteroidFreeFlier/blob/media/images/craft1010.JPG">
+  <img width="300px" height="400px" src="">
 </p>
-
-
-#### 3. pi_imu  
-Currently the imu doesnt use gravity vector to correct for drift. We also still need to validate all the readings.  
-
-
 
