@@ -1,4 +1,5 @@
 (sym_lib_table
-  (lib (name ARDUINO_NANO)(type Legacy)(uri ${KIPRJMOD}/Symbols/ARDUINO_NANO.lib)(options "")(descr ""))
-  (lib (name LM78M05CDTX_NOPB)(type Legacy)(uri ${KIPRJMOD}/Symbols/LM78M05CDTX_NOPB.lib)(options "")(descr ""))
+  (lib (name "ARDUINO_NANO")(type "Legacy")(uri "${KIPRJMOD}/Symbols/ARDUINO_NANO.lib")(options "")(descr ""))
+  (lib (name "LM78M05CDTX_NOPB")(type "Legacy")(uri "${KIPRJMOD}/Symbols/LM78M05CDTX_NOPB.lib")(options "")(descr ""))
+  (lib (name "XT60PW-M")(type "Legacy")(uri "${KIPRJMOD}/Symbols/XT60PW-M.lib")(options "")(descr ""))
 )
