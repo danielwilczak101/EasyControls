@@ -1,0 +1,7 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP ABL-16.000MHZ-B2
+D ABL-16.000MHZ-B2
+F http://www.abracon.com/Resonators/ABL.pdf
+$ENDCMP
+# end doc library
