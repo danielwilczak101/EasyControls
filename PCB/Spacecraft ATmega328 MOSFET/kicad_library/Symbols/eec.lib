@@ -1,0 +1,40 @@
+EESchema-LIBRARY Version 2.4
+#encoding utf-8
+#
+# Abracon ABL-16.000MHZ-B2
+#
+DEF ABL-16.000MHZ-B2 Y 0 40 Y Y 1 L N
+F0 "Y" 0 200 50 H V L CNN 
+F1 "ABL-16.000MHZ-B2" 0 300 50 H V L CNN 
+F2 "Abracon-ABL-16.000MHZ-B2-*" 0 400 50 H I L CNN 
+F3 "http://www.abracon.com/Resonators/ABL.pdf" 0 500 50 H I L CNN 
+F4 "40 Ohm" 0 600 50 H I L CNN "ESR"
+F5 "16MHz" 0 700 50 H I L CNN "Frequency"
+F6 "±50ppm" 0 800 50 H I L CNN "Frequency Stability"
+F7 "±20ppm" 0 900 50 H I L CNN "Frequency Tolerance"
+F8 "18pF" 0 1000 50 H I L CNN "Load Capacitance"
+F9 "Fundamental" 0 1100 50 H I L CNN "Operating Mode"
+F10 "Crys" 0 1200 50 H I L CNN "category"
+F11 "16MHz ±20ppm Crystal 18pF 40 Ohm -20°C ~ 70°C Through Hole HC49/US" 0 1300 50 H I L CNN "digikey description"
+F12 "535-9041-ND" 0 1400 50 H I L CNN "digikey part number"
+F13 "yes" 0 1500 50 H I L CNN "lead free"
+F14 "7ebf07e1da2eb130" 0 1600 50 H I L CNN "library id"
+F15 "Abracon" 0 1700 50 H I L CNN "manufacturer"
+F16 "815-ABL-16-B2" 0 1800 50 H I L CNN "mouser part number"
+F17 "HC/49US" 0 1900 50 H I L CNN "package"
+F18 "yes" 0 2000 50 H I L CNN "rohs"
+F19 "+70°C" 0 2100 50 H I L CNN "temperature range high"
+F20 "0°C" 0 2200 50 H I L CNN "temperature range low"
+DRAW
+X 1 1 0 0 50 R 40 0 1 1 U 
+X 2 2 300 0 50 L 40 0 1 1 U 
+P 2 1 1 0 50 80 50 -80 N
+P 2 1 1 0 250 80 250 -80 N
+P 2 1 1 0 100 100 100 -100 N
+P 2 1 1 0 100 100 200 100 N
+P 2 1 1 0 200 100 200 -100 N
+P 2 1 1 0 200 -100 100 -100 N
+ENDDRAW
+ENDDEF
+#
+# End Library
