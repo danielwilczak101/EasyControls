@@ -14,12 +14,12 @@ SDA->A4
     
   3. After, plug the nano into the Pi via micro-USB (same one you powered the nano with)  
   
-  4. To check if the Pi reads the nano, open the terminal and type "/dev/tty*"...This searches for all devices and if the nano has a solid connections it will be shown as ttyUSB0.
+  4. To check if the Pi reads the nano, open the terminal and type ``/dev/tty*``...This searches for all devices and if the nano has a solid connections it will be shown as ttyUSB0.
     (If you do not have a connection, try replacing the cable or using a different nano.)  
     
   5. If you have a connection, make sure to install the libraries needed for the python code, if you do not already have them installed. Those include ``sudo apt-get install python3-pip`` and ``python3 -m pip install pyserial`` into the Pi terminal.  
   
-  6. After, save and run the IMUmaster.py code by typing "python3 IMUmaster.py" into the terminal.  
+  6. After, save and run the IMUmaster.py code by typing ``python3 IMUmaster.py`` into the terminal.  
     (If you cannot save it, copy and paste the code by selecting the code and CTR+C to copy, then typing ``nano IMUmaster.py`` into the terminal and use ``CTR+SHIFT+V`` to paste the code and save it. After, run the code by repeating the end of step 6.)  
     
   7. You should then recieve data from the MPU9250!! If not, repeat the steps and check your connections.  
