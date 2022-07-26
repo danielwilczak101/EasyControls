@@ -1,6 +1,6 @@
 Steps for uploading and getting MPU data on Pi:
   1. Open Arduino IDE on your laptop/PC and Upload the IMUslave.ino code to the Arduino nano   
-    (If you do not know how to upload code, a tutorial is HERE> https://www.arduino.cc/en/Guide/ArduinoNano)  
+    (If you do not know how to upload code, a tutorial: https://www.arduino.cc/en/Guide/ArduinoNano  
     
   2. Once this is done, take your MPU 9250 and connect it to your nano (You will need to install the MPU9250 library in Arduino)  
     Connections:
