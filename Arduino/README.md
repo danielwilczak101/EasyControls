@@ -4,13 +4,11 @@ Steps for uploading and getting MPU data on Pi:
     
   2. Once this is done, take your MPU 9250 and connect it to your nano (You will need to install the MPU9250 library in Arduino)  
     Connections:
-    
-    ```
-    VCC->3V3
-    GND->GND
-    SCL->A5
-    SDA->A4
-    ```
+
+```VCC->3V3
+GND->GND
+SCL->A5
+SDA->A4```
     
   3. After, plug the nano into the Pi via micro-USB (same one you powered the nano with)  
   
