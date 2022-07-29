@@ -2,7 +2,7 @@
 
 <p align="center"> 
   <kbd>
-    <img src="https://github.com/danielwilczak101/EasyControls/raw/media/images/gimbal_animation_V2.gif">
+    <img src="https://github.com/danielwilczak101/EasyControls/blob/media/images/isaac_072922.gif">
   </kbd>
 </p>
 
