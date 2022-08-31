@@ -10,7 +10,7 @@ int pixelSetB[4] = {7,6,5,4};
 
 int inputCount;
 int states[2];
-const int SOLS[2] = {6,9};
+const int SOLS[2] = {6,7};
 int SOLNum;
 
 unsigned long previousMillis[2];
