@@ -44,18 +44,10 @@ four = thruster(0x13)
 five = thruster(0x14)
 six = thruster(0x15)
 
-while True:
 
-    for i in range(15):
-
-        one.close(0)
-
-        two.close(0)
-
-        three.close(0)
-
-        four.close(0)
-
-        five.close(0)
-
-        six.close(0)
+one.close(0)
+two.close(0)
+three.close(0)
+four.close(0)
+five.close(0)
+six.close(0)

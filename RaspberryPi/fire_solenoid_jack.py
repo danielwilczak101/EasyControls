@@ -58,7 +58,7 @@ async def main():
 
         await asyncio.gather(
             Thruster.TWO.open("bottom"),
-            Thruster.SIX.open("botoom"),
+            Thruster.SIX.open("bottom"),
             Thruster.FIVE.open("top"),
             Thruster.THREE.open("top"),
         )
