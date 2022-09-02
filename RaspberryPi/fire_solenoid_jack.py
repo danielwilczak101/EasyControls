@@ -70,3 +70,4 @@ while True:
         six.open(0)
         sleep(5)
         six.close(0)
+        sleep(10)
