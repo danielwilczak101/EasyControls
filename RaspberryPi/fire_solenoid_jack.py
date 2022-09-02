@@ -3,6 +3,7 @@ from time import sleep
 
 bus = SMBus(1)
 
+
 class thruster:
 
     def __init__(self, address, location=None, orientation=None, state=0, led_status=0):
@@ -14,22 +15,22 @@ class thruster:
 
     def impulse(self, solinoid):
         """Fires the solinoid as quick as possible
-        
+
         Args: 
             solinoid - which solinoid you want to fire. Depends on orientation of solinoids.
             Horizontal (Left, Right) or Vertiacal (Top, Bottom).
                 0 = Left or Bottom
                 1 = Top or Right
-        
+
         """
         bus.write_byte_data(self.address, solinoid, 2)
         sleep(0.1)
-    
+
     def open(self, solinoid):
         """Leaves solinoid open indefinedtly untill otherwise closed"""
         bus.write_byte_data(self.address, solinoid, 1)
         sleep(0.1)
-    
+
     def close(self, solinoid):
         """Leaves solinoid closed indefinedtly untill otherwise opened"""
         bus.write_byte_data(self.address, solinoid, 0)
@@ -59,11 +60,3 @@ while True:
         four.impulse(1)
         five.impulse(1)
         six.impulse(1)
-
-
-
-
-    
-
-
-    
