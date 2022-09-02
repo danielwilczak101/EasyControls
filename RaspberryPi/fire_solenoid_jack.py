@@ -1,83 +1,70 @@
 from smbus import SMBus
 from time import sleep
+from enum import Enum
+import asyncio
+
 
 bus = SMBus(1)
 
 
-class thruster:
+class Solinoid(Enum):
+    TOP = 0
+    BOTTOM = 1
 
-    def __init__(self, address, location=None, orientation=None, state=0, led_status=0):
-        self.address = address
-        self.location = location
-        self.orientation = orientation
-        self.state = state
-        self.led_status = led_status
 
-    def impulse(self, solinoid):
-        """Fires the solinoid as quick as possible
+class Thruster(Enum):
 
-        Args: 
-            solinoid - which solinoid you want to fire. Depends on orientation of solinoids.
-            Horizontal (Left, Right) or Vertiacal (Top, Bottom).
-                0 = Left or Bottom
-                1 = Top or Right
+    ONE = 0x10
+    TWO = 0x11
+    THREE = 0x12
+    FOUR = 0x13
+    FIVE = 0x14
+    SIX = 0x15
 
-        """
-        bus.write_byte_data(self.address, solinoid, 2)
-        sleep(0.1)
+    async def impulse(self, solinoid):
+        """Fires the solinoid as quick as possible"""
 
-    def open(self, solinoid):
+        bus.write_byte_data(self.value, Solinoid[solinoid.upper()].value, 2)
+        await asyncio.sleep(0.01)
+
+    async def open(self, solinoid):
         """Leaves solinoid open indefinedtly untill otherwise closed"""
-        bus.write_byte_data(self.address, solinoid, 1)
-        sleep(0.1)
+        bus.write_byte_data(self.value, Solinoid[solinoid.upper()].value, 1)
+        await asyncio.sleep(0.01)
 
-    def close(self, solinoid):
+    async def close(self, solinoid):
         """Leaves solinoid closed indefinedtly untill otherwise opened"""
-        bus.write_byte_data(self.address, solinoid, 0)
-        sleep(0.1)
+        bus.write_byte_data(self.value, Solinoid[solinoid.upper()].value, 0)
+        await asyncio.sleep(0.01)
+
+    async def close_all():
+        await asyncio.gather(*[
+            thruster.close(solinoid.name)
+            for thruster in Thruster
+            for solinoid in Solinoid
+        ])
 
 
-one = thruster(0x10)
-two = thruster(0x11)
-three = thruster(0x12)
-four = thruster(0x13)
-five = thruster(0x14)
-six = thruster(0x15)
+async def main():
+    for _ in range(5):
+        await asyncio.gather(
+            Thruster.TWO.open("top"),
+            Thruster.SIX.open("top"),
+            Thruster.FIVE.open("bottom"),
+            Thruster.THREE.open("bottom"),
+        )
 
+        asyncio.sleep(3)
+        Thruster.close_all()
 
-def close_all():
-    one.close(0)
-    two.close(0)
-    three.close(0)
-    four.close(0)
-    five.close(0)
-    six.close(0)
-    one.close(1)
-    two.close(1)
-    three.close(1)
-    four.close(1)
-    five.close(1)
-    six.close(1)
+        await asyncio.gather(
+            Thruster.TWO.open("bottom"),
+            Thruster.SIX.open("botoom"),
+            Thruster.FIVE.open("top"),
+            Thruster.THREE.open("top"),
+        )
 
+        asyncio.sleep(3)
+        Thruster.close_all()
 
-top = 0
-bottom = 1
-
-for i in range(5):
-
-    close_all()
-    two.open(top)
-    six.open(top)
-    five.open(bottom)
-    three.open(bottom)
-
-    sleep(3)
-
-    close_all()
-    two.open(bottom)
-    six.open(bottom)
-    five.open(top)
-    three.open(top)
-    sleep(3)
-
-close_all()
+asyncio.run(main())
