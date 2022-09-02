@@ -47,16 +47,26 @@ six = thruster(0x15)
 while True:
 
     for i in range(15):
-        one.impulse(0)
-        two.impulse(0)
-        three.impulse(0)
-        four.impulse(0)
-        five.impulse(0)
-        six.impulse(0)
-        print("Fire 1")
-        one.impulse(1)
-        two.impulse(1)
-        three.impulse(1)
-        four.impulse(1)
-        five.impulse(1)
-        six.impulse(1)
+        one.open(0)
+        sleep(5)
+        one.close()
+
+        two.open(0)
+        sleep(5)
+        two.close(0)
+
+        three.open(0)
+        sleep(5)
+        three.close(0)
+
+        four.open(0)
+        sleep(5)
+        four.close(0)
+
+        five.open(0)
+        sleep(5)
+        five.close(0)
+
+        six.open(0)
+        sleep(5)
+        six.close(0)
