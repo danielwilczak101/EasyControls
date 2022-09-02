@@ -37,6 +37,21 @@ class thruster:
         sleep(0.1)
 
 
+def close_all():
+    one.close(0)
+    two.close(0)
+    three.close(0)
+    four.close(0)
+    five.close(0)
+    six.close(0)
+    one.close(1)
+    two.close(1)
+    three.close(1)
+    four.close(1)
+    five.close(1)
+    six.close(1)
+
+
 one = thruster(0x10)
 two = thruster(0x11)
 three = thruster(0x12)
@@ -44,30 +59,23 @@ four = thruster(0x13)
 five = thruster(0x14)
 six = thruster(0x15)
 
-while True:
+top = 0
+bottom = 1
 
-    for i in range(15):
-        one.open(1)
-        sleep(5)
-        one.close(1)
+for i in range(5):
+    close_all()
+    two.open(top)
+    six.open(top)
+    five.open(bottom)
+    three.open(bottom)
 
-        two.open(1)
-        sleep(5)
-        two.close(1)
+    sleep(3)
 
-        three.open(1)
-        sleep(5)
-        three.close(1)
+    close_all()
+    two.open(bottom)
+    six.open(bottom)
+    five.open(top)
+    three.open(top)
+    sleep(3)
 
-        four.open(1)
-        sleep(5)
-        four.close(1)
-
-        five.open(1)
-        sleep(5)
-        five.close(1)
-
-        six.open(1)
-        sleep(5)
-        six.close(1)
-        sleep(10)
+close_all()
