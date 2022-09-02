@@ -89,7 +89,7 @@ async def EasyControlLoop():
 
             # Run File
             try:
-                lastProcess = Popen(['python', fileClean], stdout=PIPE)
+                lastProcess = Popen(['python3', fileClean], stdout=PIPE)
                 lastRunTime = time.time()
                 poll = None
 

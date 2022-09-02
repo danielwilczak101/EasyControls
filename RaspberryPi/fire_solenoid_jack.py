@@ -14,16 +14,15 @@ class Solinoid(Enum):
 
 class Thruster(Enum):
 
-    ONE = 0x10
-    TWO = 0x11
-    THREE = 0x12
-    FOUR = 0x13
-    FIVE = 0x14
-    SIX = 0x15
+    ONE = 16
+    TWO = 17
+    THREE = 18
+    FOUR = 19
+    FIVE = 20
+    SIX = 21
 
     async def impulse(self, solinoid):
-        """Fires the solinoid as quick as possible"""
-
+        """Fires the solinoid as quick as possible."""
         bus.write_byte_data(self.value, Solinoid[solinoid.upper()].value, 2)
         await asyncio.sleep(0.01)
 
