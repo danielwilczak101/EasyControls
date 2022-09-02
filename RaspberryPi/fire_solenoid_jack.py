@@ -1,3 +1,6 @@
+from smbus import SMBus
+from time import sleep
+
 bus = SMBus(1)
 
 
