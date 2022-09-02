@@ -47,27 +47,27 @@ six = thruster(0x15)
 while True:
 
     for i in range(15):
-        one.open(0)
+        one.open(1)
         sleep(5)
-        one.close(0)
+        one.close(1)
 
-        two.open(0)
+        two.open(1)
         sleep(5)
-        two.close(0)
+        two.close(1)
 
-        three.open(0)
+        three.open(1)
         sleep(5)
-        three.close(0)
+        three.close(1)
 
-        four.open(0)
+        four.open(1)
         sleep(5)
-        four.close(0)
+        four.close(1)
 
-        five.open(0)
+        five.open(1)
         sleep(5)
-        five.close(0)
+        five.close(1)
 
-        six.open(0)
+        six.open(1)
         sleep(5)
-        six.close(0)
+        six.close(1)
         sleep(10)
