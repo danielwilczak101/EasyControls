@@ -49,7 +49,7 @@ while True:
     for i in range(15):
         one.open(0)
         sleep(5)
-        one.close()
+        one.close(0)
 
         two.open(0)
         sleep(5)
