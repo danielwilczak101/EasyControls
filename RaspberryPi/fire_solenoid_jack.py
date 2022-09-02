@@ -37,12 +37,12 @@ class thruster:
         sleep(0.1)
 
 
-one = thruster(0x08)
-two = thruster(0x09)
-three = thruster(0x10)
-four = thruster(0x11)
-five = thruster(0x12)
-six = thruster(0x13)
+one = thruster(0x10)
+two = thruster(0x11)
+three = thruster(0x12)
+four = thruster(0x13)
+five = thruster(0x14)
+six = thruster(0x15)
 
 while True:
 
