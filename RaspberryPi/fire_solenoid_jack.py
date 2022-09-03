@@ -105,6 +105,6 @@ async def main():
         print("inside")
         for _ in range(10):
             print(xyz)
-            await asyncio.sleep(1)
+            await asyncio.sleep(2)
 
 asyncio.run(main())
