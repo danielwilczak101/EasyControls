@@ -1,8 +1,6 @@
 # Make sure arduino is connected to Pi via USB
 
-from multiprocessing.sharedctypes import Value
-from time import sleep
-import serial  # importing the Serial library, install by entering python3 -m pip install pyserial in Pi terminal
+import serial
 
 print("Waiting on Arduino......")
 
