@@ -25,5 +25,3 @@ if __name__ == '__main__':
                 print(f"x - {x},  y - {y}, z - {z}")
             except ValueError:
                 print(line)
-
-        sleep(1)
