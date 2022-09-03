@@ -66,8 +66,10 @@ class Thruster(Enum):
 async def _read_until_stopped(xyz: list[float], stop: asyncio.Event) -> None:
     """Asynchronously updates xyz forever in the background."""
     while not stop.is_set():
+        print(ser.in_waiting)
         if ser.in_waiting > 0:
             line = ser.readline().decode('utf-8').rstrip()
+            print(line)
             try:
                 # Attempt to update the xyz.
                 xyz = [float(x.strip()) for x in line.strip("[]").split(",")]
