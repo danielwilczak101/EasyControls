@@ -75,6 +75,8 @@ class Thruster(Enum):
             bus = SMBus(1)
             raise
         finally:
+            for thruster in Thruster:
+                thruster.is_open = True
             try:
                 await asyncio.gather(*[
                     thruster.close(solinoid.name)
