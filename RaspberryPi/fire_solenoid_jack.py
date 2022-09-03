@@ -76,7 +76,7 @@ async def _read_until_stopped(xyz: list[float], stop: asyncio.Event) -> None:
                 z = xyz[2]
                 xyz[:] = [x, y, z]
             except ValueError:
-                pass
+                print(line)
         # Let other code run asynchronously.
         await asyncio.sleep(0)
 
@@ -100,8 +100,9 @@ async def read_data() -> list[float]:
 
 
 async def main():
-
+    print("hello")
     async with read_data() as xyz:
+        print("inside")
         for _ in range(10):
             print(xyz)
             await asyncio.sleep(1)
