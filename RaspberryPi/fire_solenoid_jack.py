@@ -28,40 +28,40 @@ class Thruster(Enum):
 
     def __init__(self, address) -> None:
         self.address = address
-        self.is_open = False
+        self.is_open = [False, False]
 
     async def impulse(self, solinoid):
         """Fires the solinoid as quick as possible."""
-        if self.is_open:
+        value = Solinoid[solinoid.upper()].value
+        if self.is_open[value]:
             await self.close()
         else:
-            self.is_open = True
-            bus.write_byte_data(
-                self.address, Solinoid[solinoid.upper()].value, 2)
-            self.is_open = False
+            self.is_open[value] = True
+            bus.write_byte_data(self.address, value, 2)
+            self.is_open[value] = False
             await asyncio.sleep(0.1)
 
     async def open(self, solinoid):
         """Leaves solinoid open indefinedtly untill otherwise closed"""
-        if not self.is_open:
-            self.is_open = True
+        value = Solinoid[solinoid.upper()].value
+        if not self.is_open[value]:
+            self.is_open[value] = True
             try:
-                bus.write_byte_data(
-                    self.address, Solinoid[solinoid.upper()].value, 1)
+                bus.write_byte_data(self.address, value, 1)
             except OSError:
-                self.is_open = False
+                self.is_open[value] = False
                 raise
             await asyncio.sleep(0.1)
 
     async def close(self, solinoid):
         """Leaves solinoid closed indefinedtly untill otherwise opened"""
-        if self.is_open:
-            self.is_open = False
+        value = Solinoid[solinoid.upper()].value
+        if self.is_open[value]:
+            self.is_open[value] = False
             try:
-                bus.write_byte_data(
-                    self.address, Solinoid[solinoid.upper()].value, 0)
+                bus.write_byte_data(self.address, value, 0)
             except OSError:
-                self.is_open = True
+                self.is_open[value] = True
             await asyncio.sleep(0.1)
 
     @staticmethod
@@ -75,15 +75,14 @@ class Thruster(Enum):
             bus = SMBus(1)
             raise
         finally:
-            for thruster in Thruster:
-                thruster.is_open = True
             try:
-                await asyncio.gather(*[
-                    thruster.close(solinoid.name)
-                    for thruster in Thruster
-                    for solinoid in Solinoid
-                ])
-            except OSError:
+                for thruster in Thruster:
+                    for solinoid in Solinoid:
+                        bus.write_byte_data(
+                            thruster.address, solinoid.value, 0)
+                        thruster.is_open[solinoid.value] = False
+            except OSError as e:
+                print(e)
                 pass
 
 
