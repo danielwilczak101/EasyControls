@@ -161,9 +161,9 @@ async def main():
     async with read_data() as xyz, Thruster.close_all():
         while True:
             if xyz[0] > 5:
-                await down_x(xyz[0] / 100)
+                await down_x(min(0.5, xyz[0] / 100))
             elif xyz[0] < -5:
-                await up_x(-xyz[0] / 100)
+                await up_x(min(0.5, -xyz[0] / 100))
             else:
                 async with Thruster.close_all():
                     pass
