@@ -159,7 +159,7 @@ async def main():
                 while True:
                     if xyz[0] > 30:
                         await down_x(min(0.25, xyz[0] / 200))
-                    elif xyz[0] < -35:
+                    elif xyz[0] < 35:
                         await up_x(min(0.25, -xyz[0] / 200))
                     else:
                         await asyncio.gather(*[
