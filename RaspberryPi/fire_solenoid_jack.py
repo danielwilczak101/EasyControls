@@ -151,9 +151,9 @@ async def down_x():
 async def main():
     async with read_data() as xyz, Thruster.close_all():
         while True:
-            if xyz[0] > 10:
+            if xyz[0] > 20:
                 await down_x()
-            elif xyz[0] < -10:
+            elif xyz[0] < -20:
                 await up_x()
             else:
                 async with Thruster.close_all():
