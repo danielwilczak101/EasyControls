@@ -1,6 +1,7 @@
 # Make sure arduino is connected to Pi via USB
 
 from multiprocessing.sharedctypes import Value
+from time import sleep
 import serial  # importing the Serial library, install by entering python3 -m pip install pyserial in Pi terminal
 
 print("Waiting on Arduino......")
@@ -17,6 +18,12 @@ if __name__ == '__main__':
             line = ser.readline().decode('utf-8').rstrip()
             try:
                 data = [float(x.strip()) for x in line.strip("[]").split(",")]
-                print(data[1])
+                x = data[0]
+                y = data[1]
+                z = data[2]
+
+                print(f"x - {x},  y - {y}, z - {z}")
             except ValueError:
                 print(line)
+
+        sleep(1)
