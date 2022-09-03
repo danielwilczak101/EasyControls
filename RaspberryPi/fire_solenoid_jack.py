@@ -70,14 +70,12 @@ async def _read_until_stopped(xyz: list[float], stop: asyncio.Event) -> None:
             line = ser.readline().decode('utf-8').rstrip()
             try:
                 # Attempt to update the xyz.
-                xyz = [float(x.strip()) for x in line.strip("[]").split(",")]
-                x = xyz[1]
-                y = xyz[0]
-                z = xyz[2]
+                data = [float(x.strip()) for x in line.strip("[]").split(",")]
+                x = data[1]
+                y = data[0]
+                z = data[2]
                 xyz[:] = [x, y, z]
             except ValueError:
-                print(line)
-            else:
                 print(line)
         # Let other code run asynchronously.
         await asyncio.sleep(0.01)
