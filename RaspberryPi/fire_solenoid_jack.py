@@ -64,22 +64,18 @@ class Thruster(Enum):
         try:
             yield
         except OSError:
+            await asyncio.sleep(5)
             bus = SMBus(1)
-            await asyncio.sleep(1)
             raise
         finally:
-            for i in range(2, 6):
-                try:
-                    await asyncio.gather(*[
-                        thruster.close(solinoid.name)
-                        for thruster in Thruster
-                        for solinoid in Solinoid
-                    ])
-                except OSError:
-                    bus = SMBus(1)
-                    await asyncio.sleep(i)
-                else:
-                    break
+            try:
+                await asyncio.gather(*[
+                    thruster.close(solinoid.name)
+                    for thruster in Thruster
+                    for solinoid in Solinoid
+                ])
+            except OSError:
+                pass
 
 
 async def _read_until_stopped(xyz: list[float], stop: asyncio.Event) -> None:
