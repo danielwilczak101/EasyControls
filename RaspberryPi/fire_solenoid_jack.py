@@ -71,13 +71,8 @@ class Thruster(Enum):
     @staticmethod
     @asynccontextmanager
     async def close_all():
-        global bus
         try:
             yield
-        except OSError:
-            await asyncio.sleep(5)
-            bus = SMBus(1)
-            raise
         finally:
             await asyncio.sleep(0.1)
             try:
