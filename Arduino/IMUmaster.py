@@ -18,8 +18,8 @@ if __name__ == '__main__':
             line = ser.readline().decode('utf-8').rstrip()
             try:
                 data = [float(x.strip()) for x in line.strip("[]").split(",")]
-                x = data[0]
-                y = data[1]
+                x = data[1]
+                y = data[0]
                 z = data[2]
 
                 print(f"x - {x},  y - {y}, z - {z}")
