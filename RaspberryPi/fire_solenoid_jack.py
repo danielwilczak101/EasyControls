@@ -45,16 +45,23 @@ class Thruster(Enum):
         """Leaves solinoid open indefinedtly untill otherwise closed"""
         if not self.is_open:
             self.is_open = True
-            bus.write_byte_data(
-                self.address, Solinoid[solinoid.upper()].value, 1)
+            try:
+                bus.write_byte_data(
+                    self.address, Solinoid[solinoid.upper()].value, 1)
+            except OSError:
+                self.is_open = False
+                raise
             await asyncio.sleep(0.1)
 
     async def close(self, solinoid):
         """Leaves solinoid closed indefinedtly untill otherwise opened"""
         if self.is_open:
             self.is_open = False
-            bus.write_byte_data(
-                self.address, Solinoid[solinoid.upper()].value, 0)
+            try:
+                bus.write_byte_data(
+                    self.address, Solinoid[solinoid.upper()].value, 0)
+            except OSError:
+                self.is_open = True
             await asyncio.sleep(0.1)
 
     @staticmethod
