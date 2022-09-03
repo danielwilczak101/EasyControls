@@ -75,6 +75,7 @@ class Thruster(Enum):
             bus = SMBus(1)
             raise
         finally:
+            await asyncio.sleep(0.1)
             try:
                 for thruster in Thruster:
                     for solinoid in Solinoid:
