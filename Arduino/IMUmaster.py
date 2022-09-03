@@ -22,6 +22,6 @@ if __name__ == '__main__':
                 y = data[0]
                 z = data[2]
 
-                print(f"x - {x},  y - {y}, z - {z}")
+                print(f"x - {x: .0f},  y - {y: .0f}, z - {z: .0f}")
             except ValueError:
                 print(line)
