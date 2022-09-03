@@ -41,7 +41,7 @@ class Thruster(Enum):
             self.is_open[value] = False
             await asyncio.sleep(0.1)
 
-    async def open(self, solinoid):
+    async def open(self, solinoid, duration=None):
         """Leaves solinoid open indefinedtly untill otherwise closed"""
         value = Solinoid[solinoid.upper()].value
         if not self.is_open[value]:
@@ -51,7 +51,11 @@ class Thruster(Enum):
             except OSError:
                 self.is_open[value] = False
                 raise
-            await asyncio.sleep(0.1)
+            if duration is None:
+                await asyncio.sleep(0.1)
+            else:
+                await asyncio.sleep(max(0.1, duration))
+                await self.close(solinoid)
 
     async def close(self, solinoid):
         """Leaves solinoid closed indefinedtly untill otherwise opened"""
@@ -123,7 +127,7 @@ async def read_data() -> list[float]:
         await task
 
 
-async def up_x():
+async def up_x(duration=None):
     await asyncio.gather(
         Thruster.TWO.close("bottom"),
         Thruster.SIX.close("bottom"),
@@ -131,14 +135,14 @@ async def up_x():
         Thruster.THREE.close("top"),
     )
     await asyncio.gather(
-        Thruster.TWO.open("top"),
-        Thruster.SIX.open("top"),
-        Thruster.FIVE.open("bottom"),
-        Thruster.THREE.open("bottom"),
+        Thruster.TWO.open("top", duration),
+        Thruster.SIX.open("top", duration),
+        Thruster.FIVE.open("bottom", duration),
+        Thruster.THREE.open("bottom", duration),
     )
 
 
-async def down_x():
+async def down_x(duration=None):
     await asyncio.gather(
         Thruster.TWO.close("top"),
         Thruster.SIX.close("top"),
@@ -146,20 +150,20 @@ async def down_x():
         Thruster.THREE.close("bottom"),
     )
     await asyncio.gather(
-        Thruster.TWO.open("bottom"),
-        Thruster.SIX.open("bottom"),
-        Thruster.FIVE.open("top"),
-        Thruster.THREE.open("top"),
+        Thruster.TWO.open("bottom", duration),
+        Thruster.SIX.open("bottom", duration),
+        Thruster.FIVE.open("top", duration),
+        Thruster.THREE.open("top", duration),
     )
 
 
 async def main():
     async with read_data() as xyz, Thruster.close_all():
         while True:
-            if xyz[0] > 20:
-                await down_x()
-            elif xyz[0] < -20:
-                await up_x()
+            if xyz[0] > 10:
+                await down_x(xyz[0] / 100)
+            elif xyz[0] < -10:
+                await up_x(-xyz[0] / 100)
             else:
                 async with Thruster.close_all():
                     pass
