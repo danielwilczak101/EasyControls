@@ -142,7 +142,7 @@ async def down_x():
 
 
 async def main():
-    async with read_data() as xyz:
+    async with read_data() as xyz, Thruster.close_all():
         while True:
             if xyz[0] > 2:
                 await down_x()
