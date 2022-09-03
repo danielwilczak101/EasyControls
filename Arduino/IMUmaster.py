@@ -14,9 +14,9 @@ if __name__ == '__main__':
     while True:  # infinite loop looking for bytes
         if ser.in_waiting > 0:
             # receives and reads all bytes and strings
+            line = ser.readline().decode('utf-8').rstrip()
             try:
-                line = ser.readline().decode('utf-8').rstrip()
                 data = [float(x.strip()) for x in line.strip("[]").split(",")]
                 print(data[1])
             except ValueError:
-                ...
+                print(line)
