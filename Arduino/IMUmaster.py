@@ -14,4 +14,5 @@ if __name__ == '__main__':
         if ser.in_waiting > 0:
             # receives and reads all bytes and strings
             line = ser.readline().decode('utf-8').rstrip()
-            print(repr(line))
+            data = [float(x.strip()) for x in line.strip("[]").split(",")]
+            print(data[1])
