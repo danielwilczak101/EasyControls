@@ -63,8 +63,11 @@ class Thruster(Enum):
         global bus
         try:
             yield
+        except OSError as e:
+            print(e)
+            raise
         finally:
-            for _ in range(5):
+            for i in range(1, 5):
                 try:
                     await asyncio.gather(*[
                         thruster.close(solinoid.name)
@@ -74,8 +77,9 @@ class Thruster(Enum):
                 except OSError as e:
                     bus = SMBus(1)
                     print(e)
-                    await asyncio.sleep(1)
+                    await asyncio.sleep(i)
                 else:
+                    print("CLOSED?")
                     break
 
 
