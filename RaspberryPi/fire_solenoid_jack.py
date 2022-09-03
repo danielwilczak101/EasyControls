@@ -162,8 +162,11 @@ async def main():
                     elif xyz[0] < -5:
                         await up_x(min(0.25, -xyz[0] / 200))
                     else:
-                        async with Thruster.close_all():
-                            pass
+                        await asyncio.gather(*[
+                            thruster.close(solinoid.name)
+                            for thruster in Thruster
+                            for solinoid in Solinoid
+                        ])
         except OSError as e:
             print(e)
 
