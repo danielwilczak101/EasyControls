@@ -78,7 +78,7 @@ async def _read_until_stopped(xyz: list[float], stop: asyncio.Event) -> None:
             except ValueError:
                 print(line)
         # Let other code run asynchronously.
-        await asyncio.sleep(0.01)
+        await asyncio.sleep(0)
 
 
 @asynccontextmanager
