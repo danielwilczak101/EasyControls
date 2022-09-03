@@ -3,8 +3,13 @@ from time import sleep
 from enum import Enum
 import asyncio
 from contextlib import asynccontextmanager
+import serial
 
 bus = SMBus(1)
+# enter ls /dev/tty* into terminal to know what your Serial device name is, baud rate, timeout for read operations
+ser = serial.Serial('/dev/ttyUSB0', 115200, timeout=1)
+# This will flush any byte that could already be in the input buffer at that point
+ser.reset_input_buffer()
 
 
 class Solinoid(Enum):
@@ -58,27 +63,47 @@ class Thruster(Enum):
                     break
 
 
+async def _read_until_stopped(xyz: list[float], stop: asyncio.Event) -> None:
+    """Asynchronously updates xyz forever in the background."""
+    while not stop.is_set():
+        if ser.in_waiting > 0:
+            line = ser.readline().decode('utf-8').rstrip()
+            try:
+                # Attempt to update the xyz.
+                xyz = [float(x.strip()) for x in line.strip("[]").split(",")]
+                x = xyz[1]
+                y = xyz[0]
+                z = xyz[2]
+                xyz[:] = [x, y, z]
+            except ValueError:
+                pass
+        # Let other code run asynchronously.
+        await asyncio.sleep(0)
+
+
+@asynccontextmanager
+async def read_data() -> list[float]:
+    xyz = []
+    stop = asyncio.Event()
+    stop.clear()
+    task = asyncio.create_task(_read_until_stopped(xyz, stop))
+    # Wait until xyz is filled with data.
+    while len(xyz) == 0:
+        await asyncio.sleep(0)
+    try:
+        # Let other code access the xyz values.
+        yield xyz
+    finally:
+        # Stop reading data.
+        stop.set()
+        await task
+
+
 async def main():
-    for _ in range(5):
 
-        async with Thruster.close_all():
-            await asyncio.gather(
-                Thruster.TWO.open("top"),
-                Thruster.SIX.open("top"),
-                Thruster.FIVE.open("bottom"),
-                Thruster.THREE.open("bottom"),
-            )
-
-            await asyncio.sleep(3)
-
-        async with Thruster.close_all():
-            await asyncio.gather(
-                Thruster.TWO.open("bottom"),
-                Thruster.SIX.open("bottom"),
-                Thruster.FIVE.open("top"),
-                Thruster.THREE.open("top"),
-            )
-
-            await asyncio.sleep(3)
+    async with read_data() as xyz:
+        for _ in range(10):
+            print(xyz)
+            await asyncio.sleep(1)
 
 asyncio.run(main())
