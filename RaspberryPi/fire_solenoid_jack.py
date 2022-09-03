@@ -143,12 +143,13 @@ async def down_x():
 
 async def main():
     async with read_data() as xyz:
-        if xyz[0] > 2:
-            await down_x()
-        elif xyz[0] < -2:
-            await up_x()
-        else:
-            async with Thruster.close_all():
-                pass
+        while True:
+            if xyz[0] > 2:
+                await down_x()
+            elif xyz[0] < -2:
+                await up_x()
+            else:
+                async with Thruster.close_all():
+                    pass
 
 asyncio.run(main())
