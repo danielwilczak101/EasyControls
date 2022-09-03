@@ -77,6 +77,8 @@ async def _read_until_stopped(xyz: list[float], stop: asyncio.Event) -> None:
                 xyz[:] = [x, y, z]
             except ValueError:
                 print(line)
+            else:
+                print(line)
         # Let other code run asynchronously.
         await asyncio.sleep(0.01)
 
