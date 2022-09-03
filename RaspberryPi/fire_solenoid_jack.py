@@ -121,6 +121,8 @@ async def up_x():
         Thruster.SIX.close("bottom"),
         Thruster.FIVE.close("top"),
         Thruster.THREE.close("top"),
+    )
+    await asyncio.gather(
         Thruster.TWO.open("top"),
         Thruster.SIX.open("top"),
         Thruster.FIVE.open("bottom"),
@@ -134,6 +136,8 @@ async def down_x():
         Thruster.SIX.close("top"),
         Thruster.FIVE.close("bottom"),
         Thruster.THREE.close("bottom"),
+    )
+    await asyncio.gather(
         Thruster.TWO.open("bottom"),
         Thruster.SIX.open("bottom"),
         Thruster.FIVE.open("top"),
