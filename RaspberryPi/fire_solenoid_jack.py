@@ -26,20 +26,36 @@ class Thruster(Enum):
     FIVE = 0x14
     SIX = 0x15
 
+    def __init__(self, address) -> None:
+        self.address = address
+        self.is_open = False
+
     async def impulse(self, solinoid):
         """Fires the solinoid as quick as possible."""
-        bus.write_byte_data(self.value, Solinoid[solinoid.upper()].value, 2)
-        await asyncio.sleep(0.01)
+        if self.is_open:
+            await self.close()
+        else:
+            self.is_open = True
+            bus.write_byte_data(
+                self.address, Solinoid[solinoid.upper()].value, 2)
+            self.is_open = False
+            await asyncio.sleep(0.01)
 
     async def open(self, solinoid):
         """Leaves solinoid open indefinedtly untill otherwise closed"""
-        bus.write_byte_data(self.value, Solinoid[solinoid.upper()].value, 1)
-        await asyncio.sleep(0.01)
+        if not self.is_open:
+            self.is_open = True
+            bus.write_byte_data(
+                self.address, Solinoid[solinoid.upper()].value, 1)
+            await asyncio.sleep(0.01)
 
     async def close(self, solinoid):
         """Leaves solinoid closed indefinedtly untill otherwise opened"""
-        bus.write_byte_data(self.value, Solinoid[solinoid.upper()].value, 0)
-        await asyncio.sleep(0.01)
+        if self.is_open:
+            self.is_open = False
+            bus.write_byte_data(
+                self.address, Solinoid[solinoid.upper()].value, 0)
+            await asyncio.sleep(0.01)
 
     @staticmethod
     @asynccontextmanager
@@ -99,12 +115,40 @@ async def read_data() -> list[float]:
         await task
 
 
+async def up_x():
+    await asyncio.gather(
+        Thruster.TWO.close("bottom"),
+        Thruster.SIX.close("bottom"),
+        Thruster.FIVE.close("top"),
+        Thruster.THREE.close("top"),
+        Thruster.TWO.open("top"),
+        Thruster.SIX.open("top"),
+        Thruster.FIVE.open("bottom"),
+        Thruster.THREE.open("bottom"),
+    )
+
+
+async def down_x():
+    await asyncio.gather(
+        Thruster.TWO.close("top"),
+        Thruster.SIX.close("top"),
+        Thruster.FIVE.close("bottom"),
+        Thruster.THREE.close("bottom"),
+        Thruster.TWO.open("bottom"),
+        Thruster.SIX.open("bottom"),
+        Thruster.FIVE.open("top"),
+        Thruster.THREE.open("top"),
+    )
+
+
 async def main():
-    print("hello")
     async with read_data() as xyz:
-        print("inside")
-        for _ in range(10):
-            print(xyz)
-            await asyncio.sleep(2)
+        if xyz[0] > 2:
+            await down_x()
+        elif xyz[0] < -2:
+            await up_x()
+        else:
+            async with Thruster.close_all():
+                pass
 
 asyncio.run(main())
