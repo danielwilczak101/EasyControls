@@ -1,9 +1,11 @@
 from smbus import SMBus
 from time import sleep
 from enum import Enum
+#import pandas as pd
 import asyncio
 from contextlib import asynccontextmanager
 import serial
+import csv
 
 bus = SMBus(1)
 # enter ls /dev/tty* into terminal to know what your Serial device name is, baud rate, timeout for read operations
@@ -11,6 +13,17 @@ ser = serial.Serial('/dev/ttyUSB0', 115200, timeout=1)
 # This will flush any byte that could already be in the input buffer at that point
 ser.reset_input_buffer()
 
+while True:
+	ser_bytes = ser.readline().decode().strip().split(',')
+	new_ser_bytes = [int(i) for i in ser_bytes]
+	
+	t = sleep.localtime()
+	decoded_time = time.strftime('%H:%M:%S', t)
+	with open("output_data.xlsx", "a", newline='') as f:
+        	writer = csv.writer(f, delimiter = ",")
+        	#writerow with seperate sensorValue
+        	writer.writerow([decoded_time, new_ser_bytes[0], new_ser_bytes[1]])
+        	f.close()
 
 class Solinoid(Enum):
     TOP = 0
