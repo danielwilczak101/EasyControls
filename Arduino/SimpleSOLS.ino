@@ -1,7 +1,7 @@
 #include <Wire.h>
 #include <Adafruit_NeoPixel.h>
 const int LEDPin = 25;
-#define PIN 12 
+#define NEOPIXELPIN 5 
 #define NUMPIXELS 8
 Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 
@@ -16,7 +16,7 @@ int SOLNum;
 unsigned long previousMillis[2];
 
 void setup() {
-  Wire.begin(0x08);
+  Wire.begin(0x15);
   Serial.begin(9600);
   pinMode(SOLS[0], OUTPUT);
   pinMode(SOLS[1], OUTPUT);

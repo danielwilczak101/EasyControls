@@ -1,6 +1,7 @@
 # Make sure arduino is connected to Pi via USB
-
+import pandas as pd
 import serial
+import csv
 
 print("Waiting on Arduino......")
 
@@ -23,3 +24,6 @@ if __name__ == '__main__':
                 print(f"x - {x: .0f},  y - {y: .0f}, z - {z: .0f}")
             except ValueError:
                 print(line)
+    
+        df = pd.DataFrame({'X-Axis':[x],'Y-Axis':[y],'Z-Axis':[z]})
+        df.to_excel('output_data.xlsx')
