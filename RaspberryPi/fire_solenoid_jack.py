@@ -19,14 +19,14 @@ FILENAME = Path("gyro.csv")
 if not FILENAME.exists():
     with open(FILENAME, mode="w", newline="") as file:
         writer = csv.DictWriter(file, fieldnames=["x-axis", "y-axis", "z-axis"])
-        writer.writerrow({"x-axis": "x", "y-axis": "y", "z-axis": "z"})
+        writer.writerow({"x-axis": "x", "y-axis": "y", "z-axis": "z"})
 
 async def gyroData():
     async with get_data() as xyz:
         with open(FILENAME, mode="a", newline="") as file:
             writer = csv.DictWriter(file, fieldnames=["x-axis", "y-axis", "z-axis"])
             while True:
-                writer.writerow({"x": xyz[0], "y": xyz[1], "z": xyz[2]})
+                writer.writerow({"x-axis": xyz[0], "y-axis": xyz[1], "z-axis": xyz[2]})
                 await asyncio.sleep(0.1)
 
 asyncio.run(gyroData())
