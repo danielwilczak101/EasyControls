@@ -1,11 +1,12 @@
 from smbus import SMBus
 from time import sleep
 from enum import Enum
-#import pandas as pd
 import asyncio
 from contextlib import asynccontextmanager
 import serial
 import csv
+from pathlib import Path
+from easy.controls.asyncio import get_data
 
 bus = SMBus(1)
 # enter ls /dev/tty* into terminal to know what your Serial device name is, baud rate, timeout for read operations
@@ -13,15 +14,22 @@ ser = serial.Serial('/dev/ttyUSB0', 115200, timeout=1)
 # This will flush any byte that could already be in the input buffer at that point
 ser.reset_input_buffer()
 
-while True:
-	ser_bytes = ser.readline().decode().strip().split(',')
+FILENAME = Path("gyro.csv")
 
-	t = sleep.localtime()
-	decoded_time = time.strftime('%H:%M:%S', t)
-	with open("output_data.xlsx", "a", newline='') as f:
-        	writer = csv.writer(f, delimiter = ",")
-        	writer.writerow([decoded_time, ser_bytes])
-        	f.close()
+if not FILENAME.exists():
+    with open(FILENAME, mode="w", newline="") as file:
+        writer = csv.DictWriter(file, fieldnames=["x-axis", "y-axis", "z-axis"])
+        writer.writerrow({"x-axis": "x", "y-axis": "y", "z-axis": "z"})
+
+async def gyroData():
+    async with get_data() as xyz:
+        with open(FILENAME, mode="a", newline="") as file:
+            writer = csv.DictWriter(file, fieldnames=["x-axis", "y-axis", "z-axis"])
+            while True:
+                writer.writerow({"x": xyz[0], "y": xyz[1], "z": xyz[2]})
+                await asyncio.sleep(0.1)
+
+asyncio.run(gyroData())
 
 class Solinoid(Enum):
     TOP = 0
