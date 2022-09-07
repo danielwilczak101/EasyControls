@@ -15,14 +15,12 @@ ser.reset_input_buffer()
 
 while True:
 	ser_bytes = ser.readline().decode().strip().split(',')
-	new_ser_bytes = [int(i) for i in ser_bytes]
-	
+
 	t = sleep.localtime()
 	decoded_time = time.strftime('%H:%M:%S', t)
 	with open("output_data.xlsx", "a", newline='') as f:
         	writer = csv.writer(f, delimiter = ",")
-        	#writerow with seperate sensorValue
-        	writer.writerow([decoded_time, new_ser_bytes[0], new_ser_bytes[1]])
+        	writer.writerow([decoded_time, ser_bytes])
         	f.close()
 
 class Solinoid(Enum):
