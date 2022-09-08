@@ -1359,6 +1359,9 @@
     (path "/00000000-0000-0000-0000-00006252edec"
       (reference "#PWR0110") (unit 1) (value "GND") (footprint "")
     )
+    (path "/00000000-0000-0000-0000-00006251fa46/d573892f-76dd-4fb0-9419-e910e60c2780"
+      (reference "#PWR0111") (unit 1) (value "GND") (footprint "")
+    )
     (path "/00000000-0000-0000-0000-00006251fa46/00000000-0000-0000-0000-00006253424f"
       (reference "C1") (unit 1) (value "C") (footprint "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm")
     )
@@ -1397,6 +1400,9 @@
     )
     (path "/00000000-0000-0000-0000-00006251fa46/4ee4664d-b19c-42b0-a90e-fe9df1307883"
       (reference "J5") (unit 1) (value "XT60PW-M") (footprint ".pretty:AMASS_XT60PW-M")
+    )
+    (path "/00000000-0000-0000-0000-00006251fa46/98b66d6c-56aa-4836-8f0e-d0c01afd2d31"
+      (reference "J6") (unit 1) (value "Solenoid I2C") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical")
     )
     (path "/00000000-0000-0000-0000-0000621fe12d"
       (reference "TB1") (unit 1) (value "ARDUINO_NANO") (footprint ".pretty:SHIELD_ARDUINO_NANO")
