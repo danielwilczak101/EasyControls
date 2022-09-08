@@ -3,4 +3,5 @@
   (lib (name "LM78M05CDTX_NOPB")(type "Legacy")(uri "${KIPRJMOD}/Symbols/LM78M05CDTX_NOPB.lib")(options "")(descr ""))
   (lib (name "XT60PW-M")(type "Legacy")(uri "${KIPRJMOD}/Symbols/XT60PW-M.lib")(options "")(descr ""))
   (lib (name "MP2315GJ-Z")(type "Legacy")(uri "${KIPRJMOD}/Symbols/MP2315GJ-Z.lib")(options "")(descr ""))
+  (lib (name "BSS138_RFG")(type "Legacy")(uri "${KIPRJMOD}/Symbols/BSS138_RFG.lib")(options "")(descr ""))
 )
