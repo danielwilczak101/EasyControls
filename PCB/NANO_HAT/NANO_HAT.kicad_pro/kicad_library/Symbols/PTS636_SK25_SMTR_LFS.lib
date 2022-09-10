@@ -1,0 +1,29 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#(c) SnapEDA 2016 (snapeda.com)
+#This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA) with Design Exception 1.0
+#
+# PTS636_SK25_SMTR_LFS
+#
+DEF PTS636_SK25_SMTR_LFS S 0 40 Y Y 1 L N
+F0 "S" 250 200 50 H V L BNN
+F1 "PTS636_SK25_SMTR_LFS" 250 -300 50 H V L BNN
+F2 "PTS636SK25SMTRLFS" 0 0 50 H I L BNN
+F3 "" 0 0 50 H I L BNN
+F4 "C & K COMPONENTS" 0 0 50 H I L BNN "MANUFACTURER_NAME"
+F5 "https://www.mouser.co.uk/ProductDetail/CK/PTS636-SK25-SMTR-LFS?qs=vLWxofP3U2wQKecmu1U%2FMA%3D%3D" 0 0 50 H I L BNN "MOUSER_PRICE-STOCK"
+F6 "Tactile Switches Tact 50mA 12VDC, 6.0x3.5, 2.5mm H, 250gf, G leads, No ground pin, Red Actuator" 0 0 50 H I L BNN "DESCRIPTION"
+F7 "611-PTS636SK25SMTRLF" 0 0 50 H I L BNN "MOUSER_PART_NUMBER"
+F8 "2.7mm" 0 0 50 H I L BNN "HEIGHT"
+F9 "PTS636 SK25 SMTR LFS" 0 0 50 H I L BNN "MANUFACTURER_PART_NUMBER"
+DRAW
+P 2 0 0 10 200 100 700 100 N
+P 2 0 0 10 700 -200 700 100 N
+P 2 0 0 10 700 -200 200 -200 N
+P 2 0 0 10 200 100 200 -200 N
+X COM 1 0 0 200 R 40 40 0 0 B 
+X NO 2 0 -100 200 R 40 40 0 0 B 
+ENDDRAW
+ENDDEF
+#
+# End Library

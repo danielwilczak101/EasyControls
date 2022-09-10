@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name "dmn4026ssd")(type "KiCad")(uri "${KIPRJMOD}/kicad_library/Symbols/dmn4026ssd.kicad_sym")(options "")(descr ""))
+  (lib (name "LM78M05CDTX_NOPB")(type "Legacy")(uri "${KIPRJMOD}/kicad_library/Symbols/LM78M05CDTX_NOPB.lib")(options "")(descr ""))
+)

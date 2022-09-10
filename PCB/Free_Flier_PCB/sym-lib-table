@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name "Free_Flier_PCB-rescue")(type "Legacy")(uri "${KIPRJMOD}/Free_Flier_PCB-rescue.lib")(options "")(descr ""))
+)
