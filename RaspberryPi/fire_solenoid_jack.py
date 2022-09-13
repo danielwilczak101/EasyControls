@@ -128,9 +128,9 @@ async def _read_until_stopped(data: list[float], stop: asyncio.Event) -> None:
                 else:
                     dt = (datetime.now() - t).total_seconds()
                     t = datetime.now()
-                    data[3] += ((x - data[0]) / dt - data[3]) / 10
-                    data[4] += ((y - data[1]) / dt - data[4]) / 10
-                    data[5] += ((z - data[2]) / dt - data[5]) / 10
+                    data[3] += ((x - data[0]) / dt - data[3]) / 5
+                    data[4] += ((y - data[1]) / dt - data[4]) / 5
+                    data[5] += ((z - data[2]) / dt - data[5]) / 5
                     data[0] = x
                     data[1] = y
                     data[2] = z
@@ -143,12 +143,12 @@ async def read_data() -> list[float]:
     data = []
     stop = asyncio.Event()
     stop.clear()
-    task = asyncio.create_task(_read_until_stopped(xyz, stop))
+    task = asyncio.create_task(_read_until_stopped(data, stop))
     # Wait until data is filled with data.
     while len(data) == 0:
         await asyncio.sleep(0.1)
     try:
-        # Let other code access the xyz values.
+        # Let other code access the data values.
         yield data
     finally:
         # Stop reading data.
@@ -205,21 +205,28 @@ async def main():
             while True:
                 x = data[0]
                 vx = data[3]
-                if vx > 50 and abs(x) > 20:
+                print(vx)
+                await asyncio.sleep(0.1)
+                continue
+                if vx > 70 and abs(x) > 20:
                     await down_x(0.1)
-                elif vx < -50 and abs(x) > 20:
+                    await asyncio.sleep(0.1)
+                elif vx < -70 and abs(x) > 20:
                     await up_x(0.1)
+                    await asyncio.sleep(0.1)
                 elif x > 5:
                     await down_x(min(0.25, x / 400))
-                elif xyz[0] < -5:
+                    await asyncio.sleep(abs(x) / 400)
+                elif x < -5:
                     await up_x(min(0.25, -x / 400))
+                    await asyncio.sleep(abs(x) / 400)
                 else:
                     await asyncio.gather(*[
                         thruster.close(solinoid.name)
                         for thruster in Thruster
                         for solinoid in Solinoid
                     ])
-                await asyncio.sleep(abs(x) / 400)
+                    await asyncio.sleep(abs(x) / 400)
                 if datetime.now() > end_time:
                     return
     except OSError as e:
