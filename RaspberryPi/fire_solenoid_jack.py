@@ -178,25 +178,16 @@ async def down_x(duration=None):
 def random_generator(lower: float, upper: float) -> Iterator[float]:
     return (random.uniform(lower, upper) for _ in iter(int, None))
 
-async def go_crazy(thruster: Thruster, solinoid: str, duration: float) -> None:
+async def go_crazy(duration: float) -> None:
     end_time = datetime.now() + timedelta(seconds=duration)
-    for open_time, close_time in zip(random_generate(0.1, 0.5), random_generator(0.1, 0.5)):
-        await thruster.open(solinoid, open_time)
-        await thruster.close(solinoid)
+    for open_time, close_time in zip(random_generator(0.1, 0.5), random_generator(0.1, 0.5)):
+        await random.choice([up_x, down_x])(open_time)
         await asyncio.sleep(close_time)
         if datetime.now() > end_time:
             break
 
-async def go_all_crazy(duration: float) -> None:
-    async with Thruster.close_all():
-        await asyncio.gather(*[
-            go_crazy(thruster, solinoid.name.lower(), duration)
-            for thurster in Thruster
-            for solinoid in Solinoid
-        ])
-
 async def main():
-    await go_all_crazy(5)
+    await go_crazy(5)
     await asyncio.sleep(1)
     while True:
         try:
