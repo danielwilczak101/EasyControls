@@ -1,12 +1,15 @@
-from smbus import SMBus
-from time import sleep
-from enum import Enum
 import asyncio
-from contextlib import asynccontextmanager
-import serial
 import csv
+import random
+import serial
+
+from contextlib import asynccontextmanager
+from datetime import datetime, timedelta
+from enum import Enum
 from pathlib import Path
-from easy.controls.asyncio import get_data
+from typing import Iterator
+
+from smbus import SMBus
 
 bus = SMBus(1)
 # enter ls /dev/tty* into terminal to know what your Serial device name is, baud rate, timeout for read operations
@@ -14,6 +17,7 @@ ser = serial.Serial('/dev/ttyUSB0', 115200, timeout=1)
 # This will flush any byte that could already be in the input buffer at that point
 ser.reset_input_buffer()
 
+"""
 FILENAME = Path("gyro.csv")
 
 if not FILENAME.exists():
@@ -22,7 +26,7 @@ if not FILENAME.exists():
         writer.writerow({"x": "x", "y": "y", "z": "z"})
 
 async def gyroData():
-    async with get_data() as xyz:
+    async with read_data() as xyz:
         with open(FILENAME, mode="a", newline="") as file:
             writer = csv.DictWriter(file, fieldnames=["x", "y", "z"])
             while True:
@@ -30,6 +34,7 @@ async def gyroData():
                 await asyncio.sleep(0.1)
 
 asyncio.run(gyroData())
+"""
 
 class Solinoid(Enum):
     TOP = 0
@@ -170,8 +175,29 @@ async def down_x(duration=None):
         Thruster.THREE.open("top", duration),
     )
 
+def random_generator(lower: float, upper: float) -> Iterator[float]:
+    return (random.uniform(lower, upper) for _ in iter(int, None))
+
+async def go_crazy(thruster: Thruster, solinoid: str, duration: float) -> None:
+    end_time = datetime.now() + timedelta(seconds=duration)
+    for open_time, close_time in zip(random_generate(0.1, 0.5), random_generator(0.1, 0.5)):
+        await thruster.open(solinoid, open_time)
+        await thruster.close(solinoid)
+        await asyncio.sleep(close_time)
+        if datetime.now() > end_time:
+            break
+
+async def go_all_crazy(duration: float) -> None:
+    async with Thruster.close_all():
+        await asyncio.gather(*[
+            go_crazy(thruster, solinoid.name.lower(), duration)
+            for thurster in Thruster
+            for solinoid in Solinoid
+        ])
 
 async def main():
+    await go_all_crazy(5)
+    await asyncio.sleep(1)
     while True:
         try:
             async with read_data() as xyz, Thruster.close_all():
