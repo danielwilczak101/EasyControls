@@ -1,3 +1,0 @@
-(fp_lib_table
-  (lib (name "Dylan")(type "KiCad")(uri "${KIPRJMOD}/kicad_library/Dylan.pretty")(options "")(descr ""))
-)
