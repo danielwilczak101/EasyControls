@@ -5,17 +5,17 @@
       "Application": "Pcbnew",
       "Version": "(6.0.4)"
     },
-    "CreationDate": "2022-09-15T01:58:29-04:00"
+    "CreationDate": "2022-09-15T01:44:32-04:00"
   },
   "GeneralSpecs": {
     "ProjectId": {
-      "Name": "Pi_HAT",
-      "GUID": "50695f48-4154-42e6-9b69-6361645f7063",
+      "Name": "NANO_HAT",
+      "GUID": "4e414e4f-5f48-4415-942e-6b696361645f",
       "Revision": "rev?"
     },
     "Size": {
-      "X": 64.7393,
-      "Y": 69.7393
+      "X": 51.6645,
+      "Y": 59.1645
     },
     "LayerNumber": 2,
     "BoardThickness": 1.6,
@@ -34,47 +34,47 @@
   ],
   "FilesAttributes": [
     {
-      "Path": "Pi_HAT-F_Cu.gbr",
+      "Path": "NANO_HAT-F_Cu.gbr",
       "FileFunction": "Copper,L1,Top",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "Pi_HAT-B_Cu.gbr",
+      "Path": "NANO_HAT-B_Cu.gbr",
       "FileFunction": "Copper,L2,Bot",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "Pi_HAT-F_Paste.gbr",
+      "Path": "NANO_HAT-F_Paste.gbr",
       "FileFunction": "SolderPaste,Top",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "Pi_HAT-B_Paste.gbr",
+      "Path": "NANO_HAT-B_Paste.gbr",
       "FileFunction": "SolderPaste,Bot",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "Pi_HAT-F_Silkscreen.gbr",
+      "Path": "NANO_HAT-F_Silkscreen.gbr",
       "FileFunction": "Legend,Top",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "Pi_HAT-B_Silkscreen.gbr",
+      "Path": "NANO_HAT-B_Silkscreen.gbr",
       "FileFunction": "Legend,Bot",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "Pi_HAT-F_Mask.gbr",
+      "Path": "NANO_HAT-F_Mask.gbr",
       "FileFunction": "SolderMask,Top",
       "FilePolarity": "Negative"
     },
     {
-      "Path": "Pi_HAT-B_Mask.gbr",
+      "Path": "NANO_HAT-B_Mask.gbr",
       "FileFunction": "SolderMask,Bot",
       "FilePolarity": "Negative"
     },
     {
-      "Path": "Pi_HAT-Edge_Cuts.gbr",
+      "Path": "NANO_HAT-Edge_Cuts.gbr",
       "FileFunction": "Profile",
       "FilePolarity": "Positive"
     }

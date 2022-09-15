@@ -1874,9 +1874,6 @@
     (path "/00000000-0000-0000-0000-00006251fa46/860e5e6d-c428-423a-91cd-7bea999d59e8"
       (reference "#PWR0115") (unit 1) (value "GND") (footprint "")
     )
-    (path "/00000000-0000-0000-0000-00006251fa46/0f054b45-60c5-4861-99d1-88a6741242a3"
-      (reference "#PWR0116") (unit 1) (value "GND") (footprint "")
-    )
     (path "/00000000-0000-0000-0000-00006251fa46/54eeeeb6-6d55-466e-acbf-57f24fd4861a"
       (reference "#PWR0117") (unit 1) (value "GND") (footprint "")
     )
@@ -1963,9 +1960,6 @@
     )
     (path "/b05e2bbc-cc11-4dc8-8752-5e4231bac9d8"
       (reference "J7") (unit 1) (value "Pressure Sensor") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical")
-    )
-    (path "/00000000-0000-0000-0000-00006251fa46/02eff34a-fa62-4f6c-8eed-37c683bd12c6"
-      (reference "J8") (unit 1) (value "XT60PW-M") (footprint ".pretty:AMASS_XT60PW-M")
     )
     (path "/00000000-0000-0000-0000-00006251fa46/f8261744-a8f9-42f6-8adc-0b665396d639"
       (reference "L1") (unit 1) (value "4.9u") (footprint ".pretty:744777004")

@@ -1,0 +1,13 @@
+"Id";"Designator";"Package";"Quantity";"Designation";"Supplier and ref";
+1;"G***";"eppl_logo";1;"LOGO";;;
+2;"TB1";"SHIELD_ARDUINO_NANO";1;"ARDUINO_NANO";;;
+3;"J3";"PinHeader_2x03_P2.54mm_Vertical";1;"Display";;;
+4;"H1,H2,H3,H4,H5,H6";"MountingHole_2.5mm";6;"MountingHole";;;
+5;"J1";"PinHeader_1x10_P2.54mm_Vertical";1;"MPU9250";;;
+6;"J2";"PinHeader_2x20_P2.54mm_Vertical";1;"Pi_GPIO";;;
+7;"C1";"C_Rect_L7.0mm_W2.5mm_P5.00mm";1;"C";;;
+8;"J4,J6";"PinHeader_1x04_P2.54mm_Vertical";2;"Solenoid I2C";;;
+9;"J5,J8";"AMASS_XT60PW-M";2;"XT60PW-M";;;
+10;"C2";"CP_Radial_D4.0mm_P1.50mm";1;"C_Polarized";;;
+11;"J7";"PinHeader_1x03_P2.54mm_Vertical";1;"Pressure ";;;
+12;"VR1,VR2,VR3";"VREG_L7805ACD2T";3;"LM78M05CDTX/NOPB";;;
