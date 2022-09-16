@@ -1,0 +1,12 @@
+"Id";"Designator";"Package";"Quantity";"Designation";"Supplier and ref";
+1;"G***";"eppl_logo";1;"LOGO";;;
+2;"VR1";"TO228P991X255-3N";1;"LM78M05CDTX/NOPB";;;
+3;"J5,J2";"PinHeader_1x02_P2.54mm_Vertical";2;"SOL1";;;
+4;"H1,H3,H4,H2";"MountingHole_3.2mm_M3";4;"MountingHole";;;
+5;"J7,J4";"PinHeader_1x04_P2.54mm_Vertical";2;"Conn_01x04_Male";;;
+6;"TB1";"SHIELD_ARDUINO_NANO";1;"ARDUINO_NANO";;;
+7;"J3,J6";"PinHeader_1x02_P2.54mm_Vertical";2;"SOL2";;;
+8;"J1";"PinHeader_1x03_P2.54mm_Vertical";1;"LED";;;
+9;"R1,R2";"R_0805_2012Metric_Pad1.20x1.40mm_HandSolder";2;"10k";;;
+10;"D2,D1";"D_1812_4532Metric_Pad1.30x3.40mm_HandSolder";2;"D";;;
+11;"U1";"SOIC127P600X150-8N";1;"DMN4026SSD";;;
