@@ -1,4 +1,4 @@
-# ISAAC
+# ISAAC:
 
 <p align="center"> 
   <kbd>
