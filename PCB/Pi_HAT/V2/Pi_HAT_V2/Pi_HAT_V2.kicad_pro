@@ -411,7 +411,7 @@
     "meta": {
       "version": 1
     },
-    "net_format_name": "",
+    "net_format_name": "KiCad",
     "ngspice": {
       "fix_include_paths": true,
       "fix_passive_vals": false,
@@ -435,7 +435,11 @@
     ],
     [
       "00000000-0000-0000-0000-00006251fa46",
-      "Voltage Reg"
+      "Buck Converter"
+    ],
+    [
+      "63a9d60b-f770-4724-9334-8ff781e7943f",
+      "Level Shifter"
     ]
   ],
   "text_variables": {}

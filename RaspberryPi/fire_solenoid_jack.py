@@ -1,9 +1,15 @@
-from smbus import SMBus
-from time import sleep
-from enum import Enum
 import asyncio
-from contextlib import asynccontextmanager
+import csv
+import random
 import serial
+
+from contextlib import asynccontextmanager
+from datetime import datetime, timedelta
+from enum import Enum
+from pathlib import Path
+from typing import Iterator
+
+from smbus import SMBus
 
 bus = SMBus(1)
 # enter ls /dev/tty* into terminal to know what your Serial device name is, baud rate, timeout for read operations
@@ -11,6 +17,25 @@ ser = serial.Serial('/dev/ttyUSB0', 115200, timeout=1)
 # This will flush any byte that could already be in the input buffer at that point
 ser.reset_input_buffer()
 
+"""
+FILENAME = Path("gyro.csv")
+FIELDNAMES = ["x", "y", "z", "vx", "vy", "vz"]
+
+if not FILENAME.exists():
+    with open(FILENAME, mode="w", newline="") as file:
+        writer = csv.DictWriter(file, fieldnames=FIELDNAMES)
+        writer.writerow({name: name for name in FIELDNAMES})
+
+async def gyroData():
+    async with read_data() as data:
+        with open(FILENAME, mode="a", newline="") as file:
+            writer = csv.DictWriter(file, fieldnames=FIELDNAMES)
+            while True:
+                writer.writerow(dict(zip(FIELDNAMES, data)))
+                await asyncio.sleep(0.1)
+
+asyncio.run(gyroData())
+"""
 
 class Solinoid(Enum):
     TOP = 0
@@ -86,36 +111,45 @@ class Thruster(Enum):
                 pass
 
 
-async def _read_until_stopped(xyz: list[float], stop: asyncio.Event) -> None:
-    """Asynchronously updates xyz forever in the background."""
+async def _read_until_stopped(data: list[float], stop: asyncio.Event) -> None:
+    """Asynchronously updates data forever in the background."""
     while not stop.is_set():
         if ser.in_waiting > 0:
             line = ser.readline().decode('utf-8').rstrip()
             try:
                 # Attempt to update the xyz.
-                data = [float(x.strip()) for x in line.strip("[]").split(",")]
-                x = data[1]
-                y = data[0]
-                z = data[2]
-                xyz[:] = [x, y, z]
+                y, x, z = [float(x.strip()) for x in line.strip("[]").split(",")]
             except ValueError:
                 print(line)
+            else:
+                if len(data) == 0:
+                    t = datetime.now()
+                    data[:] = [x, y, z, 0.0, 0.0, 0.0]
+                else:
+                    dt = (datetime.now() - t).total_seconds()
+                    t = datetime.now()
+                    data[3] += ((x - data[0]) / dt - data[3]) / 5
+                    data[4] += ((y - data[1]) / dt - data[4]) / 5
+                    data[5] += ((z - data[2]) / dt - data[5]) / 5
+                    data[0] = x
+                    data[1] = y
+                    data[2] = z
         # Let other code run asynchronously.
         await asyncio.sleep(0)
 
 
 @asynccontextmanager
 async def read_data() -> list[float]:
-    xyz = []
+    data = []
     stop = asyncio.Event()
     stop.clear()
-    task = asyncio.create_task(_read_until_stopped(xyz, stop))
-    # Wait until xyz is filled with data.
-    while len(xyz) == 0:
-        await asyncio.sleep(0)
+    task = asyncio.create_task(_read_until_stopped(data, stop))
+    # Wait until data is filled with data.
+    while len(data) == 0:
+        await asyncio.sleep(0.1)
     try:
-        # Let other code access the xyz values.
-        yield xyz
+        # Let other code access the data values.
+        yield data
     finally:
         # Stop reading data.
         stop.set()
@@ -151,23 +185,51 @@ async def down_x(duration=None):
         Thruster.THREE.open("top", duration),
     )
 
+def random_generator(lower: float, upper: float) -> Iterator[float]:
+    return (random.uniform(lower, upper) for _ in iter(int, None))
+
+async def go_crazy(duration: float) -> None:
+    end_time = datetime.now() + timedelta(seconds=duration)
+    for open_time, close_time in zip(random_generator(0.5, 2), random_generator(0.1, 0.5)):
+        await random.choice([up_x, down_x])(open_time)
+        await asyncio.sleep(close_time)
+        if datetime.now() > end_time:
+            break
 
 async def main():
-    while True:
-        try:
-            async with read_data() as xyz, Thruster.close_all():
-                while True:
-                    if xyz[0] > 5:
-                        await down_x(min(0.25, xyz[0] / 200))
-                    elif xyz[0] < -5:
-                        await up_x(min(0.25, -xyz[0] / 200))
-                    else:
-                        await asyncio.gather(*[
-                            thruster.close(solinoid.name)
-                            for thruster in Thruster
-                            for solinoid in Solinoid
-                        ])
-        except OSError as e:
-            print(e)
+    end_time = datetime.now() + timedelta(seconds=55)
+    await go_crazy(5)
+    await asyncio.sleep(1)
+    try:
+        async with read_data() as data, Thruster.close_all():
+            while True:
+                x = data[0]
+                vx = data[3]
+                print(vx)
+                await asyncio.sleep(0.1)
+                continue
+                if vx > 70 and abs(x) > 20:
+                    await down_x(0.1)
+                    await asyncio.sleep(0.1)
+                elif vx < -70 and abs(x) > 20:
+                    await up_x(0.1)
+                    await asyncio.sleep(0.1)
+                elif x > 5:
+                    await down_x(min(0.25, x / 400))
+                    await asyncio.sleep(abs(x) / 400)
+                elif x < -5:
+                    await up_x(min(0.25, -x / 400))
+                    await asyncio.sleep(abs(x) / 400)
+                else:
+                    await asyncio.gather(*[
+                        thruster.close(solinoid.name)
+                        for thruster in Thruster
+                        for solinoid in Solinoid
+                    ])
+                    await asyncio.sleep(abs(x) / 400)
+                if datetime.now() > end_time:
+                    return
+    except OSError as e:
+        print(e)
 
 asyncio.run(main())
