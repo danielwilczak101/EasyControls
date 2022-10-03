@@ -300,7 +300,6 @@
     (fp_line (start 1.48 -0.73) (end 1.48 0.73) (layer "F.CrtYd") (width 0.05) (tstamp 3dcc657b-55a1-48e0-9667-e01e7b6b08b5))
     (fp_line (start -1.48 -0.73) (end 1.48 -0.73) (layer "F.CrtYd") (width 0.05) (tstamp 67f6e996-3c99-493c-8f6f-e739e2ed5d7a))
     (fp_line (start -0.8 -0.4) (end 0.8 -0.4) (layer "F.Fab") (width 0.1) (tstamp 46918595-4a45-48e8-84c0-961b4db7f35f))
-    (fp_line (start -0.8 0.4) (end -0.8 -0.4) (layer "F.Fab") (width 0.1) (tstamp 9ccf03e8-755a-4cd9-96fc-30e1d08fa253))
     (fp_line (start 0.8 0.4) (end -0.8 0.4) (layer "F.Fab") (width 0.1) (tstamp a7520ad3-0f8b-4788-92d4-8ffb277041e6))
     (fp_line (start 0.8 -0.4) (end 0.8 0.4) (layer "F.Fab") (width 0.1) (tstamp a795f1ba-cdd5-4cc5-9a52-08586e982934))
     (pad "1" smd roundrect locked (at -0.775 0 315) (size 0.9 0.95) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
