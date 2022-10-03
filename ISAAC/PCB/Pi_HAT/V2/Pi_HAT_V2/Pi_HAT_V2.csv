@@ -1,17 +1,17 @@
 TYPE,DESIGNATION,PT #,ORDER LINK,QUANTITY
 10K ohm,R8:R13,805,HAVE,
-604K ohm,R2,1206,DIGI,15
-15K ohm,R3,805,DIGI,15
-20 ohm,R4,603,DIGI,15
-7.68K ohm,R5,805,DIGI,15
-700 ohm,R6:R7,603,DIGI,25
-40.2K ohm,R14,805,DIGI,15
-22uF,"C1,C5:C7",1210,DIGI,40
-0.1uF,C2,1210,DIGI,15
-1nF,C3:C4,603,DIGI,25
-6.8nF,C8,603,DIGI,15
-10pF,C9,603,DIGI,15
-4.9uH,L1,SMD,MOUSER,10
-220uH,L2,THT,DIGI,10
-N-mosfet,Q1:Q3,SMD,MOUSER,25
-Buck,U1,SMD,MOUSER,10
+604K ohm,R2,1206,https://www.digikey.com/en/products/detail/te-connectivity-passive-product/RQ73C2B604KBTD/9480491#fromHistory,15
+15K ohm,R3,805,https://www.digikey.com/en/products/detail/te-connectivity-passive-product/CRG0805F15K/2380847#fromHistory,15
+20 ohm,R4,603,https://www.digikey.com/en/products/detail/te-connectivity-passive-product/CPF-A-0603B20RE/5583810#fromHistory,15
+7.68K ohm,R5,805,https://www.digikey.com/en/products/detail/te-connectivity-passive-product/RQ73C2A7K68BTD/9480723,15
+700 ohm,R6:R7,603,https://www.digikey.com/en/products/detail/te-connectivity-passive-product/RP73PF1J698RBTDF/4033561#fromHistory,25
+40.2K ohm,R14,805,https://www.digikey.com/en/products/detail/te-connectivity-passive-product/RQ73C2A40K2BTD/9480287#fromHistory,15
+22uF,"C1,C5:C7",1210,https://www.digikey.com/en/products/detail/samsung-electro-mechanics/CL32A226KAJNNNE/3886759#fromHistory,40
+0.1uF,C2,1210,https://www.digikey.com/en/products/detail/w%C3%BCrth-elektronik/885012209019/5453575#fromHistory,15
+1nF,C3:C4,603,https://www.digikey.com/en/products/detail/w%C3%BCrth-elektronik/885012006044/5453641#fromHistory,25
+6.8nF,C8,603,https://www.digikey.com/en/products/detail/tdk-corporation/C1608C0G1E682J080AA/970431#fromHistory,15
+10pF,C9,603,https://www.digikey.com/en/products/detail/kemet/C0603C100J3HAC7867/7946556#fromHistory,15
+4.9uH,L1,SMD,https://www.mouser.com/ProductDetail/Coiltronics-Eaton/SD7030-5R0-R?qs=ybuMVFYFgVIfIkMqqaGZig%3D%3D#fromHistory,10
+220uH,L2,THT,https://www.digikey.com/en/products/detail/murata-power-solutions-inc/1422435C/1924834#fromHistory,10
+N-mosfet,Q1:Q3,SMD,https://www.mouser.com/ProductDetail/Taiwan-Semiconductor/BSS138-RFG?qs=CiayqK2gdcIdWgbW3EO6bQ%3D%3D&mgh=1#fromHistory,25
+Buck,U1,SMD,https://www.mouser.com/ProductDetail/Monolithic-Power-Systems-MPS/MP2393GTL-Z?qs=YCa%2FAAYMW02wfKsqEy92eA%3D%3D#fromHistory,10
