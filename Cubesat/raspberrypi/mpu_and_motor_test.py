@@ -18,12 +18,12 @@ sensor = adafruit_mpu6050.MPU6050(i2c)
 
 #Motor Setup
 #Define pins
-brakePin = 7
-directionPin = 13
-PWMPin = 33
+brakePin = 4
+directionPin = 27
+PWMPin = 13
 
 #Pin Setup
-GPIO.setmode(GPIO.BOARD) #Use board numbering system (1-40)
+#GPIO.setmode(GPIO.BOARD) #Use board numbering system (1-40)
 
 GPIO.setup(brakePin, GPIO.OUT) #Defines this pin as output
 GPIO.setup(directionPin, GPIO.OUT)
