@@ -27,8 +27,9 @@ myPWM.start(50) #20% duty cycle
 while 1:
     for i in range(20, 100):
         myPWM.ChangeDutyCycle(i)
-        time.sleep(0.01)
+        time.sleep(0.1)
 
     for i in range(100, 20):
         myPWM.ChangeDutyCycle(i)
+        time.sleep(0.1)
         
