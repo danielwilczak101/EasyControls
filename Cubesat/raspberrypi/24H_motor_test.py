@@ -22,11 +22,11 @@ GPIO.output(brakePin, True) #True means high, False means low
 GPIO.output(directionPin, False)
 
 #Start PWM
-myPWM.start(0) #0% duty cycle
+myPWM.start(100) #0% duty cycle
 
 while True:
     myPWM.ChangeDutyCycle(50)
     time.sleep(5)
-    myPWM.ChangeDutyCycle(0)
+    myPWM.ChangeDutyCycle(100)
     time.sleep(5)
         
