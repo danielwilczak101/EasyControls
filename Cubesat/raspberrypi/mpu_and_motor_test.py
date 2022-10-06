@@ -6,7 +6,7 @@
 # See this page to learn the math and physics principals behind this example:
 # https://learn.adafruit.com/how-tall-is-it/gravity-and-acceleration
 
-from this import d
+#from this import d
 import RPi.GPIO as GPIO
 import time
 from math import atan2, degrees
