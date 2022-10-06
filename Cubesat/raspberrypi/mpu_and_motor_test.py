@@ -61,7 +61,9 @@ def get_inclination(_sensor):
 #Start motor
 myPWM.start(100) #0% duty cycle
 
-#Calibrate angle "0"
+myPWM.ChangeDutyCycle(50)
+
+""" #Calibrate angle "0"
 angle_xz, angle_yz = get_inclination(sensor)
 targetAngle = angle_xz
 
@@ -75,4 +77,4 @@ while True:
         GPIO.output(directionPin, True)    
     else:
         myPWM.ChangeDutyCycle(100)
-    time.sleep(0.05)
+    time.sleep(0.05) """
