@@ -1,5 +1,6 @@
 from this import d
 import RPi.GPIO as GPIO
+import time
 #import time #time.sleep(1) would pause code for 1 second
 
 #Define pins
@@ -22,3 +23,12 @@ GPIO.output(directionPin, False)
 
 #Start PWM
 myPWM.start(50) #20% duty cycle
+
+while 1:
+    for i in range(20, 100):
+        myPWM.ChangeDutyCycle(i)
+        time.sleep(0.01)
+
+    for i in range(100, 20):
+        myPWM.ChangeDutyCycle(i)
+        time.sleep(0.01)
