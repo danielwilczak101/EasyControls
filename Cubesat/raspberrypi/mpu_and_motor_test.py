@@ -6,7 +6,7 @@
 # See this page to learn the math and physics principals behind this example:
 # https://learn.adafruit.com/how-tall-is-it/gravity-and-acceleration
 
-#from this import d
+from this import d
 import RPi.GPIO as GPIO
 import time
 from math import atan2, degrees
@@ -63,7 +63,7 @@ myPWM.start(100) #0% duty cycle
 
 myPWM.ChangeDutyCycle(50)
 
-""" #Calibrate angle "0"
+#Calibrate angle "0"
 angle_xz, angle_yz = get_inclination(sensor)
 targetAngle = angle_xz
 
@@ -77,4 +77,4 @@ while True:
         GPIO.output(directionPin, True)    
     else:
         myPWM.ChangeDutyCycle(100)
-    time.sleep(0.05) """
+    time.sleep(0.05)
