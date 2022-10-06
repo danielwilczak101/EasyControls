@@ -12,6 +12,7 @@ GPIO.setmode(GPIO.BOARD) #Use board numbering system (1-40)
 
 GPIO.setup(brakePin, GPIO.OUT) #Defines this pin as output
 GPIO.setup(directionPin, GPIO.OUT)
+GPIO.setup(PWMPin, GPIO.OUT)
 
 myPWM = GPIO.PWM(PWMPin,20000) #Sets PWM frequency to 20 kH
 
