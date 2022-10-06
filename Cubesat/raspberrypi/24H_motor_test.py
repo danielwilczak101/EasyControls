@@ -29,4 +29,7 @@ while True:
     time.sleep(5)
     myPWM.ChangeDutyCycle(100)
     time.sleep(5)
+    myPWM.ChangeDutyCycle(0)
+    time.sleep(5)
+    
         
