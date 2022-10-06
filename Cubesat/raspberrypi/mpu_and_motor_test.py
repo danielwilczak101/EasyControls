@@ -56,7 +56,10 @@ def get_inclination(_sensor):
 
 #Stops motor in order to change direction
 
-#def
+def brakeMotor():
+    GPIO.output(brakePin, False)
+    time.sleep(0.25)
+    GPIO.output(brakePin, True)
 
 #Start motor
 myPWM.start(100) #0% duty cycle
@@ -69,12 +72,15 @@ targetAngle = angle_xz
 
 while True:
     angle_xz, angle_yz = get_inclination(sensor)
-    if angle_xz < targetAngle:
+    if angle_yz < targetAngle-1:
+        brakeMotor()
         myPWM.ChangeDutyCycle(50)
         GPIO.output(directionPin, False)
-    elif angle_xz > targetAngle:
+    elif angle_yz > targetAngle + 1:
+        brakeMotor()
         myPWM.ChangeDutyCycle(50)
         GPIO.output(directionPin, True)    
     else:
+        brakeMotor()
         myPWM.ChangeDutyCycle(100)
-    time.sleep(0.05)
+    time.sleep(0.1)
