@@ -72,11 +72,11 @@ targetAngle = angle_xz
 
 while True:
     angle_xz, angle_yz = get_inclination(sensor)
-    if angle_xz < targetAngle-1:
+    if angle_yz < targetAngle-1:
         brakeMotor()
         myPWM.ChangeDutyCycle(50)
         GPIO.output(directionPin, False)
-    elif angle_xz > targetAngle + 1:
+    elif angle_yz > targetAngle + 1:
         brakeMotor()
         myPWM.ChangeDutyCycle(50)
         GPIO.output(directionPin, True)    
