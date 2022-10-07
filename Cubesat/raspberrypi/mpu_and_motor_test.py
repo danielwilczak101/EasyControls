@@ -64,22 +64,32 @@ def brakeMotor():
 #Start motor
 myPWM.start(100) #0% duty cycle
 
-myPWM.ChangeDutyCycle(50)
-
 #Calibrate angle "0"
 angle_xz, angle_yz = get_inclination(sensor)
-targetAngle = angle_xz
+targetAngle = angle_yz
+previousDirection = True
+previousPWMDutyCycle = 100
 
 while True:
     angle_xz, angle_yz = get_inclination(sensor)
-    if angle_yz < targetAngle-1:
-        brakeMotor()
-        myPWM.ChangeDutyCycle(50)
-        GPIO.output(directionPin, False)
-    elif angle_yz > targetAngle + 1:
-        brakeMotor()
-        myPWM.ChangeDutyCycle(50)
-        GPIO.output(directionPin, True)    
+    if angle_yz < targetAngle:
+        currentDirection = True
+        currentPWMDutyCycle = 50
+    elif angle_yz > targetAngle:
+        currentDirection = False
+        currentPWMDutyCycle = 50
     else:
+        currentPWMDutyCycle = 100
+    
+    if currentDirection != previousDirection or currentPWMDutyCycle != previousPWMDutyCycle:
         brakeMotor()
-        myPWM.ChangeDutyCycle(100)
+        myPWM.ChangeDutyCycle(currentPWMDutyCycle)
+        GPIO.output(directionPin, currentDirection)
+        previousPWMDutyCycle = currentPWMDutyCycle
+        previousDirection = currentDirection
+    else:
+        myPWM.ChangeDutyCycle(previousPWMDutyCycle)
+        GPIO.output(directionPin, previousDirection)
+
+    
+
