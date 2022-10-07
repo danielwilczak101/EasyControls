@@ -76,10 +76,10 @@ while True:
     print(angle_yz)
     if angle_yz < (targetAngle - 1): #angle_yz < targetAngle:
         currentDirection = True
-        currentPWMDutyCycle = 50
+        currentPWMDutyCycle = 90
     elif angle_yz > (targetAngle + 1):
         currentDirection = False
-        currentPWMDutyCycle = 50
+        currentPWMDutyCycle = 90
     else:
         currentDirection = True
         currentPWMDutyCycle = 100
