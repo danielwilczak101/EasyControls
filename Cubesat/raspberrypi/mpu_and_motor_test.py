@@ -83,4 +83,3 @@ while True:
     else:
         brakeMotor()
         myPWM.ChangeDutyCycle(100)
-    time.sleep(0.1)
