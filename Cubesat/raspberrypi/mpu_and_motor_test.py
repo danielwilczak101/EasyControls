@@ -81,6 +81,7 @@ while True:
         currentDirection = False
         currentPWMDutyCycle = 50
     else:
+        currentDirection = True
         currentPWMDutyCycle = 100
     
     if currentDirection != previousDirection or currentPWMDutyCycle != previousPWMDutyCycle:
