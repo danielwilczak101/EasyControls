@@ -69,9 +69,11 @@ angle_xz, angle_yz = get_inclination(sensor)
 targetAngle = angle_yz
 previousDirection = True
 previousPWMDutyCycle = 100
+print(targetAngle)
 
 while True:
     angle_xz, angle_yz = get_inclination(sensor)
+    print(angle_yz)
     if angle_yz < targetAngle: #angle_yz < targetAngle:
         currentDirection = True
         currentPWMDutyCycle = 50
