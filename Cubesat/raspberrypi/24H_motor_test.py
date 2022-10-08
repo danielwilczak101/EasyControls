@@ -23,7 +23,7 @@ GPIO.output(brakePin, True)  # True means high, False means low
 GPIO.output(directionPin, False)
 
 # Start PWM
-myPWM.start(20)  # 0% duty cycle
+myPWM.start(100)  # 0% duty cycle
 
 
 try:
