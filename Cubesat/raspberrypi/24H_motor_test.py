@@ -16,7 +16,7 @@ GPIO.setup(directionPin, GPIO.OUT)
 GPIO.setup(PWMPin, GPIO.OUT)
 
 
-myPWM = GPIO.PWM(PWMPin, 25000)  # Sets PWM frequency to 20 kH
+myPWM = GPIO.PWM(PWMPin, 30000)  # Sets PWM frequency to 20 kH
 
 # Send high/low through pins
 GPIO.output(brakePin, True)  # True means high, False means low
