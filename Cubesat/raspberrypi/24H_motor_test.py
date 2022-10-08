@@ -50,4 +50,4 @@ except KeyboardInterrupt:
 except:
     print("Some error happened")
 finally:
-    GPIO.cleanup()  # cleanup all GPIO
+    print("done")
