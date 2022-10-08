@@ -28,21 +28,18 @@ myPWM.start(0)  # 0% duty cycle
 
 try:
     for _ in range(5):
-        print(80)
-        myPWM.ChangeDutyCycle(80)
+        print(10)
+        myPWM.ChangeDutyCycle(10)
         time.sleep(2)
 
         print(100)
-        myPWM.ChangeDutyCycle(100)
+        myPWM.ChangeDutyCycle(20)
         time.sleep(2)
 
         print(0)
-        myPWM.ChangeDutyCycle(0)
+        myPWM.ChangeDutyCycle(30)
         time.sleep(2)
 
-        print(100)
-        myPWM.ChangeDutyCycle(100)
-        time.sleep(2)
 except KeyboardInterrupt:
     print("Stop motor and exit.")
 except:
