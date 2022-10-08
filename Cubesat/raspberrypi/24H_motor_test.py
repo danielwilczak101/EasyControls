@@ -45,9 +45,7 @@ try:
         time.sleep(2)
 except KeyboardInterrupt:
     print("Stop motor and exit.")
-    myPWM.ChangeDutyCycle(0)
-    time.sleep(2)
 except:
     print("Some error happened")
 finally:
-    GPIO.cleanup()  # cleanup all GPIO
+    myPWM.ChangeDutyCycle(0)
