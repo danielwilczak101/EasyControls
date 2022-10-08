@@ -37,6 +37,7 @@ try:
         myPWM.ChangeDutyCycle(100)
         time.sleep(2)
 except KeyboardInterrupt:
+    print("Stop motor and exit.")
     myPWM.ChangeDutyCycle(100)
 except:
     print("Some error happened")
