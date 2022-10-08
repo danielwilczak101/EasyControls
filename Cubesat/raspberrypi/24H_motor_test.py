@@ -1,4 +1,3 @@
-from this import d
 import RPi.GPIO as GPIO
 import time
 #import time #time.sleep(1) would pause code for 1 second
