@@ -28,7 +28,7 @@ myPWM.start(100)  # 0% duty cycle
 
 try:
     for _ in range(5):
-        myPWM.ChangeDutyCycle(50)
+        myPWM.ChangeDutyCycle(80)
         time.sleep(2)
         myPWM.ChangeDutyCycle(100)
         time.sleep(2)
