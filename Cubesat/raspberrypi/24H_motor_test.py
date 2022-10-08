@@ -28,16 +28,16 @@ myPWM.start(0)  # 0% duty cycle
 
 try:
     for _ in range(5):
-        print(10)
-        myPWM.ChangeDutyCycle(10)
+        print(1)
+        myPWM.ChangeDutyCycle(1)
         time.sleep(2)
 
         print(100)
-        myPWM.ChangeDutyCycle(20)
+        myPWM.ChangeDutyCycle(2)
         time.sleep(2)
 
         print(0)
-        myPWM.ChangeDutyCycle(30)
+        myPWM.ChangeDutyCycle(3)
         time.sleep(2)
 
 except KeyboardInterrupt:
