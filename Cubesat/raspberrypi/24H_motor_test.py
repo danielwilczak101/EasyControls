@@ -1,24 +1,48 @@
-from this import d
 import RPi.GPIO as GPIO
-#import time #time.sleep(1) would pause code for 1 second
+import time
+# import time #time.sleep(1) would pause code for 1 second
 
-#Define pins
+# Define pins
 brakePin = 7
 directionPin = 13
 PWMPin = 33
 
-#Pin Setup
-GPIO.setmode(GPIO.BOARD) #Use board numbering system (1-40)
+# Pin Setup
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)  # Use board numbering system (1-40)
 
-GPIO.setup(brakePin, GPIO.OUT) #Defines this pin as output
+GPIO.setup(brakePin, GPIO.OUT)  # Defines this pin as output
 GPIO.setup(directionPin, GPIO.OUT)
 GPIO.setup(PWMPin, GPIO.OUT)
 
-myPWM = GPIO.PWM(PWMPin,20000) #Sets PWM frequency to 20 kH
 
-#Send high/low through pins
-GPIO.output(brakePin, True) #True means high, False means low
-GPIO.output(directionPin, True)
+myPWM = GPIO.PWM(PWMPin, 30_000)  # Sets PWM frequency to 20 kH
 
-#Start PWM
-myPWM.start(20) #20% duty cycle
+# Send high/low through pins
+GPIO.output(brakePin, True)  # True means high, False means low
+GPIO.output(directionPin, False)
+
+# Start PWM
+myPWM.start(100)  # 0% duty cycle
+
+
+try:
+    for _ in range(5):
+        print(1)
+        myPWM.ChangeDutyCycle(20)
+        time.sleep(2)
+
+        print(2)
+        myPWM.ChangeDutyCycle(50)
+        time.sleep(2)
+
+        print(3)
+        myPWM.ChangeDutyCycle(75)
+        time.sleep(2)
+
+except KeyboardInterrupt:
+    print("Stop motor and exit.")
+except:
+    print("Some error happened")
+finally:
+    myPWM.ChangeDutyCycle(0)
