@@ -16,14 +16,14 @@ GPIO.setup(directionPin, GPIO.OUT)
 GPIO.setup(PWMPin, GPIO.OUT)
 
 
-myPWM = GPIO.PWM(PWMPin, 30000)  # Sets PWM frequency to 20 kH
+myPWM = GPIO.PWM(PWMPin, 30_000)  # Sets PWM frequency to 20 kH
 
 # Send high/low through pins
 GPIO.output(brakePin, True)  # True means high, False means low
 GPIO.output(directionPin, False)
 
 # Start PWM
-myPWM.start(0)  # 0% duty cycle
+myPWM.start(20)  # 0% duty cycle
 
 
 try:
