@@ -34,6 +34,8 @@ try:
         time.sleep(2)
         myPWM.ChangeDutyCycle(0)
         time.sleep(2)
+        myPWM.ChangeDutyCycle(100)
+        time.sleep(2)
 except KeyboardInterrupt:
     myPWM.ChangeDutyCycle(100)
 except:
