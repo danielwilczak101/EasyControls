@@ -25,10 +25,10 @@ myPWM.start(100) #0% duty cycle
 
 while True:
     myPWM.ChangeDutyCycle(50)
-    time.sleep(5)
+    time.sleep(2)
     myPWM.ChangeDutyCycle(100)
-    time.sleep(5)
+    time.sleep(2)
     myPWM.ChangeDutyCycle(0)
-    time.sleep(5)
+    time.sleep(2)
     
         
