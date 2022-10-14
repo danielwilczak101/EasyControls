@@ -6,6 +6,8 @@ import moteus
 async def main():
     c = moteus.Controller()
 
+    await c.set_stop()
+
     while True:
         await c.set_position(0, query=True)
 
