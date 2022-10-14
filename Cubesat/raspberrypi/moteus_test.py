@@ -11,7 +11,7 @@ async def main():
     await c.set_stop()
 
     while True:
-        await c.set_position(position = math.nan, velocity = 10, maximum_torque = 1, query=True)
+        await c.set_position(position = math.nan, velocity = 11, maximum_torque = 1, query=True)
         await asyncio.sleep(0.01)
 
 
