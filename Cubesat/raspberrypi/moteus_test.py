@@ -3,8 +3,11 @@ import math
 import time
 import moteus
 
+c = moteus.Controller()
 
-async def main():
+c.set_position(.5)
+
+""" async def main():
     c = moteus.Controller()
 
     while True:
@@ -13,4 +16,4 @@ async def main():
 
 
 
-asyncio.run(main())        
+asyncio.run(main())    """     
