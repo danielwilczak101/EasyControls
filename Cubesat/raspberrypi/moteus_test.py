@@ -12,7 +12,7 @@ async def main():
 
     while True:
         for i in range(9):
-            await c.set_position(position = math.nan, velocity = 2, maximum_torque = 1, query=True)
+            await c.set_position(position = math.nan, velocity = i, maximum_torque = 1, query=True)
             await asyncio.sleep(0.1)
 
         await asyncio.sleep(0.001)
