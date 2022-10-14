@@ -8,7 +8,7 @@ async def main():
 
     await c.set_stop()
 
-    await c.set_position(1, 1, .1, query=True)
+    await c.set_position(.99, 1, .1, query=True)
 
     await asyncio.sleep(0.001)
 
