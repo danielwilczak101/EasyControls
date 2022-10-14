@@ -6,10 +6,13 @@ import moteus
 async def main():
     c = moteus.Controller()
 
+    c.default_velocity_limit = 10
+
     await c.set_stop()
 
     while True:
-        await c.set_position(position = math.nan, velocity = 1, maximum_torque = .1,query=True)
+        for i in range(10):
+            await c.set_position(position = math.nan, velocity = i, maximum_torque = 1, query=True)
 
         await asyncio.sleep(0.001)
 
