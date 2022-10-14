@@ -6,9 +6,13 @@ import moteus
 async def main():
     c = moteus.Controller()
 
-    print(await c.set_position(.5, query=True))
-    
-    await asyncio.sleep(0.001)
+    while True:
+        for i in range(100):
+            print(await c.set_position(i/100, query=True))
+        for i in range(100,0):
+            print(await c.set_position(i/100, query=True))
+
+        await asyncio.sleep(0.001)
 
 
 
