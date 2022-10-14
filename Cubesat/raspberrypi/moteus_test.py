@@ -6,7 +6,7 @@ import moteus
 async def main():
     c = moteus.Controller()
 
-    c.default_velocity_limit = 10
+    #c.default_velocity_limit = 10
 
     await c.set_stop()
 
