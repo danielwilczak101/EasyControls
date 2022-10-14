@@ -8,9 +8,10 @@ async def main():
 
     await c.set_stop()
 
-    await c.set_position(.99, query=True)
+    while True:
+        await c.set_position(.99, query=True)
 
-    await asyncio.sleep(0.001)
+        await asyncio.sleep(0.001)
 
 
 asyncio.run(main())   
