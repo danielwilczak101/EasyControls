@@ -9,15 +9,15 @@ async def main():
 
     await c.set_stop()
     while True:
-        for i in range(500):
-            await c.set_position(position = math.nan, velocity = 0.01*i, maximum_torque = 1, query=True)
+        for i in range(5000):
+            await c.set_position(position = math.nan, velocity = 0.01*i + 1, maximum_torque = 1, query=True)
             print(0.01*i)
-            await asyncio.sleep(0.01)
+            await asyncio.sleep(0.005)
 
-        for i in reversed(range(500)):
-            await c.set_position(position = math.nan, velocity = 0.01*i, maximum_torque = 1, query=True)
+        for i in reversed(range(5000)):
+            await c.set_position(position = math.nan, velocity = 0.01*i + 1, maximum_torque = 1, query=True)
             print(0.01*i)
-            await asyncio.sleep(0.01)     
+            await asyncio.sleep(0.005)     
            
   
 
