@@ -1,6 +1,7 @@
 import asyncio
 import math
 import time
+from xml.etree.ElementTree import TreeBuilder
 import moteus
 
 async def main():
@@ -9,8 +10,13 @@ async def main():
     await c.set_stop()
     
     while True:
-        await c.set_position(position = math.nan, velocity = 10, maximum_torque = 1, query=True)
-        await asyncio.sleep(0.01)
+        for i in range(100):
+            await c.set_position(position = math.nan, velocity = 0.01*1, maximum_torque = 1, query=True)
+            await asyncio.sleep(0.01)
+        for i in range(100,0):
+            await c.set_position(position = math.nan, velocity = 0.01*1, maximum_torque = 1, query=True)
+            await asyncio.sleep(0.01)    
+    
 
 """         await c.set_position(position = math.nan, velocity = 5, maximum_torque = 1, query=True)
         await asyncio.sleep(0.1)
