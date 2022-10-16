@@ -14,7 +14,7 @@ async def main():
         print(0.01*i)
         await asyncio.sleep(0.01)
 
-    for i in range(2000,0):
+    for i in reversed(range(2000)):
         await c.set_position(position = math.nan, velocity = 0.01*i, maximum_torque = 5, query=True)
         print(0.01*i)
         await asyncio.sleep(0.01)     
