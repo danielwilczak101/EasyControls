@@ -10,11 +10,11 @@ async def main():
 
     while True:
         await c.set_position(position = math.nan, velocity = 0, maximum_torque = 1, query=True)
-        await asyncio.sleep(1)
+        await asyncio.sleep(0.1)
         await c.set_position(position = math.nan, velocity = 5, maximum_torque = 1, query=True)
-        await asyncio.sleep(1)
+        await asyncio.sleep(0.1)
         await c.set_position(position = math.nan, velocity = 10, maximum_torque = 1, query=True)
-        await asyncio.sleep(1)
+        await asyncio.sleep(0.1)
   
 
 asyncio.run(main())   
