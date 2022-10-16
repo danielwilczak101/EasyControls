@@ -7,7 +7,7 @@ import moteus
 async def main():
     c = moteus.Controller()
 
-    c.default_velocity_limit = math.nan
+    c.max_velocity = math.nan
 
     await c.set_stop()
     while True:
