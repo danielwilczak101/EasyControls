@@ -17,7 +17,7 @@ async def main():
             print("Actual Velocity: ", state.values[moteus.Register.VELOCITY])
             print("Intended Velocity: ", 0.01*i)
             print()
-            await asyncio.sleep(0.005)
+            await asyncio.sleep(0.01)
 
  
            
