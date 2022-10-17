@@ -14,8 +14,7 @@ async def main():
         state = await c.set_position(position = i, maximum_torque = 1, query=True)
         print("Position: ", i)
         print()
-        time.sleep(1)
-        #await asyncio.sleep(1)
+        await asyncio.sleep(1)
            
 if __name__ == '__main__':
     asyncio.run(main())
