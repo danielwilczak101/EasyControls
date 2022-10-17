@@ -11,15 +11,17 @@ async def main():
 
     c.max_velocity = 30
 
-    while True:
-        for i in range(2500, 4500):
-            state = await c.set_position(position = math.nan, velocity = i*0.01, maximum_torque = 1, query=True)
-            print("Actual Velocity: ", state.values[moteus.Register.VELOCITY])
-            print("Intended Velocity: ", 0.01*i)
-            print()
-            await asyncio.sleep(0.01)
+    #while True:
+    for i in range(2500, 4500):
+        state = await c.set_position(position = math.nan, velocity = i*0.01, maximum_torque = 1, query=True)
+        print("Actual Velocity: ", state.values[moteus.Register.VELOCITY])
+        print("Intended Velocity: ", 0.01*i)
+        print()
+        await asyncio.sleep(0.01)
 
         c.set_stop() 
+
+        
            
 if __name__ == '__main__':
     asyncio.run(main())
