@@ -12,7 +12,7 @@ async def main():
 
     for i in range(0, 4, 0.5):
         state = await c.set_position(position = i, maximum_torque = 1, query=True)
-        print("Position: ", i/8)
+        print("Position: ", i)
         print()
         await asyncio.sleep(1)
            
