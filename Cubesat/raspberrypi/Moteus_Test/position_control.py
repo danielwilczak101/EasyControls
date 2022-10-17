@@ -10,7 +10,7 @@ async def main():
     await c.set_stop()
 
     while True:
-        for i in range(0, .5, 4):
+        for i in range(0, 4, 0.5):
             state = await c.set_position(position = i, maximum_torque = 1, query=True)
             print("Position: ", i/8)
             print()
