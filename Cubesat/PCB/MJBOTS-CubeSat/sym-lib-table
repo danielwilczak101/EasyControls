@@ -1,4 +1,6 @@
 (sym_lib_table
   (lib (name "24V_Li_batt")(type "KiCad")(uri "${KIPRJMOD}/Symbols/24V_Li_batt.kicad_sym")(options "")(descr ""))
   (lib (name "Regulator_Switching")(type "KiCad")(uri "${KIPRJMOD}/Symbols/Regulator_Switching.kicad_sym")(options "")(descr ""))
+  (lib (name "XT60PW-M")(type "Legacy")(uri "${KIPRJMOD}/Symbols/XT60PW-M.lib")(options "")(descr ""))
+  (lib (name "XT30PW-M")(type "Legacy")(uri "${KIPRJMOD}/Symbols/XT30PW-M.lib")(options "")(descr ""))
 )
