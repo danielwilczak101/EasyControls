@@ -3,7 +3,7 @@
 const int LEDPin = 25;
 #define NEOPIXELPIN 5 
 #define NUMPIXELS 8
-Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel pixels(NUMPIXELS, NEOPIXELPIN, NEO_GRB + NEO_KHZ800);
 
 int pixelSetA[4] = {0,1,2,3};
 int pixelSetB[4] = {7,6,5,4};
