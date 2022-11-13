@@ -19,7 +19,7 @@ async def main():
 
         target_position = state.values[moteus.Register.POSITION]
 
-        for x in range(100):
+        for x in range(500):
             state = await c.set_position(position = target_position, maximum_torque = 5, query=True)
             print("Actual Velocity: ", state.values[moteus.Register.VELOCITY])
             print("Intended Velocity: 0")
