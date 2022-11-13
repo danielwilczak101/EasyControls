@@ -11,6 +11,7 @@ async def main():
     while True:
         for x in range(5000):
             state = await c.set_position(position = math.nan, velocity = x/10, maximum_torque = 1, query=True)
+            print("X: ", x)
             print("Actual Velocity: ", state.values[moteus.Register.VELOCITY])
             print("Intended Velocity: ", x/10)
             print()
