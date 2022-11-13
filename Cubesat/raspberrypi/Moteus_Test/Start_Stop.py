@@ -6,7 +6,7 @@ import moteus
 async def main():
     c = moteus.Controller()
 
-    c.max_position_slip = .5
+    c.max_position_slip = 10
 
     await c.set_stop()
 
