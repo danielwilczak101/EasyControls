@@ -1,7 +1,6 @@
 import asyncio
 import math
 import time
-from xml.etree.ElementTree import TreeBuilder
 import moteus
 
 async def main():
