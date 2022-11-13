@@ -17,7 +17,7 @@ async def main():
             print()
             await asyncio.sleep(0.01)
         for x in range(100):
-            state = await c.set_position(position = math.nan, velocity = 0, maximum_torque = 1, query=True)
+            state = await c.set_position(position = math.nan, velocity = 0, maximum_torque = 5, query=True)
             print("Actual Velocity: ", state.values[moteus.Register.VELOCITY])
             print("Intended Velocity: 0")
             print()
