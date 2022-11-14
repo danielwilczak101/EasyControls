@@ -9,21 +9,23 @@ import moteus
 async def main():
     c = moteus.Controller()
 
-    c.max_position_slip = 10
+    c.max_position_slip = 1
 
     await c.set_stop()
 
     while True:
         for x in range(500):
-            state = await c.set_position(position = math.nan, velocity = 40, maximum_torque = 5, query=True)
+            state = await c.set_position(position = math.nan, velocity = 40, maximum_torque = .5, query=True)
             print("X: ", x)
             print("Actual Velocity: ", state.values[moteus.Register.VELOCITY])
             print("Intended Velocity: ", 40)
             print()
             await asyncio.sleep(0.01)
 
+            c.set_brake
+
         for x in range(500):
-            state = await c.set_position(position = math.nan, velocity = -40, maximum_torque = 5, query=True)
+            state = await c.set_position(position = math.nan, velocity = -40, maximum_torque = .5, query=True)
             print("Actual Velocity: ", state.values[moteus.Register.VELOCITY])
             print("Intended Velocity: 40")
             print()
