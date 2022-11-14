@@ -14,8 +14,3 @@ The website is used to allow users to upload their controls code and see how the
 
 **AsteroidFreeFlier original purpose:**  
 https://www.nasa.gov/feature/extreme-access-flyer-to-take-planetary-exploration-airborne
-
-### Current state:
-<p align="center">
-  <img width="300px" height="400px" src="">
-</p>
