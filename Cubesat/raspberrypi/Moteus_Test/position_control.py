@@ -1,20 +1,16 @@
 import asyncio
 import math
 import time
-from xml.etree.ElementTree import TreeBuilder
 import moteus
 
 async def main():
     c = moteus.Controller()
 
-    await c.set_stop()
+    for x in range(2000):
+        print(await c.set_position(position=0.9*math.sin(math.pi*x/500), query = True))
+        await asyncio.sleep(0.001)
+    
+    print (await c.set_stop(query = True))
 
-
-    for i in reversed(list(range(0, 4))):
-        state = await c.set_position(position = i, maximum_torque = 1, query=True)
-        print("Position: ", i)
-        print()
-        await asyncio.sleep(1)
            
-if __name__ == '__main__':
-    asyncio.run(main())
+asyncio.run(main())
