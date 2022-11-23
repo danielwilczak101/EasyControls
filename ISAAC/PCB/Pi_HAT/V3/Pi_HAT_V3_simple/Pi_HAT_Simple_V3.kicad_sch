@@ -963,6 +963,10 @@
     (stroke (width 0) (type default) (color 0 0 0 0))
     (uuid f3490fa5-5a27-423b-af60-53609669542c)
   )
+  (wire (pts (xy 179.832 85.852) (xy 184.404 85.852))
+    (stroke (width 0) (type default) (color 0 0 0 0))
+    (uuid fc9a1b42-b807-4d93-83cf-0126251e825f)
+  )
   (wire (pts (xy 96.774 93.472) (xy 101.6 93.472))
     (stroke (width 0) (type default) (color 0 0 0 0))
     (uuid fd413494-1ab2-4bf3-a404-5ca677f8279f)
@@ -1020,9 +1024,13 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 7d2fd353-86c3-41a5-b1ef-be05d61e3095)
   )
-  (label "VCC" (at 88.392 88.392 180)
+  (label "12V" (at 88.392 88.392 180)
     (effects (font (size 1.27 1.27)) (justify right bottom))
     (uuid 7dbbcb00-fc52-4eee-90a0-fea497d48770)
+  )
+  (label "12V" (at 179.832 85.852 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid 7e1c3ee9-a3b9-4144-8ac1-c246d4f21f9f)
   )
   (label "5V" (at 157.988 59.69 180)
     (effects (font (size 1.27 1.27)) (justify right bottom))
@@ -1032,7 +1040,7 @@
     (effects (font (size 1.27 1.27)) (justify right bottom))
     (uuid 83be214a-f3da-4789-ac05-2cab2b1ea5c5)
   )
-  (label "VCC" (at 101.092 88.392 180)
+  (label "12V" (at 101.092 88.392 180)
     (effects (font (size 1.27 1.27)) (justify right bottom))
     (uuid 864f5033-390a-4a26-9f89-97b3b66baf6d)
   )
@@ -1088,7 +1096,7 @@
     (effects (font (size 1.27 1.27)) (justify right bottom))
     (uuid d1262c4d-2245-4c4f-8f35-7bb32cd9e21e)
   )
-  (label "VCC" (at 90.424 80.264 90)
+  (label "12V" (at 90.424 80.264 90)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid d60bad18-529b-42d8-be62-b30a4bee999c)
   )
@@ -1536,6 +1544,10 @@
       (effects (font (size 1.27 1.27)) (justify left))
       (uuid d3fa578f-cafd-4256-ab79-e1fbb7574423)
     )
+    (pin "VCC" input (at 184.404 85.852 180)
+      (effects (font (size 1.27 1.27)) (justify left))
+      (uuid 6b678401-607d-4b99-8a31-9317173935f7)
+    )
   )
 
   (sheet_instances
@@ -1561,6 +1573,9 @@
     )
     (path "/048aae1f-d538-461c-a17b-6a2498319945/6fc42e4b-1f85-4ff4-9957-773a1e7b5e23"
       (reference "#PWR0104") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/048aae1f-d538-461c-a17b-6a2498319945/8372ef75-8cab-4e69-bc6b-0af3397ac964"
+      (reference "#PWR0105") (unit 1) (value "GND") (footprint "")
     )
     (path "/78b7ad88-0121-48a0-a3d1-39a1191d4e39"
       (reference "#PWR0106") (unit 1) (value "GND") (footprint "")
@@ -1610,14 +1625,17 @@
     (path "/048aae1f-d538-461c-a17b-6a2498319945/d13f57df-c1ba-4096-a715-6d9f985e6490"
       (reference "J5") (unit 1) (value "Pressure Sensor") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical")
     )
-    (path "/048aae1f-d538-461c-a17b-6a2498319945/6be0cde9-85b3-4e00-a89d-9afcfe3294f3"
-      (reference "J6") (unit 1) (value "JST-BATT") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical")
-    )
     (path "/6227afdc-ecf0-4336-bca6-d39069621410"
       (reference "J8") (unit 1) (value "Conn_01x04_Male") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical")
     )
     (path "/f486b0df-f746-4614-9a27-2ae8a65f6ccf"
       (reference "J9") (unit 1) (value "Conn_01x04_Male") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical")
+    )
+    (path "/048aae1f-d538-461c-a17b-6a2498319945/bfebbadf-0ded-4086-99e6-0fdf1796a2da"
+      (reference "R1") (unit 1) (value "2k") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
+    )
+    (path "/048aae1f-d538-461c-a17b-6a2498319945/d2b89ea4-4495-4fd6-a3ad-6fe88a72acd3"
+      (reference "R2") (unit 1) (value "1k") (footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
     )
     (path "/13fbe27d-eb6a-43f7-a618-c39451faf4f6"
       (reference "U1") (unit 1) (value "LM2596S") (footprint ".pretty:LM2596S_mod")
