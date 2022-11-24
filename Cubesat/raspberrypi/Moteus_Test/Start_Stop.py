@@ -12,7 +12,7 @@ async def main():
 
     for x in range(4):
         for x in range(200):
-            state = await c.set_position(position = math.nan, maximum_torque=60, velocity = speed * direction, accel_limit=300, Query=True)
+            state = await c.set_position(position = math.nan, maximum_torque=60, velocity = speed * direction, accel_limit=300, query=True)
             print("Actual Velocity: ", state.values[moteus.Register.VELOCITY])
             print("Intended Velocity: ", speed*direction)
             print()
