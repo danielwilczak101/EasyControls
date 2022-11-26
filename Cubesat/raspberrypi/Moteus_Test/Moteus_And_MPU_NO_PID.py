@@ -1,7 +1,10 @@
-from this import d
+#Goal: Implement a simple negative feedback control system: if the angle of the pendulum is less than 0 degrees, then the reaction wheel rotates clockwise at a constant velocity and vice versa. 
+#No PID implementation
+
 import RPi.GPIO as GPIO
 import time
-from math import atan2, degrees
+#from math import atan2, degrees
+import math
 import board
 import adafruit_mpu6050
 import asyncio
@@ -15,7 +18,7 @@ sensor = adafruit_mpu6050.MPU6050(i2c)
 
 
 def vector_2_degrees(x, y):
-    angle = degrees(atan2(y, x))
+    angle = math.degrees(math.atan2(y, x))
     if angle < 0:
         angle += 360
     return angle
