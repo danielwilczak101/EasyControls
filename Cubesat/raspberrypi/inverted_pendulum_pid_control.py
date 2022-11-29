@@ -12,6 +12,14 @@ import moteus
 i2c = board.I2C()  # uses board.SCL and board.SDA
 sensor = adafruit_mpu6050.MPU6050(i2c)
 
+#PID parameters
+
+angle_increment = 0.0001
+Imax = 50
+
+Kp = -.5
+Ki = .5 * 10^(-8)
+
 # Given a point (x, y) return the angle of that point relative to x axis.
 # Returns: angle in degrees
 
@@ -30,18 +38,11 @@ def get_inclination(_sensor):
     x, y, z = _sensor.acceleration
     return vector_2_degrees(x,z), vector_2_degrees(y, z)
 
-#PID parameters
-
-desiredAngle = 0
-angle_increment = 0.0001
-Imax = 50
-
-Kp = -.5
-Ki = .5 * 10^(-8)
-
 
 async def main():
     c = moteus.Controller()
+
+    desiredAngle = 0
 
     await c.set_stop()
 
