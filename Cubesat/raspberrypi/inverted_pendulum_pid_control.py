@@ -15,7 +15,6 @@ sensor = adafruit_mpu6050.MPU6050(i2c)
 # Given a point (x, y) return the angle of that point relative to x axis.
 # Returns: angle in degrees
 
-
 def vector_2_degrees(x, y):
     angle = math.degrees(math.atan2(y, x))
     if angle < 0:
@@ -29,11 +28,11 @@ def vector_2_degrees(x, y):
 
 def get_inclination(_sensor):
     x, y, z = _sensor.acceleration
-    return vector_2_degrees(x, z), vector_2_degrees(y, z)
+    return vector_2_degrees(x,z), vector_2_degrees(y, z)
 
 #PID parameters
 
-Kp = .5
+Kp = -.5
 
 async def main():
     c = moteus.Controller()
@@ -41,13 +40,16 @@ async def main():
     await c.set_stop()
 
     while True:
-        angleXZ, complementaryAngle = get_inclination(sensor)
+        angle_xz, angle_yz = get_inclination(sensor)
+        complementaryAngle = angle_yz - 90
         error = 0 - complementaryAngle
-        
-        state = await c.set_position(position = math.nan, velocity = error * Kp, maximum_torque = 1, query=True)
+        await asyncio.sleep(0.01)
+
+        state = await c.set_position(position = math.nan, velocity = error * Kp, maximum_torque = 60, accel_limit = 300, query = True)
         print("Actual Velocity: ", state.values[moteus.Register.VELOCITY])
+        print("Angle: ", complementaryAngle)
         print()
         await asyncio.sleep(0.01)
-  
+
 if __name__ == '__main__':
     asyncio.run(main())
