@@ -32,7 +32,13 @@ def get_inclination(_sensor):
 
 #PID parameters
 
+desiredAngle = 0
+angle_increment = 0.0001
+Imax = 50
+
 Kp = -.5
+Ki = .5 * 10^(-8)
+
 
 async def main():
     c = moteus.Controller()
@@ -42,10 +48,36 @@ async def main():
     while True:
         angle_xz, angle_yz = get_inclination(sensor)
         complementaryAngle = angle_yz - 90
-        error = 0 - complementaryAngle
+
+        #Computing the error
+        error = desiredAngle - complementaryAngle
+
+        #Dithering
+        if (error < 0):
+            desiredAngle -= angle_increment
+        else:
+            desiredAngle += angle_increment
+
+        #Integrate Error
+        error_accumulation += error
+
+        #Clamp the integrated error
+        if error_accumulation > Imax:
+            error_accumulation = Imax
+        if error_accumulation < -Imax:
+            error_accumulation = -Imax
+
+        #Approx rate of change of error
+        #error_deriv = (error - prev_error)
+
+        #Velocity of wheel
+        velocityOfReactionWheel = (Kp * error) + (Ki * error_accumulation) #+ (Kd * error_deriv)
+
+       # prev_error = error
+
         await asyncio.sleep(0.01)
 
-        state = await c.set_position(position = math.nan, velocity = error * Kp, maximum_torque = 60, accel_limit = 300, query = True)
+        state = await c.set_position(position = math.nan, velocity = velocityOfReactionWheel, maximum_torque = 60, accel_limit = 300, query = True)
         print("Actual Velocity: ", state.values[moteus.Register.VELOCITY])
         print("Angle: ", complementaryAngle)
         print()
