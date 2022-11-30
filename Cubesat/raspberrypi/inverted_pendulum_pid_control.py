@@ -8,6 +8,7 @@ import board
 import adafruit_mpu6050
 import asyncio
 import moteus
+import numpy as np
 
 i2c = board.I2C()  # uses board.SCL and board.SDA
 sensor = adafruit_mpu6050.MPU6050(i2c)
@@ -17,8 +18,9 @@ sensor = adafruit_mpu6050.MPU6050(i2c)
 angle_increment = 0.0001
 Imax = 50
 
-Kp = -.5
-Ki = .5 * 10^(-8)
+Kp = 1.75
+Ki = 1 * 10**(-5)
+Kd = Kp * 10**4
 
 # Given a point (x, y) return the angle of that point relative to x axis.
 # Returns: angle in degrees
@@ -43,6 +45,8 @@ async def main():
     c = moteus.Controller()
 
     desiredAngle = 0
+    error_accumulation = 0
+    prev_error = 0
 
     await c.set_stop()
 
@@ -69,16 +73,14 @@ async def main():
             error_accumulation = -Imax
 
         #Approx rate of change of error
-        #error_deriv = (error - prev_error)
+        error_deriv = (error - prev_error)
 
         #Velocity of wheel
-        velocityOfReactionWheel = (Kp * error) + (Ki * error_accumulation) #+ (Kd * error_deriv)
-
-       # prev_error = error
+        velocityOfReactionWheel = (Kp * error) + (Ki * error_accumulation) + (Kd * error_deriv)
 
         await asyncio.sleep(0.01)
 
-        state = await c.set_position(position = math.nan, velocity = velocityOfReactionWheel, maximum_torque = 60, accel_limit = 300, query = True)
+        state = await c.set_position(position = math.nan, velocity = velocityOfReactionWheel, maximum_torque = 100, accel_limit = math.nan, query = True)
         print("Actual Velocity: ", state.values[moteus.Register.VELOCITY])
         print("Angle: ", complementaryAngle)
         print()
