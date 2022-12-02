@@ -10,9 +10,12 @@ import time
 from math import atan2, degrees
 import board
 import adafruit_mpu6050
+import Kalman
+
 
 i2c = board.I2C()  # uses board.SCL and board.SDA
 sensor = adafruit_mpu6050.MPU6050(i2c)
+
 
 
 # Given a point (x, y) return the angle of that point relative to x axis.
