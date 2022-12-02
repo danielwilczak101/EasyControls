@@ -8,7 +8,7 @@ import board
 import adafruit_mpu6050
 import asyncio
 import moteus
-import numpy as np
+import Kalman
 
 i2c = board.I2C()  # uses board.SCL and board.SDA
 sensor = adafruit_mpu6050.MPU6050(i2c)
@@ -51,8 +51,9 @@ async def main():
     await c.set_stop()
 
     while True:
-        angle_xz, angle_yz = get_inclination(sensor)
-        complementaryAngle = angle_yz - 90
+        angle_xz_unfiltered, angle_yz_unfiltered = get_inclination(sensor)
+        #angle_yz_filtered = getAngle(1, angle_yz_unfiltered, angle_yz_unfiltered, 0.02)
+        complementaryAngle = angle_yz_unfiltered - 90
 
         #Computing the error
         error = desiredAngle - complementaryAngle
