@@ -11,7 +11,7 @@
 
 [Moteus controller reference document](https://github.com/mjbots/moteus/blob/main/docs/reference.md)
 
-##Step 1
+## Step 1
 
 Install the moteus and asynchio libraries to your raspberry pi:
 
@@ -19,7 +19,7 @@ Install the moteus and asynchio libraries to your raspberry pi:
 pip3 install asynchio
 ```
 
-##Step 2
+## Step 2
 
 The CubeSat testbed made use of the [mj5208 brushless motor](https://mjbots.com/collections/accessories/products/mj5208) which is made by the same company which sells the Moteus controller. But, the controller should work with any other motor. 
 
@@ -27,7 +27,7 @@ Calibrate your motor:
 
 ```python3 -m moteus.moteus_tool --target 1 --calibrate```
 
-##Step 3
+## Step 3
 
 The controller comes with limiting default values by default. These configurable values must be changed to properly utilize the controller.
 
@@ -54,11 +54,11 @@ After having set confirgurable values, permanently save these changes with ```co
 
 Additionally, you can check the value of a configurable value with ```conf set``` followed by the parameter of interest. 
 
-##4
+## Step 4
 
 One tricky aspect of using this controller is that it requires the use of asynchronous code (even if your goals only require synchronous code). Please refer to the example scripts to understand how to format your python code. 
 
-##5
+## Step 5
 
 At the start of your main asynchronous function, initialize the Moteus controller with the following:
 
@@ -66,7 +66,7 @@ At the start of your main asynchronous function, initialize the Moteus controlle
 
 Then, run ```await c.set_stop()``` to clear any fault state which the controller may currently be in. The controller may enter a fault state for many different reasons. Some common faults include forcing the motor to accelerate at a rate greater than the configured max_accel_limit value, undervoltage on behalf of the power source, etc. An extensive list can be found below. 
 
-##6
+## Step 6
 
 It is now time to send a control command to the controller. 
 
