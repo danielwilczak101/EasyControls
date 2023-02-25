@@ -1,6 +1,6 @@
 # Expanded 1U Hardware Setup
 
-##List of parts with respective masses
+## List of parts with respective masses
 
 |   Part                                    |Quantity|Mass (g)|
 |-------------------------------------------|--------|---------|
@@ -13,6 +13,6 @@
 |Bare Reaction Wheel                        |3       |23       |
 |Individual Bolt embedded in Reaction Wheel |12*     |2.5      | 
 
-## Moment of Inertia of Reaction Wheel
+Moment of Inertia of Reaction Wheel = 714.7 g*cm^2
 
 [insert photo of reaction wheel setup
