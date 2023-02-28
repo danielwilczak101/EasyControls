@@ -1,3 +1,8 @@
+Here, information is listed on the following:
+1) Adafruit MPU6050
+2) Moteus Controller
+3) Distribution Board and Pi3Hat
+
 # Adafruit MPU6050 Tutorial
 
 ## Pin Setup
