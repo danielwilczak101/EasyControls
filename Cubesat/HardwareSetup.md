@@ -5,6 +5,8 @@
 |   Part                                    |Quantity|Mass (g)|
 |-------------------------------------------|--------|---------|
 |CubeSat Primary Structure                  |1       |231      |
+|CubeSat Motor Mount Plate                  |1       |72.90    |
+|CubeSat PCB Mount Plate                    |1       |
 |MJ5208 Motor                               |3       |193      | 
 |Moteus Controller                          |3       |14.2     |
 |USB cable                                  |1       |35       |
