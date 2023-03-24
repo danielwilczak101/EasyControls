@@ -27,10 +27,10 @@ maxProcessTime = 60  # seconds
 processCheckFrequency = 10  # hertz
 
 
-def custom_print(msg):
+'''def custom_print(msg):
     date_time = datetime.now().strftime("[%m/%d/%Y, %H:%M:%S]")
     print(date_time + " " + msg)
-    log(msg)
+    log(msg)'''
 
 
 def log(msg):
