@@ -233,9 +233,8 @@ async def main():
                 to = (datetime.now() - start).total_seconds()
                 
                 vx = data[3]
-                '''
-                vxp = diff(vx,t)
-                ax = vxp.subs(t,to)'''
+                ax = (vx-data[3])/(start-datetime.now())
+
                 e = target - x
                 p = implemented_function('p', lambda t: integrate((kp*e),(t,0,to)))
                 #i = implemented_function('i', lambda t, tau: integrate((ki*e),(tau, 0, (I*vx),(t, 0, to))))
@@ -251,7 +250,7 @@ async def main():
                     await asyncio.sleep(0.1)
                 if datetime.now() > end_time:
                     return
-                print(x,',',to,',',e,'vx',vx flush=True)
+                print(x,',',to,',',e,'ax:',ax, flush=True)
     except OSError as e: #No idea what is, prolly lookup
         print(e)
 
