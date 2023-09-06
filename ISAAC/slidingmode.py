@@ -40,7 +40,7 @@ async def gyroData():
 
 asyncio.run(gyroData())
 """
-t,tau = symbols('t tau')
+t,l = symbols('t l')
 #These are guesstimates, need to acutally calculate
 m = 4
 r = 0.2
@@ -126,7 +126,7 @@ class Thruster(Enum):
                 print(e)
                 pass
 
-start = datetime.now().total_seconds()
+start = datetime.now()
 
 async def _read_until_stopped(data: list[float], stop: asyncio.Event) -> None:
     """Asynchronously updates data forever in the background."""
@@ -225,22 +225,24 @@ async def main():
     await go_crazy(3)
     await asyncio.sleep(1)
     try:
-        #print('pos data,time,error')
         async with read_data() as data, Thruster.close_all():
-            print('pos data,time,error')
+            x0 = data[0]
+            vx0 = data[3]
+            t0 = (datetime.now() - start)
+            print('Position, Velocity, Acceleration, Error, Time')
             while True:
-                x = data[0]
                 to = (datetime.now() - start).total_seconds()
-                
-                vx = data[3]
-                ax = vx/to
-
+                x = data[0]
+                vxf = (x-x0)/to
+                ax = (vxf-vx0)/to
+                L = I*ax
                 e = target - x
+                
                 p = implemented_function('p', lambda t: integrate((kp*e),(t,0,to)))
-                i = implemented_function('i', lambda t, tau: integrate((ki*e),(tau, 0, round(I*ax),(t, 0, round(to)))))
+                i = implemented_function('i', lambda t, l: integrate((ki*e),(l, 0, L),(t, 0, to)))
                 lam_p = lambdify(t, p(t))
-                lam_i = lambdify([t,tau], i(t,tau))
-                s = (lam_p(t) - lam_i(t,tau) - kd*e)
+                lam_i = lambdify([t,l], i(t,l))
+                s = (lam_p(t) - lam_i(t,l) - kd*e)
                 u = sign(s)
                 if u == 1:
                     await down_x(0.01)
@@ -250,7 +252,7 @@ async def main():
                     await asyncio.sleep(0.1)
                 if datetime.now() > end_time:
                     return
-                print('Position:',x,',','Vel:',vx,',','Accel:',ax,'Error:',e,flush=True)
+                print(x,',',vxf,',',ax,',',e,',',to,flush=True)
     except OSError as e: #No idea what is, prolly lookup
         print(e)
 

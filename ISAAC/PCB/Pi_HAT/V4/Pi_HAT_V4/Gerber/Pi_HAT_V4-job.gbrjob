@@ -3,14 +3,14 @@
     "GenerationSoftware": {
       "Vendor": "KiCad",
       "Application": "Pcbnew",
-      "Version": "7.0.2-0"
+      "Version": "6.0.8-f2edbf62ab~116~ubuntu22.04.1"
     },
-    "CreationDate": "2023-05-05T21:51:11-04:00"
+    "CreationDate": "2022-11-02T14:53:59-04:00"
   },
   "GeneralSpecs": {
     "ProjectId": {
-      "Name": "Pi_HAT_V4",
-      "GUID": "50695f48-4154-45f5-9634-2e6b69636164",
+      "Name": "Pi_HAT_V3",
+      "GUID": "50695f48-4154-45f5-9633-2e6b69636164",
       "Revision": "rev?"
     },
     "Size": {
@@ -24,8 +24,8 @@
   "DesignRules": [
     {
       "Layers": "Outer",
-      "PadToPad": 0.2,
-      "PadToTrack": 0.2,
+      "PadToPad": 0.0,
+      "PadToTrack": 0.0,
       "TrackToTrack": 0.2,
       "MinLineWidth": 0.2,
       "TrackToRegion": 0.508,
@@ -34,47 +34,47 @@
   ],
   "FilesAttributes": [
     {
-      "Path": "Pi_HAT_V4-F_Cu.gbr",
+      "Path": "Pi_HAT_V3-F_Cu.gbr",
       "FileFunction": "Copper,L1,Top",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "Pi_HAT_V4-B_Cu.gbr",
+      "Path": "Pi_HAT_V3-B_Cu.gbr",
       "FileFunction": "Copper,L2,Bot",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "Pi_HAT_V4-F_Paste.gbr",
+      "Path": "Pi_HAT_V3-F_Paste.gbr",
       "FileFunction": "SolderPaste,Top",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "Pi_HAT_V4-B_Paste.gbr",
+      "Path": "Pi_HAT_V3-B_Paste.gbr",
       "FileFunction": "SolderPaste,Bot",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "Pi_HAT_V4-F_Silkscreen.gbr",
+      "Path": "Pi_HAT_V3-F_Silkscreen.gbr",
       "FileFunction": "Legend,Top",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "Pi_HAT_V4-B_Silkscreen.gbr",
+      "Path": "Pi_HAT_V3-B_Silkscreen.gbr",
       "FileFunction": "Legend,Bot",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "Pi_HAT_V4-F_Mask.gbr",
+      "Path": "Pi_HAT_V3-F_Mask.gbr",
       "FileFunction": "SolderMask,Top",
       "FilePolarity": "Negative"
     },
     {
-      "Path": "Pi_HAT_V4-B_Mask.gbr",
+      "Path": "Pi_HAT_V3-B_Mask.gbr",
       "FileFunction": "SolderMask,Bot",
       "FilePolarity": "Negative"
     },
     {
-      "Path": "Pi_HAT_V4-Edge_Cuts.gbr",
+      "Path": "Pi_HAT_V3-Edge_Cuts.gbr",
       "FileFunction": "Profile",
       "FilePolarity": "Positive"
     }
