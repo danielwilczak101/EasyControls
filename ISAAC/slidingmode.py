@@ -228,7 +228,6 @@ async def main():
         async with read_data() as data, Thruster.close_all():
             x0 = data[0]
             vx0 = data[3]
-            t0 = (datetime.now() - start)
             print('Position, Velocity, Acceleration, Error, Time')
             while True:
                 to = (datetime.now() - start).total_seconds()
@@ -237,7 +236,7 @@ async def main():
                 ax = (vxf-vx0)/to
                 L = I*ax
                 e = target - x
-                
+
                 p = implemented_function('p', lambda t: integrate((kp*e),(t,0,to)))
                 i = implemented_function('i', lambda t, l: integrate((ki*e),(l, 0, L),(t, 0, to)))
                 lam_p = lambdify(t, p(t))
