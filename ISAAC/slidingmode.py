@@ -1,5 +1,7 @@
 import asyncio
 import csv
+import numpy
+import pandas as pd
 import random
 import serial
 
@@ -45,9 +47,9 @@ t,l = symbols('t l')
 m = 4
 r = 0.2
 #Honestly no idea what these values should be, test n guess... message drakunov but also lookup
-kp = 1.2
+kp = .7
 ki = .5
-kd = .2
+kd = 1.5
 #Target is the value it should be steady at, can change to 30 deg, 99, -64, or whatever
 target = 0
 I = (m*r**2)/4
@@ -222,18 +224,21 @@ async def go_crazy(duration: float) -> None:
 #x=read_data[3], ax=read_data[3] // input this unto function, poossibly calling outside of function to print error, or try to input "async with read_data() as data, Thruster.close_all():" "
 async def main():
     end_time = datetime.now() + timedelta(seconds=55)
-    await go_crazy(3)
-    await asyncio.sleep(1)
+    await go_crazy(5)
+    await asyncio.sleep(.1)
     try:
         async with read_data() as data, Thruster.close_all():
             x0 = data[0]
             vx0 = data[3]
+
+            alldata = []
+
             print('Position, Velocity, Acceleration, Error, Time')
             while True:
                 to = (datetime.now() - start).total_seconds()
                 x = data[0]
-                vxf = (x-x0)/to
-                ax = (vxf-vx0)/to
+                vxf = ((x-x0)/to - data[3])/5
+                ax = ((vxf-vx0)/to)/5
                 L = I*ax
                 e = target - x
 
@@ -252,8 +257,11 @@ async def main():
                 if datetime.now() > end_time:
                     return
                 print(x,',',vxf,',',ax,',',e,',',to,flush=True)
+                alldata.append({'Position':x, 'Velocity':vxf, 'Acceleration':ax, 'Error':e, 'Time':to},flush=True)
     except OSError as e: #No idea what is, prolly lookup
         print(e)
+    control = pd.DataFrame(alldata)
+    control.to_csv('data.csv',index=False,header=True,flush=True)
 
 asyncio.run(main())
     
