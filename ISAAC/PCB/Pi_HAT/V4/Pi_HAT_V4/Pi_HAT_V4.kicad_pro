@@ -508,10 +508,6 @@
     [
       "00000000-0000-0000-0000-00006251fa46",
       "Buck Converter"
-    ],
-    [
-      "048aae1f-d538-461c-a17b-6a2498319945",
-      "A-D Converter"
     ]
   ],
   "text_variables": {}

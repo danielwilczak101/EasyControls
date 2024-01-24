@@ -139,7 +139,7 @@ async def _read_until_stopped(data: list[float], stop: asyncio.Event) -> None:
             #print(line)
             try:
                 # Attempt to update the xyz.
-                y, x, z = [float(x.strip())
+                z, x, y = [float(x.strip())
                             for x in line.strip("[]").split(",")]
             except ValueError:
                 print(line)
@@ -228,19 +228,19 @@ async def main():
     await asyncio.sleep(.1)
     try:
         async with read_data() as data, Thruster.close_all():
-            x0 = data[0]
-            vx0 = data[3]
+            y0 = data[1]
+            vy0 = data[4]
 
             alldata = []
 
             print('Position, Velocity, Acceleration, Error, Time')
             while True:
                 to = (datetime.now() - start).total_seconds()
-                x = data[0]
-                vxf = ((x-x0)/to - data[3])/5
-                ax = ((vxf-vx0)/to)/5
+                y = data[1]
+                vxf = ((y-y0)/to - vxf) / 5
+                ax = ((vxf-vy0)/to - ax) / 5
                 L = I*ax
-                e = target - x
+                e = target - y
 
                 p = implemented_function('p', lambda t: integrate((kp*e),(t,0,to)))
                 i = implemented_function('i', lambda t, l: integrate((ki*e),(l, 0, L),(t, 0, to)))
@@ -256,8 +256,8 @@ async def main():
                     await asyncio.sleep(0.1)
                 if datetime.now() > end_time:
                     return
-                print(x,',',vxf,',',ax,',',e,',',to,flush=True)
-                alldata.append({'Position':x, 'Velocity':vxf, 'Acceleration':ax, 'Error':e, 'Time':to},flush=True)
+                print(y,',',vxf,',',ax,',',e,',',to,flush=True)
+                alldata.append({'Position':y, 'Velocity':vxf, 'Acceleration':ax, 'Error':e, 'Time':to},flush=True)
     except OSError as e: #No idea what is, prolly lookup
         print(e)
     control = pd.DataFrame(alldata)
