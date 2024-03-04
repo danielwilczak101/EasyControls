@@ -1,0 +1,23 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#SamacSys ECAD Model 2MS6T4B3M2CES
+#/13489363/608101/2.50/2/4/Switch
+DEF 2MS6T4B3M2CES S 0 30 Y Y 1 F N
+F0 "S" 650 300 50 H V L CNN
+F1 "2MS6T4B3M2CES" 650 200 50 H V L CNN
+F2 "2MS6T4B3M2CES" 650 100 50 H I L CNN
+F3 "https://www.mouser.in/datasheet/2/979/Dailywell_01132020_2M_Series-1708785.pdf" 650 0 50 H I L CNN
+F4 "Toggle Switches SPST OFF-ON" 650 -100 50 H I L CNN "Description"
+F5 "23.63" 650 -200 50 H I L CNN "Height"
+F6 "118-2MS6T4B3M2CES" 650 -300 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.co.uk/ProductDetail/Dailywell/2MS6T4B3M2CES?qs=B6kkDfuK7%2FCZhGel7UMMow%3D%3D" 650 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "Dailywell" 650 -500 50 H I L CNN "Manufacturer_Name"
+F9 "2MS6T4B3M2CES" 650 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+X 1 1 0 -100 200 R 50 50 0 0 P
+X 3 3 0 0 200 R 50 50 0 0 P
+P 5 0 1 6 200 100 600 100 600 -200 200 -200 200 100 N
+ENDDRAW
+ENDDEF
+#
+#End Library
