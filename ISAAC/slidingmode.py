@@ -237,8 +237,8 @@ async def main():
             while True:
                 to = (datetime.now() - start).total_seconds()
                 y = data[1]
-                vxf = ((y-y0)/to - vxf) / 5
-                ax = ((vxf-vy0)/to - ax) / 5
+                vxf = ((y-y0)/(to))
+                ax = ((vxf-vy0)/to)
                 L = I*ax
                 e = target - y
 
