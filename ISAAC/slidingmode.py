@@ -257,11 +257,11 @@ async def main():
                 if datetime.now() > end_time:
                     return
                 print(y,',',vxf,',',ax,',',e,',',to,flush=True)
-                alldata.append({'Position':y, 'Velocity':vxf, 'Acceleration':ax, 'Error':e, 'Time':to},flush=True)
+                #alldata.append({'Position':y, 'Velocity':vxf, 'Acceleration':ax, 'Error':e, 'Time':to},flush=True)
     except OSError as e: #No idea what is, prolly lookup
-        print(e)
-    control = pd.DataFrame(alldata)
-    control.to_csv('data.csv',index=False,header=True,flush=True)
+        print('hi')
+    '''control = pd.DataFrame(alldata)
+    control.to_csv('data.csv',index=False,header=True,flush=True)'''
 
 asyncio.run(main())
     
