@@ -246,7 +246,7 @@ async def main():
                 i = implemented_function('i', lambda t, l: integrate((ki*e),(l, 0, L),(t, 0, to)))
                 lam_p = lambdify(t, p(t))
                 lam_i = lambdify([t,l], i(t,l))
-                s = (lam_p(t) - lam_i(t,l) - kd*e)
+                s = kd*e #(lam_p(t) - lam_i(t,l) - kd*e)
                 u = sign(s)
                 if u == 1:
                     await down_x(0.01)
