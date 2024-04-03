@@ -208,8 +208,8 @@ async def main():
               f"Angular acceleration (ax): {ax:.2f}, Error (e): {e:.2f}", end='', flush=False)
 
 
-        s = kd * e + vx
-        u = sign(s)
+        s = float(kd * e + vx)
+        u = int(sign(s))
         print(f"Types - e: {type(e)}, s: {type(s)}, u: {type(u)}")
         
         # Insert control variables into the database
