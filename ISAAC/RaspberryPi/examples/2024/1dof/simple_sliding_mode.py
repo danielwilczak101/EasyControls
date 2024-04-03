@@ -210,7 +210,6 @@ async def main():
         s = kd * e + vx
         u = sign(s)
 
-
         
         # Insert control variables into the database
         c.execute('INSERT INTO control_log (timestamp, error, control_variable, control_action) VALUES (?, ?, ?, ?)',
