@@ -201,7 +201,7 @@ async def main():
 
         # Print the Euler angle x (as y) and error on the same line
         #print(f"\rEuler angle x (y): {y:.2f} degrees, Error (e): {e:.2f} degrees", end='', flush=True)
-        print(f"Types - e: {type(e)}, s: {type(s)}, u: {type(u)}")
+        
 
         # Print Euler angle x, angular velocity, angular acceleration, and error on the same line
         print(f"\rEuler angle x (y): {y:.2f} degrees, Angular velocity (vx): {vx:.5f}, "
@@ -210,7 +210,7 @@ async def main():
 
         s = kd * e + vx
         u = sign(s)
-
+        print(f"Types - e: {type(e)}, s: {type(s)}, u: {type(u)}")
         
         # Insert control variables into the database
         c.execute('INSERT INTO control_log (timestamp, error, control_variable, control_action) VALUES (?, ?, ?, ?)',
