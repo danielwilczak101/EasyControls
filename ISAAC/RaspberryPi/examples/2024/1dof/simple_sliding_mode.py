@@ -27,7 +27,7 @@ def init_db():
     # New table for control variables
     c.execute('''CREATE TABLE IF NOT EXISTS control_log
                  (id INTEGER PRIMARY KEY AUTOINCREMENT, 
-                  timestamp TEXT, error REAL, control_variable REAL, control_action INTEGER)''')
+                  timestamp TEXT, kd REAL, target REAL, error REAL, control_variable REAL, control_action INTEGER)''')
     conn.commit()
     conn.close()
    
@@ -210,16 +210,19 @@ async def main():
 
         s = float(kd * e + vx)
         u = int(sign(s))
-        print(f"Types - e: {type(e)}, s: {type(s)}, u: {type(u)}")
+
         
         # Insert control variables into the database
-        c.execute('INSERT INTO control_log (timestamp, error, control_variable, control_action) VALUES (?, ?, ?, ?)',
-                  (datetime.now().isoformat(), e, s, u))
-        conn.commit()
+        try:
+            c.execute('INSERT INTO control_log (timestamp, kd, target, error, control_variable, control_action) VALUES (?, ?, ?, ?, ?, ?)',
+                      (datetime.now().isoformat(), kd, target, e, s, u))
+            conn.commit()
+        except Exception as ex:
+            print(f"Database insert error: {ex}")
 
 
-        print()
-       # print(u)
+        #print()
+        #print(u)
 
         if u == 1:
             await down_x(0.01)
