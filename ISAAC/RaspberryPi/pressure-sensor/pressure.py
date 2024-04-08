@@ -14,5 +14,5 @@ while True :
     ads1115.config_single_ended()
     time.sleep(0.1)
     adc = ads1115.read_adc()
-    print ("Digital Value of Analog Input : %d "%(adc['r'])
+    print ("Digital Value of Analog Input : %d "%(adc['r']))
     time.sleep(0.8)
