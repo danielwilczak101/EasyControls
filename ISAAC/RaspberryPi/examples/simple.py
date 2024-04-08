@@ -46,19 +46,18 @@ six = thruster(0x15)
 
 time = 0.01
 
-while True:
 
-    for i in range(15):
-        one.impulse(0)
-        sleep(time)
-        two.impulse(0)
-        sleep(time)
-        three.impulse(0)
-        sleep(time)
-        four.impulse(0)
-        sleep(time)
-        five.impulse(0)
-        sleep(time)
-        six.impulse(0)
-        sleep(time)
-        print("Fire 1")
+for i in range(2):
+    one.impulse(0)
+    sleep(time)
+    two.impulse(0)
+    sleep(time)
+    three.impulse(0)
+    sleep(time)
+    four.impulse(0)
+    sleep(time)
+    five.impulse(0)
+    sleep(time)
+    six.impulse(0)
+    sleep(time)
+    print("Fire 1")
