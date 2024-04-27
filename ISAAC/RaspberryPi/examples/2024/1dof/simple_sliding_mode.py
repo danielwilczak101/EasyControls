@@ -41,14 +41,9 @@ i2c = I2C(SCL, SDA)
 sensor = BNO055_I2C(i2c)
 
 # Constants and variables
-t, l = symbols('t l')
-m = 4
-r = 0.2
-kp = .7
-ki = .5
 kd = 1
 target = 60
-I = (m * r**2) / 4
+
 
 class Solinoid(Enum):
     TOP = 0
@@ -140,16 +135,11 @@ async def read_imu_data(stop: asyncio.Event, data: list):
             dt = (current_time - last_time).total_seconds()
             angular_acceleration = (gyro_deg_s - last_gyro) / dt if dt > 0 else np.array([0.0, 0.0, 0.0])
 
-            #data[:] = [quat[1], quat[2], quat[3], gyro[0], gyro[1], gyro[2], angular_acceleration[0], angular_acceleration[1], angular_acceleration[2]]
-
-            # Map Euler angles from -180 to 180, to 0 to 360
-            #mapped_euler = np.mod(np.array(euler) + 360, 360)
-
-            # Update the data list to include Euler angles
-            # Now data contains: Euler angles, quaternion, angular velocity, angular acceleration
+            
+            # Data contains: Euler angles, quaternion, angular velocity, angular acceleration
             data[:] = [euler[0], euler[1], euler[2], quat[1], quat[2], quat[3], gyro_deg_s[0], gyro_deg_s[1], gyro_deg_s[2], angular_acceleration[0], angular_acceleration[1], angular_acceleration[2]]
             
-            # Insert data into the database, ID will auto-increment
+            # Insert data into database
             try:
                 c.execute('INSERT INTO imu_data (timestamp, roll, pitch, yaw, quat_i, quat_j, quat_k, angular_velocity_x, angular_velocity_y, angular_velocity_z, angular_acceleration_x, angular_acceleration_y, angular_acceleration_z) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', 
                           (current_time.isoformat(), *data))
@@ -187,28 +177,24 @@ async def main():
             continue
 
 
-        # Assuming the Euler angle x is the first element in your data list
-        y = data[2]
-
-        vx = data[8] #Angular velocity
-
-        # Assuming angular acceleration in x is part of the gyro data,
-        # adjust the index based on your data structure
-        ax = data[11]  # Adjust index as per your data array structure
-
-        L = I * ax
-        e =  y - target
-
-        # Print the Euler angle x (as y) and error on the same line
-        #print(f"\rEuler angle x (y): {y:.2f} degrees, Error (e): {e:.2f} degrees", end='', flush=True)
+        # Euler angle from IMU gyro data
+        current_theta = data[2]
         
+        # Angular Velocity from IMU gyro data
+        theta_dot = data[8] #Angular velocity
+
+        # Angular Acceleration from IMU gyro data 
+        theta_double_dot = data[11] #Deg/s
+
+        error =  current_theta - target
 
         # Print Euler angle x, angular velocity, angular acceleration, and error on the same line
-        print(f"\rEuler angle x (y): {y:.2f} degrees, Angular velocity (vx): {vx:.5f}, "
-              f"Angular acceleration (ax): {ax:.2f}, Error (e): {e:.2f}", end='', flush=False)
+        print(f"\rCurrent Angle: {current_theta:.2f} degrees, Angular velocity: {theta_dot:.5f}, "
+              f"Angular acceleration: {theta_double_dot:.2f}, Error: {error:.2f}", end='', flush=False)
 
 
-        s = float(kd * e + vx)
+        s = float(kd * error + theta_dot)
+
         u = int(sign(s))
 
         
@@ -221,14 +207,11 @@ async def main():
             print(f"Database insert error: {ex}")
 
 
-        #print()
-        #print(u)
-
         if u == 1:
-            await down_x(0.01)
+            await down_x(0.01) #Fire Thrusters Down
 
         elif u == -1:
-            await up_x(0.01)
+            await up_x(0.01) #Fire Thrusters Up
 
         await asyncio.sleep(0.01)
 
