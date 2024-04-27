@@ -56,7 +56,12 @@ class Thruster(Enum):
 # TCP/IP Client Setup
 def setup_tcp_client(ip, port):
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    client.connect((ip, port))
+    try:
+        client.connect((ip, port))
+        print(f"Successfully connected to server at {ip}:{port}")
+    except Exception as e:
+        print(f"Failed to connect to server: {e}")
+        raise
     return client
 
 # Read IMU data and send it over TCP
@@ -70,18 +75,15 @@ async def read_imu_data(stop: asyncio.Event, tcp_client):
         if quat:
             data_str = f"{quat[0]},{quat[1]},{quat[2]},{quat[3]}"
             tcp_client.send(data_str.encode('utf-8'))
+            print(f"Sent data: {data_str}")
         await asyncio.sleep(0.1)  # Sleep to limit the rate of data sending
 
 # Main asynchronous function to control the application
 async def main():
     stop_event = asyncio.Event()
     tcp_client = setup_tcp_client('192.168.1.12', 25001)  # Set the IP and port
-    try:
-        imu_task = asyncio.create_task(read_imu_data(stop_event, tcp_client))
-        await asyncio.sleep(30)  # Run for a limited time or integrate other stopping conditions
-    finally:
-        stop_event.set()
-        await imu_task
-        tcp_client.close()
+    imu_task = asyncio.create_task(read_imu_data(stop_event, tcp_client))
+    await stop_event.wait()  # This will pause here until stop_event is set
+    tcp_client.close()
 
 asyncio.run(main())
