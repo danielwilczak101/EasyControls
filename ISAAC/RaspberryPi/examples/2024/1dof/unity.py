@@ -27,7 +27,7 @@ async def read_imu_data(stop: asyncio.Event, tcp_client):
         if quat:
             # Ensure the order is quat_w, quat_x, quat_y, quat_z
             # Adjust according to actual order from the sensor
-            data_str = f"{quat[0]},{quat[1]},{quat[2]},{quat[3]}\n"  # Append a newline to indicate the end of this quaternion message
+            data_str = f"{quat[0]},{quat[1]},{quat[2]},{quat[3]}"  # Append a newline to indicate the end of this quaternion message
             tcp_client.send(data_str.encode('utf-8'))
             print(f"Sent data: {data_str.strip()}")
         await asyncio.sleep(0.1)  # Sleep to limit the rate of data sending
