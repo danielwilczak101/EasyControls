@@ -36,7 +36,7 @@ class thruster:
         sleep(0.1)
 
 
-thruster = thruster(0x08)
+thruster = thruster(0x10)
 #thruster1 = thruster(0x08, "center", "horizontal") 
 #thruster2 = thruster(0x09, "bottom left", "vertical")
 
