@@ -65,6 +65,22 @@ async def close_all():
             for solinoid in Solinoid:
                 bus.write_byte_data(thruster.address, solinoid.value, 0)
                 thruster.is_open[solinoid.value] = False
+                
+async def up_x(duration=None):
+    await asyncio.gather(
+        Thruster.TWO.open(Solinoid.BOTTOM, duration),
+        Thruster.SIX.open(Solinoid.BOTTOM, duration),
+        Thruster.FIVE.open(Solinoid.TOP, duration),
+        Thruster.THREE.open(Solinoid.TOP, duration),
+    )
+
+async def down_x(duration=None):
+    await asyncio.gather(
+        Thruster.TWO.open(Solinoid.TOP, duration),
+        Thruster.SIX.open(Solinoid.TOP, duration),
+        Thruster.FIVE.open(Solinoid.BOTTOM, duration),
+        Thruster.THREE.open(Solinoid.BOTTOM, duration),
+    )
 
 def setup_tcp_client(ip, port):
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
