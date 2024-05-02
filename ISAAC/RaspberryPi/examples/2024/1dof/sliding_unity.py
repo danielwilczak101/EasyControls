@@ -157,7 +157,7 @@ async def main():
     finally:
         stop_event.set()
         tcp_client.close()
-        await close_all()
-        print("Cleaning up and closing solenoids...")
+        async with close_all():
+            print("Cleaning up and closing solenoids...")
 
 asyncio.run(main())
