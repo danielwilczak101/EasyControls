@@ -17,8 +17,8 @@ sensor = BNO055_I2C(i2c)
 bus = SMBus(1)
 kd = 1
 target = 60
-unity_ip = '192.168.1.10'  # Adjust to your Unity machine's IP
-unity_port = 5005  # Adjust to the port you're listening on in Unity
+unity_ip = '192.168.1.12'  # Adjust to your Unity machine's IP
+unity_port = 25001  # Adjust to the port you're listening on in Unity
 
 class Solinoid(Enum):
     TOP = 0
