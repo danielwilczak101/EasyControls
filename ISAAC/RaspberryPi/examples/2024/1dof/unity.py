@@ -4,6 +4,26 @@ from adafruit_bno055 import BNO055_I2C
 from board import SCL, SDA
 from busio import I2C
 from contextlib import asynccontextmanager
+import math
+
+
+def quaternion_to_euler(w, x, y, z):
+    # Convert quaternion to Euler angles (roll, pitch, yaw)
+    t0 = +2.0 * (w * x + y * z)
+    t1 = +1.0 - 2.0 * (x * x + y * y)
+    roll = math.atan2(t0, t1)
+
+    t2 = +2.0 * (w * y - z * x)
+    t2 = +1.0 if t2 > +1.0 else t2
+    t2 = -1.0 if t2 < -1.0 else t2
+    pitch = math.asin(t2)
+
+    t3 = +2.0 * (w * z + x * y)
+    t4 = +1.0 - 2.0 * (y * y + z * z)
+    yaw = math.atan2(t3, t4)
+
+    return roll, pitch, yaw  # in radians
+
 
 # TCP/IP Client Setup
 def setup_tcp_client(ip, port):
@@ -25,6 +45,10 @@ async def read_imu_data(stop: asyncio.Event, tcp_client):
     while not stop.is_set():
         quat = sensor.quaternion  # Read quaternion from IMU
         if quat:
+            # Convert quaternion to Euler angles
+            euler_angles = quaternion_to_euler(quat[0], quat[1], quat[2], quat[3])
+            euler_data_str = f"Roll: {math.degrees(euler_angles[0]):.2f}, Pitch: {math.degrees(euler_angles[1]):.2f}, Yaw: {math.degrees(euler_angles[2]):.2f}\n"
+            print(euler_data_str)
             # Ensure the order is quat_w, quat_x, quat_y, quat_z
             # Adjust according to actual order from the sensor
             data_str = f"{quat[0]},{quat[1]},{quat[2]},{quat[3]}\n"  # Append a newline to indicate the end of this quaternion message
