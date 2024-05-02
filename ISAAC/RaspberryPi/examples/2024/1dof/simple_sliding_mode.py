@@ -164,60 +164,68 @@ async def main():
     data = []
     stop_event = asyncio.Event()
     imu_task = asyncio.create_task(read_imu_data(stop_event, data))
-
-    #Open Connection to Database
-    conn = sqlite3.connect(database)
-    c = conn.cursor()
-
-
-    end_time = datetime.now() + timedelta(seconds=195)
-    while datetime.now() < end_time:
-        if not data:
-            await asyncio.sleep(0.05)
-            continue
+    try:
+        #Open Connection to Database
+        conn = sqlite3.connect(database)
+        c = conn.cursor()
 
 
-        # Euler angle from IMU gyro data
-        current_theta = data[2]
-        
-        # Angular Velocity from IMU gyro data
-        theta_dot = data[8] #Angular velocity
-
-        # Angular Acceleration from IMU gyro data 
-        theta_double_dot = data[11] #Deg/s
-
-        error =  current_theta - target
-
-        # Print Euler angle x, angular velocity, angular acceleration, and error on the same line
-        print(f"\rCurrent Angle: {current_theta:.2f} degrees, Angular velocity: {theta_dot:.5f}, "
-              f"Angular acceleration: {theta_double_dot:.2f}, Error: {error:.2f}", end='', flush=False)
+        end_time = datetime.now() + timedelta(seconds=1000)
+        while datetime.now() < end_time:
+            if not data:
+                await asyncio.sleep(0.05)
+                continue
 
 
-        s = float(kd * error + theta_dot)
+            # Euler angle from IMU gyro data
+            current_theta = data[2]
+            
+            # Angular Velocity from IMU gyro data
+            theta_dot = data[8] #Angular velocity
 
-        u = int(sign(s))
+            # Angular Acceleration from IMU gyro data 
+            theta_double_dot = data[11] #Deg/s
 
-        
-        # Insert control variables into the database
-        try:
-            c.execute('INSERT INTO control_log (timestamp, kd, target, error, control_variable, control_action) VALUES (?, ?, ?, ?, ?, ?)',
-                      (datetime.now().isoformat(), kd, target, e, s, u))
-            conn.commit()
-        except Exception as ex:
-            print(f"Database insert error: {ex}")
+            error =  current_theta - target
+
+            # Print Euler angle x, angular velocity, angular acceleration, and error on the same line
+            print(f"\rCurrent Angle: {current_theta:.2f} degrees, Angular velocity: {theta_dot:.5f}, "
+                f"Angular acceleration: {theta_double_dot:.2f}, Error: {error:.2f}", end='', flush=False)
 
 
-        if u == 1:
-            await down_x(0.01) #Fire Thrusters Down
+            s = float(kd * error + theta_dot)
 
-        elif u == -1:
-            await up_x(0.01) #Fire Thrusters Up
+            u = int(sign(s))
 
-        await asyncio.sleep(0.01)
+            
+            # Insert control variables into the database
+            try:
+                c.execute('INSERT INTO control_log (timestamp, kd, target, error, control_variable, control_action) VALUES (?, ?, ?, ?, ?, ?)',
+                        (datetime.now().isoformat(), kd, target, error, s, u))
+                conn.commit()
+            except Exception as ex:
+                print(f"Database insert error: {ex}")
 
-    conn.close() #Close Connection to Database
-    stop_event.set()
-    await imu_task
+
+            if u == 1:
+                await down_x(0.01) #Fire Thrusters Down
+
+            elif u == -1:
+                await up_x(0.01) #Fire Thrusters Up
+
+            await asyncio.sleep(0.01)
+    except KeyboardInterrupt:
+        print("Program interrupted by user.")
+    except Exception as e:
+        print(f"Unexpected error: {e}")
+    finally:
+        print("Cleaning up and closing solenoids...")
+        conn.close()  # Ensure database connection is closed
+        stop_event.set()
+        await imu_task
+        await close_all()  # Ensure all solenoids are closed
+
+
 
 asyncio.run(main())
 
