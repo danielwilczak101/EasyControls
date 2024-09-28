@@ -1,8 +1,6 @@
 site_name: Easy Controls - ISSAC 
 repo_url: https://github.com/danielwilczak101/EasyControls
 
-# Add docs_dir here
-docs_dir: ISAAC/docs
 
 theme:
   name: material
