@@ -24,12 +24,12 @@ theme:
         name: Switch to light mode
 
 nav:
-  - Home: home.md
+  - Home: index.md
   - Software:
-    - Raspberry Pi: software\software.md
-    - Arduino: software\arduino.md
-  - Mechanical: mechanical\mechanical.md
-  - Electrical: electrical\electrical.md
+    - Raspberry Pi: software/software.md
+    - Arduino: software/arduino.md
+  - Mechanical: mechanical/mechanical.md
+  - Electrical: electrical/electrical.md
 
 markdown_extensions:
   - pymdownx.highlight:
