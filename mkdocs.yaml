@@ -1,6 +1,9 @@
 site_name: Easy Controls - ISSAC 
 repo_url: https://github.com/danielwilczak101/EasyControls
 
+# Add docs_dir here
+docs_dir: ISAAC/docs
+
 theme:
   name: material
   features:
@@ -25,10 +28,10 @@ theme:
 nav:
   - Home: home.md
   - Software:
-    - Raspberry Pi: software/software.md
-    - Arduino: arduino/arduino.md
-  - Mechanical: mechanical/mechanical.md
-  - Electrical: electrical/electrical.md
+    - Raspberry Pi: software\software.md
+    - Arduino: software\arduino.md
+  - Mechanical: mechanical\mechanical.md
+  - Electrical: electrical\electrical.md
 
 markdown_extensions:
   - pymdownx.highlight:
